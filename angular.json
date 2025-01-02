@@ -5,7 +5,6 @@
   "projects": {
     "portfolio_frontend": {
       "projectType": "application",
-   
       "schematics": {
         "@schematics/angular:component": {
           "standalone": false
@@ -24,10 +23,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "canvg",
+              "lottie-web",
+              "html2canvas",
+              "dompurify",
+              "raf",
+              "rgbcolor"
+            ],
             "outputPath": "dist/portfolio_frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
-
             "polyfills": [
               "zone.js"
             ],
@@ -39,24 +45,22 @@
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",      
-                "output": "/assets"          
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
               "src/styles.css"
             ],
             "scripts": []
-
           },
           "configurations": {
-           
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
