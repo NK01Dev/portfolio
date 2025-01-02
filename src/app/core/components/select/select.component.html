@@ -1,0 +1,75 @@
+<div class="relative inline-block text-left">
+  <!-- Toggle Button -->
+  <button
+    id="language-toggle"
+    (click)="toggleDropdown()"
+    class="flex items-center space-x-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg px-4 py-2 transition-all duration-200 ease-in-out border border-gray-300 dark:border-gray-600"
+    [attr.aria-expanded]="isOpen"
+    aria-haspopup="true"
+  >
+    <!-- Current Language -->
+    <ng-container *ngFor="let lang of languageService.languages">
+      <ng-container *ngIf="lang.code === (languageService.currentLang$ | async)">
+        <span class="flex items-center space-x-2">
+          <span class="fi fi-{{lang.flag}}"></span>
+          <span class="hidden sm:inline">{{ lang.label }}</span>
+        </span>
+      </ng-container>
+    </ng-container>
+    <!-- Dropdown Icon -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4 transition-transform duration-200"
+      [class.rotate-180]="isOpen"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div
+    id="language-dropdown"
+    *ngIf="isOpen"
+    class="absolute left-0 mt-2 w-48 rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="language-toggle"
+  >
+    <div class="py-1" role="none">
+      <!-- Language Options -->
+      <button
+        *ngFor="let lang of languageService.languages"
+        (click)="selectLanguage(lang.code)"
+        class="flex items-center w-full px-4 py-2 text-sm sm:ml-10 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150"
+        [class.bg-gray-100]="lang.code === (languageService.currentLang$ | async)"
+        [class.dark:bg-gray-700]="lang.code === (languageService.currentLang$ | async)"
+        role="menuitem"
+      >
+        <!-- Language Icon -->
+        <span class="fi fi-{{lang.flag}} mr-3"></span>
+        <!-- Language Label -->
+        <span>{{ lang.label }}</span>
+        <!-- Selected Language Checkmark -->
+        <svg
+          *ngIf="lang.code === (languageService.currentLang$ | async)"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 ml-auto text-blue-500 dark:text-blue-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

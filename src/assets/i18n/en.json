@@ -1,0 +1,143 @@
+{
+  "home": {
+    "welecomeMessage": "Hi, I am"
+  },
+  "about": {
+    "title": "About me",
+    "description": "I’m a passionate  Mobile App Developer with over 2 years of experience creating and launching Succesful  apps. My skills cover full-stack development, including both backend and frontend technologies, as well as mobile platforms. I work with Framework as Node.js, Express, Angular, Flutter, and Android, which allows me to create flexible and scalable solutions tailored to different business needs.",
+    "tool": "Technologies and Tools",
+    "tools": "I focus on building dynamic, user-friendly applications that perform well by combining solid architecture with modern design principles"
+  },
+  "SERVICE": {
+    "TITLE": "Service",
+    "DESCRIPTION": "Delivering comprehensive development solutions from mobile applications to full-stack systems",
+    "FLUTTER_APP": {
+      "TITLE": "Flutter App Development",
+      "DESCRIPTION": "Specialized in creating beautiful, responsive mobile applications using Flutter. Delivering user-friendly interfaces with seamless backend integration."
+    },
+    "FRONTEND": {
+      "TITLE": "Frontend Development",
+      "DESCRIPTION": "Creating responsive and intuitive user interfaces using modern frameworks like Angular and React. Focusing on pixel-perfect designs and smooth user experiences."
+    },
+    "BACKEND": {
+      "TITLE": "Backend Development",
+      "DESCRIPTION": "Building robust and scalable server-side solutions using Node.js and Express. Handling APIs, databases, and third-party integrations."
+    }
+  },
+  "NAVBAR": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "RESUME": "Resume",
+    "SERVICES": "Services",
+    "CONTACT": "Contact",
+    "LANGUAGE": "English"
+  },
+  "RESUME": {
+    "TITLE": "Resume",
+    "NAME": "Kamal Naim",
+    "DESCRIPTION": "Software Developer with 1+ year of experience in Flutter, Dart, Java, Node.js, Angular, and MongoDB, specializing in scalable applications.",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "DOWNLOAD_BUTTON": "Download Resume",
+    "EDUCATION_TITLE": "Education & Certifications",
+    "EXPERIENCE_TITLE": "Experience",
+    "EDUCATION_CERTIFICATIONS": [
+      {
+        "YEAR": "2023-2025",
+        "TITLE": "Master's Degree - Ecole Nationale des Sciences Appliquées",
+        "DESCRIPTION": "Software Engineering and Information Systems Management (ILMSI)."
+      },
+      {
+        "YEAR": "2021-2022",
+        "TITLE": "Bachelor's Degree - La Faculté des Sciences de Kenitra",
+        "DESCRIPTION": "Information Systems and Software for Enterprise Systems."
+      },
+      {
+        "YEAR": "2016-2018",
+        "TITLE": "Specialized Technician - ISTA Jbel Lakhdar Marrakech",
+        "DESCRIPTION": "Systems and Computer Networks."
+      },
+      {
+        "YEAR": "2015-2016",
+        "TITLE": "Baccalaureate - Lycee Wafiq Marrakech",
+        "DESCRIPTION": "Physical Sciences and Chemistry."
+      }
+    ],
+    "EXPERIENCE": [
+      {
+        "YEAR": "2022-Present",
+        "TITLE": "Freelancer Web Mobile Developer",
+        "DESCRIPTION": "Specialized in Flutter, Express, Angular, and Android, developing modern and custom applications with optimized interfaces."
+      },
+      {
+        "YEAR": "2018",
+        "TITLE": "IT Technician at Hotel Fairmont Royal Palm",
+        "DESCRIPTION": "In the IT department, ensured maintenance of IT systems, networks, and coordinated the installation of IT services (VOIP, IP cameras)."
+      }
+    ],
+    "TECHNICAL_SKILLS":"SKILLS",
+    "SKILLS":  [
+        {
+          "NAME": "Technical Skills",
+          "TITLE": "Backend Technologies",
+          "DESCRIPTION": "Experience with Node.js and MongoDB for building scalable server-side solutions."
+        },
+        {
+          "NAME": "Technical Skills",
+          "TITLE": "Mobile Development",
+          "DESCRIPTION": "Specialized in Flutter development with strong focus on clean architecture principles and efficient state management."
+        },
+        {
+          "NAME": "Technical Skills",
+          "TITLE": "Frontend Development",
+          "DESCRIPTION": "Proficient in Angular and UI/UX design, creating responsive and user-centric web applications."
+        },
+        {
+          "NAME": "Technical Skills",
+          "TITLE": "Programming Languages",
+          "DESCRIPTION": "Strong foundation in Dart, Java, TypeScript, and JavaScript, with expertise in writing clean, maintainable code."
+        },
+        {
+          "NAME": "Technical Skills",
+          "TITLE": "UI/UX Design (Figma)",
+          "DESCRIPTION": "Proficient in using Figma for designing intuitive, modern, and responsive user interfaces. Skilled in creating wireframes, prototypes, and high-fidelity designs that enhance user experiences and streamline collaboration with development teams."
+        },
+        {
+          "NAME": "Technical Skills",
+          "TITLE": "Responsive Web Design",
+          "DESCRIPTION": "Skilled in creating responsive layouts using CSS Grid, Flexbox, and media queries. Ensures websites adapt seamlessly to various screen sizes and devices."
+        },
+        {
+          "NAME": "Soft Skills",
+          "TITLE": "Attention to Detail",
+          "DESCRIPTION": "Meticulous attention to detail in code quality, user interface design, and testing to ensure error-free and user-friendly web applications."
+        },
+        {
+          "NAME": "Soft Skills",
+          "TITLE": "Time Management",
+          "DESCRIPTION": "Skilled in creating responsive layouts using CSS Grid, Flexbox, and media queries. Ensures websites adapt seamlessly to various screen sizes and devices."
+        }
+      ]
+  
+},
+"CONTACT":{
+  "contactMe": "Contact Me",
+  "workTogether": "Let’s work together! Reach out and I’ll get back to you soon.",
+  "fullName": "Full Name",
+  "email": "Email",
+  "subject": "Subject",
+  "message": "Message",
+  "sendMessage": "Send Message",
+  "messageSentSuccess": "Message sent successfully!",
+  "messageSentError": "Oops! Something went wrong. Please try again.",
+  "validationFullName": "Please enter your full name.",
+  "validationEmail": "Please enter a valid email address.",
+  "validationSubject": "Please enter a subject.",
+  "validationMessage": "Please enter a message.",
+  "placeholderFullName": "John Doe",
+  "placeholderEmail": "johndoe@example.com",
+  "placeholderSubject": "Let’s work together!",
+  "placeholderMessage": "Hi, I’d like to discuss a project..."
+}
+
+}

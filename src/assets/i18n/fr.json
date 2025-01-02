@@ -1,0 +1,142 @@
+{
+  "home": {
+    "welecomeMessage": "Salut, je suis"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "description": "Je suis un développeur d'applications mobiles passionné avec plus de 2 ans d'expérience dans la création et le lancement d'applications réussies. Mes compétences couvrent le développement full-stack, incluant les technologies backend et frontend, ainsi que les plateformes mobiles. Je travaille avec des frameworks tels que Node.js, Express, Angular, Flutter et Android, ce qui me permet de créer des solutions flexibles et évolutives adaptées aux différents besoins des entreprises.",
+    "tool": "Technologies et Outils",
+    "tools": "Je me concentre sur la création d'applications dynamiques et conviviales qui fonctionnent bien en combinant une architecture solide avec des principes de design moderne."
+  },
+  "SERVICE": {
+    "TITLE": "Service",
+    "DESCRIPTION": "Offrir des solutions complètes de développement allant des applications mobiles aux systèmes full-stack",
+    "FLUTTER_APP": {
+      "TITLE": "Développement d'applications Flutter",
+      "DESCRIPTION": "Spécialisé dans la création d'applications mobiles belles et réactives en utilisant Flutter. Fournir des interfaces conviviales avec une intégration backend transparente."
+    },
+    "FRONTEND": {
+      "TITLE": "Développement Frontend",
+      "DESCRIPTION": "Création d'interfaces utilisateur réactives et intuitives en utilisant des frameworks modernes comme Angular et React. Focalisation sur des designs précis au pixel près et des expériences utilisateur fluides."
+    },
+    "BACKEND": {
+      "TITLE": "Développement Backend",
+      "DESCRIPTION": "Construire des solutions côté serveur robustes et évolutives en utilisant Node.js et Express. Gestion des API, des bases de données et des intégrations tierces."
+    }
+  },
+  "NAVBAR": {
+    "HOME": "Accueil",
+    "ABOUT": "À propos",
+    "RESUME": "CV",
+    "SERVICES": "Services",
+    "CONTACT": "Contact",
+    "LANGUAGE": "Français"
+  },
+  "RESUME": {
+    "TITLE": "CV",
+    "NAME": "Kamal Naim",
+    "DESCRIPTION": "Développeur logiciel avec plus d'un an d'expérience en Flutter, Dart, Java, Node.js, Angular et MongoDB, spécialisé dans les applications évolutives.",
+    "EMAIL": "E-mail",
+    "PHONE": "Téléphone",
+    "DOWNLOAD_BUTTON": "Télécharger le CV",
+    "EDUCATION_TITLE": "Éducation & Certifications",
+    "EXPERIENCE_TITLE": "Expérience",
+    "EDUCATION_CERTIFICATIONS": [
+      {
+        "YEAR": "2023-2025",
+        "TITLE": "Master d'université spécialisé - Ecole Nationale des Sciences Appliquées",
+        "DESCRIPTION": "Ingénierie Logicielle et Management des Systèmes d’Information (ILMSI)."
+      },
+      {
+        "YEAR": "2021-2022",
+        "TITLE": "Licence D'Université Spécialisée - La Faculté des Sciences de Kenitra",
+        "DESCRIPTION": "Systèmes d’Information et logiciels systèmes d’Information d’Entreprise."
+      },
+      {
+        "YEAR": "2016-2018",
+        "TITLE": "Technicien Spécialisé - ISTA Jbel Lakhdar Marrakech",
+        "DESCRIPTION": "Systèmes et Réseaux Informatiques."
+      },
+      {
+        "YEAR": "2015-2016",
+        "TITLE": "baccalauréat -lycee wafiq Marrakech",
+        "DESCRIPTION": "science physique et chimie."
+      }
+    ],
+    "EXPERIENCE": [
+      {
+        "YEAR": "2022-Présent",
+        "TITLE": "Freelancer Web Mobile Developer",
+        "DESCRIPTION": "Spécialisé en Flutter, Express, Angular et Android, je développe des applications modernes, sur mesure, avec une interface soignée et optimisée."      },
+      {
+        "YEAR": "2018",
+        "TITLE": "Technicien en IT au Hotel Fairmont Royal Palm",
+        "DESCRIPTION": "Au sein du département IT, j'ai assuré la maintenance des systèmes informatiques, du réseau, et coordonné l'installation de services IT (VOIP, caméras IP)."
+      }
+    ],
+    "TECHNICAL_SKILLS":"COMPÉTENCES",
+
+    "SKILLS":  [
+        {
+          "NAME": "Compétences Techniques",
+          "TITLE": "Technologies Backend",
+          "DESCRIPTION": "Expérience avec Node.js et MongoDB pour la création de solutions serveur évolutives."
+        },
+        {
+          "NAME": "Compétences Techniques",
+          "TITLE": "Développement Mobile",
+          "DESCRIPTION": "Spécialisé dans le développement Flutter avec un fort accent sur les principes d'architecture propre et une gestion d'état efficace."
+        },
+        {
+          "NAME": "Compétences Techniques",
+          "TITLE": "Développement Frontend ",
+          "DESCRIPTION": "Compétent en Angular et en conception UI/UX, créant des applications web réactives et centrées sur l'utilisateur."
+        },
+        {
+          "NAME": "Compétences Techniques",
+          "TITLE": "Langages de Programmation",
+          "DESCRIPTION": "Solide base en Dart, Java, TypeScript et JavaScript, avec une expertise dans l'écriture de code propre et maintenable."
+        },
+        {
+          "NAME": "Compétences Techniques",
+          "TITLE": "Conception UI/UX (Figma)",
+          "DESCRIPTION": "Compétent dans l'utilisation de Figma pour concevoir des interfaces utilisateur intuitives, modernes et réactives. Expérience dans la création de maquettes, prototypes et designs haute-fidélité qui améliorent l'expérience utilisateur et facilitent la collaboration avec les équipes de développement."
+        },
+        {
+          "NAME": "Compétences Techniques",
+          "TITLE": "Conception Web Responsive",
+          "DESCRIPTION": "Compétent dans la création de mises en page réactives utilisant CSS Grid, Flexbox et les media queries. Assure que les sites web s'adaptent parfaitement à différentes tailles d'écran et appareils."
+        },
+        {
+          "NAME": "Compétences Interpersonnelles",
+          "TITLE": "Attention aux Détails",
+          "DESCRIPTION": "Attention méticuleuse aux détails dans la qualité du code, la conception de l'interface utilisateur et les tests pour garantir des applications web sans erreur et conviviales."
+        },
+        {
+          "NAME": "Compétences Interpersonnelles",
+          "TITLE": "Gestion du Temps",
+          "DESCRIPTION": "Excellentes compétences en gestion du temps pour respecter les délais des projets, prioriser efficacement les tâches et gérer plusieurs projets simultanément."
+        }
+      ]
+  
+  },
+  "CONTACT":{
+    "contactMe": "Contactez-moi",
+    "workTogether": "Travaillons ensemble ! Contactez-moi et je vous répondrai bientôt.",
+    "fullName": "Nom complet",
+    "email": "E-mail",
+    "subject": "Sujet",
+    "message": "Message",
+    "sendMessage": "Envoyer le message",
+    "messageSentSuccess": "Message envoyé avec succès !",
+    "messageSentError": "Oups ! Quelque chose s'est mal passé. Veuillez réessayer.",
+    "validationFullName": "Veuillez entrer votre nom complet.",
+    "validationEmail": "Veuillez entrer une adresse e-mail valide.",
+    "validationSubject": "Veuillez entrer un sujet.",
+    "validationMessage": "Veuillez entrer un message.",
+    "placeholderFullName": "Jean Dupont",
+  "placeholderEmail": "jeandupont@exemple.com",
+  "placeholderSubject": "Travaillons ensemble !",
+  "placeholderMessage": "Bonjour, je souhaite discuter d'un projet..."
+  }
+}
