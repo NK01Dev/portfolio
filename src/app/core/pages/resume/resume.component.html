@@ -1,3 +1,4 @@
+
 <div id="resume-section" class="  flex flex-col mt-10 items-center justify-start   text-white px-4">
     <h1
         class="block text-4xl sm:text-3xl md:text-5xl lg:text-6xl text-gray-700  pl-2 my-2 border-l-4  font-sans font-bold border-blue-600  dark:text-gray-200">
@@ -14,7 +15,9 @@
             <div class="mt-8 md:mt-0 lg:justify-end col-span-2">
                 <h1 class="text-4xl text-gray-800 text-center md:text-left font-bold mb-6">
                     {{ 'RESUME.NAME' | translate }} </h1>
-                <p class="text-xl text-pretty text-justify text-gray-800 text-center md:text-left">
+                <p
+                    class="text-2xl  sm:text-lg md:text-xl text-pretty text-justify text-gray-800 dark:text-gray-200 sm:px-6 text-center sm:py-6 md:text-leftmax-w-2xl">
+
 
                     {{ 'RESUME.DESCRIPTION' | translate }}</p>
                 <div class="flex col-span-4 order-4 mt-6">
@@ -22,7 +25,7 @@
                         <!-- Email -->
                         <li class="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="black" class="h-6 w-6">
+                                stroke="currentColor" class="h-6 w-6 text-black dark:text-white">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                             </svg>
@@ -34,7 +37,7 @@
                         <!-- Phone -->
                         <li class="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="black" class="size-6 ">
+                                stroke="currentColor" class="h-6 w-6 text-black dark:text-white">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                             </svg>
@@ -64,27 +67,34 @@
             <div class="grid xl:grid-cols-2 md:grid-cols-1 container gap-20 mx-auto items-start" bis_skin_checked="1">
                 <div bis_skin_checked="1">
                     <div class=" block lg:mb-14 md:mb-12 sm:mb-20" bis_skin_checked="1">
-                        <p class=" antialiased font-sans text-gray-900 mb-2 lg:text-3xl  md:text-2xl  font-bold">{{
-                            'RESUME.EDUCATION_TITLE' | translate }}</p>
+                        <p
+                            class=" antialiased font-sans mt-6 text-gray-900 mb-2 lg:text-3xl  md:text-2xl  sm:text-xl font-bold">
+                            {{'RESUME.EDUCATION_TITLE' | translate }}</p>
 
                     </div>
-                    <div class="block container  mx-auto grid grid-cols-1 gap-16 gap-y-12" bis_skin_checked="1">
-                        <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md"
-                            bis_skin_checked="1"
-                            *ngFor="let edu of 'RESUME.EDUCATION_CERTIFICATIONS' | translate">
-                            <div class="relative bg-clip-border mt-4 mx-4 bg-white text-gray-700 flex items-center justify-between rounded-none overflow-visible"
-                                bis_skin_checked="1"
-                                >
+                    <div class="block container mx-auto grid grid-cols-1 gap-8 sm:gap-12" bis_skin_checked="1">
+                        <div *ngFor="let edu of 'RESUME.EDUCATION_CERTIFICATIONS' | translate"
+                            class="relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-md"
+                            bis_skin_checked="1">
+                            <!-- Header Section -->
+                            <div class="relative bg-clip-border mt-4 mx-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-none overflow-visible"
+                                bis_skin_checked="1">
+                                <!-- Title and Year -->
                                 <div class="flex flex-col gap-1 w-full" bis_skin_checked="1">
-                                    <p class="block antialiased font-sans text-blue-500 font-bold text-xs">{{ edu.YEAR }}</p>
+                                    <p
+                                        class="block antialiased font-sans text-blue-500 dark:text-blue-300 font-bold text-xs">
+                                        {{ edu.YEAR }}
+                                    </p>
                                     <h5
-                                        class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-blue-gray-900 w-full">
-                                        {{ edu.TITLE }}</h5>
+                                        class="block antialiased tracking-normal font-sans text-lg sm:text-xl font-semibold leading-snug text-blue-gray-900 dark:text-white w-full">
+                                        {{ edu.TITLE }}
+                                    </h5>
                                 </div>
+                                <!-- Button -->
                                 <button
-                                    class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex-shrink-0 pointer-events-none"
-                                    type="button"><span
-                                        class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                                    class="relative mt-4 sm:mt-0 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 dark:bg-gray-700 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex-shrink-0 pointer-events-none"
+                                    type="button">
+                                    <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             aria-hidden="true" class="h-5 w-5" stroke-width="2">
                                             <path
@@ -96,15 +106,18 @@
                                             <path
                                                 d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z">
                                             </path>
-                                        </svg></span></button>
+                                        </svg>
+                                    </span>
+                                </button>
                             </div>
-                            <div class="p-6 grid justify-start !px-3.5 pt-2" bis_skin_checked="1">
+                            <!-- Description Section -->
+                            <div class="p-4 sm:p-6 grid justify-start !px-3.5 pt-2" bis_skin_checked="1">
                                 <p
-                                    class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal !text-gray-500">
-{{ edu.DESCRIPTION }}                                </p>
+                                    class="block antialiased font-sans text-sm sm:text-base leading-relaxed text-inherit font-normal !text-gray-500 dark:!text-gray-400">
+                                    {{ edu.DESCRIPTION }}
+                                </p>
                             </div>
                         </div>
-                    
                     </div>
                 </div>
                 <div bis_skin_checked="1">
@@ -115,24 +128,24 @@
                             class="block antialiased font-sans text-xl font-normal leading-relaxed text-inherit !text-gray-500">
                         </p>
                     </div>
-                    <div class="container mx-auto grid grid-cols-1 gap-16 gap-y-12" bis_skin_checked="1">
-                        <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md"
-                            bis_skin_checked="1"
-                            *ngFor="let exp of 'RESUME.EXPERIENCE' | translate"
-                            >
-                            <div class="relative bg-clip-border mt-4 mx-4 bg-white text-gray-700 flex items-center justify-between rounded-none overflow-visible"
+                    <div class="block container mx-auto grid grid-cols-1 gap-8 sm:gap-12" bis_skin_checked="1">
+                        <div class="relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-md"
+                            bis_skin_checked="1" *ngFor="let exp of 'RESUME.EXPERIENCE' | translate">
+                            <!-- Header Section -->
+                            <div class="relative bg-clip-border mt-4 mx-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-none overflow-visible"
                                 bis_skin_checked="1">
+                                <!-- Title and Year -->
                                 <div class="flex flex-col gap-1 w-full" bis_skin_checked="1">
-                                    <p class="block antialiased font-sans text-blue-500 font-bold text-xs">
+                                    <p class="block antialiased font-sans text-blue-500 dark:text-blue-300 font-bold text-xs">
                                         {{ exp.YEAR }}</p>
-                                    <h5
-                                        class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-blue-gray-900 w-full">
-                                        {{ exp.TITLE }}
-                                       </h5>
-                                </div><button
-                                    class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex-shrink-0 pointer-events-none"
-                                    type="button"><span
-                                        class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><svg
+                                        <h5 class="block antialiased tracking-normal font-sans text-lg sm:text-xl font-semibold leading-snug text-blue-gray-900 dark:text-white w-full">
+                                             {{ exp.TITLE }}
+                                    </h5>
+                                </div>   <!-- Button -->
+                                <button class="relative mt-4 sm:mt-0 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 dark:bg-gray-700 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex-shrink-0 pointer-events-none"
+                                        type="button">
+                                  <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                                    <svg
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             aria-hidden="true" class="h-5 w-5" stroke-width="2">
                                             <path fill-rule="evenodd"
@@ -143,33 +156,33 @@
                                             </path>
                                         </svg></span></button>
                             </div>
-                            <div class="p-6 grid justify-start !px-3.5 pt-2" bis_skin_checked="1">
-                                <p
-                                    class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal !text-gray-500">
-                                    {{ exp.DESCRIPTION }}</p>
+                            <div class="p-4 sm:p-6 grid justify-start !px-3.5 pt-2" bis_skin_checked="1">
+                                <p class="block antialiased font-sans text-sm sm:text-base leading-relaxed text-inherit font-normal !text-gray-500 dark:!text-gray-400">
+                                     {{ exp.DESCRIPTION }}</p>
                             </div>
                         </div>
-                     
+
 
                     </div>
                 </div>
             </div>
-            <div class="container gap-20 mt-10 mx-auto items-center" bis_skin_checked="1">
+
+            <div class="grid xl:grid-cols-2 md:grid-cols-1 container gap-20 mx-auto items-start" bis_skin_checked="1">
                 <div bis_skin_checked="1">
-                    <div class=" block mb-10" bis_skin_checked="1">
-                        <p class=" antialiased font-sans text-gray-900 mb-2 text-3xl font-bold">{{'RESUME.TECHNICAL_SKILLS' |translate}}</p>
+                    <div class=" block lg:mb-14 md:mb-12 sm:mb-20" bis_skin_checked="1">
+                        <p
+                            class=" antialiased font-sans mt-6 text-gray-900 mb-2 lg:text-3xl  md:text-2xl  sm:text-xl font-bold">
+                           
+                            {{'RESUME.TECHNICAL_SKILLS' |translate}}</p>
 
                     </div>
-                    <div class="  container mx-auto grid grid-cols-1 m-10 gap-16 gap-y-12 lg:grid-cols-2"
-                        bis_skin_checked="1"
-                        >
-                        <ng-container
-                        *ngFor="let skill of 'RESUME.SKILLS' | translate"
-                        >
+                    <div class="block container mx-auto grid grid-cols-1 gap-8 sm:gap-12" bis_skin_checked="1">
 
-                        <app-cards [title]="skill.NAME" [subtitle]="skill.TITLE"
-                            [description]="skill.DESCRIPTION"></app-cards>
-                            </ng-container>
+                        <ng-container *ngFor="let skill of 'RESUME.SKILLS' | translate">
+
+                            <app-cards [title]="skill.NAME" [subtitle]="skill.TITLE"
+                                [description]="skill.DESCRIPTION"></app-cards>
+                        </ng-container>
 
                     </div>
                 </div>

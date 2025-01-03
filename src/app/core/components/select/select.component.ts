@@ -11,15 +11,22 @@ export class SelectComponent {
   isOpen = false;
   focusedIndex = -1;
 
-  @ViewChild('languageToggle') languageToggle!: ElementRef;
-  @ViewChild('languageDropdown') languageDropdown!: ElementRef;
+  @ViewChild('languageToggle', { static: false }) languageToggle!: ElementRef;
+  @ViewChild('languageDropdown', { static: false }) languageDropdown!: ElementRef;
 
   constructor(public languageService: LanguageService) {}
 
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
-    if (!this.languageToggle.nativeElement.contains(event.target) &&
-        !this.languageDropdown.nativeElement.contains(event.target)) {
+    console.log('languageToggle:', this.languageToggle);
+    console.log('languageDropdown:', this.languageDropdown);
+
+    if (
+      this.languageToggle?.nativeElement &&
+      this.languageDropdown?.nativeElement &&
+      !this.languageToggle.nativeElement.contains(event.target) &&
+      !this.languageDropdown.nativeElement.contains(event.target)
+    ) {
       this.isOpen = false;
     }
   }
@@ -39,7 +46,9 @@ export class SelectComponent {
           break;
         case 'Escape':
           this.isOpen = false;
-          this.languageToggle.nativeElement.focus();
+          if (this.languageToggle) {
+            this.languageToggle.nativeElement.focus();
+          }
           break;
         case 'Enter':
           if (this.focusedIndex >= 0) {

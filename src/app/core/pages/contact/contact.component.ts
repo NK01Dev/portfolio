@@ -43,17 +43,24 @@ export class ContactComponent {
     this.loading = true;
     this.success = false;
     this.error = false;
-  
+  // Log form validity and values
+  console.log('Form Valid:', this.form.valid);
+  console.log('Form Values:', this.form.value);
+  if (!this.form.valid) {
+    this.loading = false;
+    return;
+  }
     try {
       emailjs.init('3XL79KQqYdiSyjR09');
-      await emailjs.send("service_cayep4l", "template_ior6s98", {
+      const response =  await emailjs.send("service_cayep4l", "template_ior6s98", {
         from_name: this.form.value.from_name,
         to_name: this.form.value.to_name,
         from_email: this.form.value.from_email,
         subject: this.form.value.subject,
         message: this.form.value.message,
       });
-  
+      console.log('EmailJS Response:', response);
+
       this.success = true;
       this.form.reset();
     } catch (err) {

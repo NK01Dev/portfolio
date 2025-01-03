@@ -28,6 +28,7 @@
     "@types/gsap": "^3.0.0",
     "angular-font-awesome": "^3.1.2",
     "animejs": "^3.2.2",
+    "emailjs-com": "^3.2.0",
     "flag-icons": "^7.2.3",
     "font-awesome": "^4.7.0",
     "gsap": "^3.12.5",

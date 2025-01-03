@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+    #home {
+        flex-direction: column;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flex {
+        padding: 1rem 0.5rem;
+    }
+
+    h1,
+    h2 {
+        margin-left: 1rem;
+    }
+}

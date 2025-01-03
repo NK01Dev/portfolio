@@ -1,17 +1,18 @@
-<div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md"
+<div  class="relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-md"
 bis_skin_checked="1">
-<div class="relative bg-clip-border mt-4 mx-4 bg-white text-gray-700 flex items-center justify-between rounded-none overflow-visible"
-    bis_skin_checked="1">
+<div class="relative bg-clip-border mt-4 mx-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-none overflow-visible"
+bis_skin_checked="1">
     <div class="flex flex-col gap-1 w-full" bis_skin_checked="1">
-        <p class="block antialiased font-sans text-blue-500 font-bold text-xs">
+        <p class="block antialiased font-sans text-blue-500 dark:text-blue-300 font-bold text-xs">
+
           {{ title }}</p>
-        <h5
-            class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-blue-gray-900 w-full">
-            {{ subtitle }}</h5>
-    </div><button
-        class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex-shrink-0 pointer-events-none"
-        type="button"><span
-            class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><svg
+          <h5 class="block antialiased tracking-normal font-sans text-lg sm:text-xl font-semibold leading-snug text-blue-gray-900 dark:text-white w-full">  {{ subtitle }}</h5>
+    </div>
+    <!-- Button -->
+    <button class="relative mt-4 sm:mt-0 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-900 dark:bg-gray-700 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex-shrink-0 pointer-events-none"
+    type="button">
+<span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+            <svg
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                 aria-hidden="true" class="h-5 w-5" stroke-width="2">
                 <path fill-rule="evenodd"
