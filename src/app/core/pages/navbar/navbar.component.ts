@@ -37,11 +37,7 @@ export class NavbarComponent  implements OnInit {
       }
     });
   }
-  siteLanguage = 'English';
-  languageList = [
-    { code: 'en', label: 'English' },
-    { code: 'de', label: 'Deutsch' },
-  ];
+
   isMenuOpen = false;
   constructor(private router: Router, private pageScrollService: PageScrollService,private translate: TranslateService
     ,@Inject(DOCUMENT) private document: any) {}
@@ -75,16 +71,8 @@ export class NavbarComponent  implements OnInit {
                 }
       }
     });
+    this.closeMenu(); // Close the menu when navigating
+
   }
-  changeSiteLanguage(localeCode: string): void {
-    const selectedLanguage = this.languageList
-      .find((language) => language.code === localeCode)
-      ?.label.toString();
-    if (selectedLanguage) {
-      this.siteLanguage = selectedLanguage;
-      this.translate.use(localeCode);
-    }
-    const currentLanguage = this.translate.currentLang;
-    console.log('currentLanguage', currentLanguage);
-  }
+  
 }
