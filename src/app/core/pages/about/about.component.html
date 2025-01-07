@@ -27,7 +27,7 @@
     <div #zoomElement id="zoomElement" class="random-demo grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8 p-4">
       <div
         *ngFor="let card of cards"
-        class="animate-card block bg-white bg-opacity-20 dark:bg-opacity-60 hover:bg-opacity-30 transition-all duration-300 ease-in-out rounded-lg shadow-lg flex items-center justify-start p-4 sm:p-6 hover:shadow-xl"
+        class="animate-card block bg-white bg-opacity-20 dark:bg-opacity-60 hover:bg-opacity-30 transition-all duration-300 ease-in-out rounded-lg shadow-lg flex items-center justify-start p-4 sm:p-2 hover:shadow-xl"
       >
         <img
           [src]="card.svg"
@@ -40,6 +40,7 @@
       </div>
     </div>
     
-    
+    <div class="h-14 sm:h-16 md:h-20 lg:h-24"></div>
+  
   </div>
   

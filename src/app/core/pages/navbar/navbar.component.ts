@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { PageScrollService } from 'ngx-page-scroll-core';
+import { AnimationsService } from '../../../animations.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,18 @@ export class NavbarComponent  implements OnInit {
   ngOnInit() {
     // Initial check for active section
     this.checkActiveSection();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        // Trigger "out" animation when navigation starts
+        this.animations.pageTransitionOut('out');
+      }
+      if (event instanceof NavigationEnd) {
+        // Trigger "in" animation when navigation ends
+        setTimeout(() => {
+          this.animations.pageTransitionIn('in');
+        }, 100); // Small delay to allow the new page to load
+      }
+    });
   }
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
@@ -39,7 +52,7 @@ export class NavbarComponent  implements OnInit {
   }
 
   isMenuOpen = false;
-  constructor(private router: Router, private pageScrollService: PageScrollService,private translate: TranslateService
+  constructor(private router: Router, private pageScrollService: PageScrollService,private translate: TranslateService, private animations: AnimationsService
     ,@Inject(DOCUMENT) private document: any) {}
     scrollToSection(sectionClass: string): void {
       this.pageScrollService.scroll({

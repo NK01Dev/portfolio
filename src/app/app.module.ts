@@ -18,7 +18,6 @@ import {  TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader  } from '../../app-translate-loader';
 import { SelectComponent } from './core/components/select/select.component';
 import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
-
 import player from 'lottie-web';
 import { DarkModeToggleComponent } from './core/components/dark-mode-toggle/dark-mode-toggle.component';
 
@@ -58,7 +57,8 @@ export function playerFactory() {
           deps: [HttpClient]
       }
     }),
-    LottieComponent 
+    LottieComponent ,
+  
 
   ],
   providers: [
