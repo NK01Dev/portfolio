@@ -1,19 +1,15 @@
 
-<div id="resume-section" class="  flex flex-col mt-10 items-center justify-start   text-white px-4">
+<div id="resume-section" class="  flex flex-col mt-48  -space-y-10 items-center justify-start   text-white px-4">
     <h1
-        class="block text-4xl sm:text-3xl md:text-5xl lg:text-6xl text-gray-700  pl-2 my-2 border-l-4  font-sans font-bold border-blue-600  dark:text-gray-200">
+        class="block text-4xl sm:text-3xl md:text-5xl lg:text-6xl text-gray-700  pl-2 my-2 border-l-4  font-sans font-bold border-blue-600 dark:border-blue-300  dark:text-gray-200">
         {{ 'RESUME.TITLE' | translate }}
     </h1>
 
     <div id="resume">
         <div class="block container mx-auto  md:mt-0 md:space-x-10 md:grid grid-cols-3 justify-center md:py-6">
-            <!-- <div class="grid justify-center items-center order-1 col-span-1">
-                
-                <img class="lg:h-80 md:h-64 h-40 rounded-full"
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="" />
-            </div> -->
+          
             <div class="mt-8 md:mt-0 lg:justify-end col-span-2">
-                <h1 class="text-4xl text-gray-800 text-center md:text-left font-bold mb-6">
+                <h1 class="text-4xl text-gray-800  dark:text-gray-300 text-center md:text-left font-bold mb-6">
                     {{ 'RESUME.NAME' | translate }} </h1>
                 <p
                     class="text-2xl  sm:text-lg md:text-xl text-pretty text-justify text-gray-800 dark:text-gray-200 sm:px-6 text-center sm:py-6 md:text-leftmax-w-2xl">
@@ -29,7 +25,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                             </svg>
-                            <h5 class="lg:text-2xl md:text-xl sm:text-sm text-gray-800 text-center md:text-left">{{
+                            <h5 class="lg:text-2xl md:text-xl sm:text-sm text-gray-800 dark:text-gray-300 text-center md:text-left">{{
                                 'RESUME.EMAIL' | translate }} :
                                 {{email}} </h5>
                         </li>
@@ -42,7 +38,7 @@
                                     d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                             </svg>
 
-                            <h5 class="lg:text-2xl md:text-xl sm:text-sm text-gray-800 text-center md:text-left">{{
+                            <h5 class="lg:text-2xl md:text-xl sm:text-sm text-gray-800 dark:text-gray-300 text-center md:text-left">{{
                                 'RESUME.PHONE' | translate }} :
                                 +212670572967</h5>
                         </li>
@@ -51,7 +47,7 @@
                     </ul>
                 </div>
 
-                <a href="#" (click)="downloadResume()"
+                <!-- <a href="#" (click)="downloadResume()"
                     class=" lg:h-16 lg:w-72 sm:h-14 sm:w-64 md:h-16 md:w-72 mt-8 inline-flex items-center py-3 px-6 lg:text-2xl md:text-xl sm:text-sm  font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
 
                     <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +56,7 @@
                             d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z" />
                         <path
                             d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
-                    </svg> {{ 'RESUME.DOWNLOAD_BUTTON' | translate }}</a>
+                    </svg> {{ 'RESUME.DOWNLOAD_BUTTON' | translate }}</a> -->
             </div>
         </div>
         <section class="pb-28 px-8">
@@ -68,7 +64,7 @@
                 <div bis_skin_checked="1">
                     <div class=" block lg:mb-14 md:mb-12 sm:mb-20" bis_skin_checked="1">
                         <p
-                            class=" antialiased font-sans mt-6 text-gray-900 mb-2 lg:text-3xl  md:text-2xl  sm:text-xl font-bold">
+                            class=" antialiased font-sans mt-6 text-gray-900 dark:text-gray-100 mb-2 lg:text-3xl  md:text-2xl  sm:text-xl font-bold">
                             {{'RESUME.EDUCATION_TITLE' | translate }}</p>
 
                     </div>
@@ -77,7 +73,7 @@
                             class="relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-md"
                             bis_skin_checked="1">
                             <!-- Header Section -->
-                            <div class="relative bg-clip-border mt-4 mx-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-none overflow-visible"
+                            <div class="relative bg-clip-border mt-4 mx-4 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-none overflow-visible"
                                 bis_skin_checked="1">
                                 <!-- Title and Year -->
                                 <div class="flex flex-col gap-1 w-full" bis_skin_checked="1">
@@ -122,7 +118,7 @@
                 </div>
                 <div bis_skin_checked="1">
                     <div class="mb-10" bis_skin_checked="1">
-                        <p class="block antialiased font-sans text-gray-900 mb-2 text-3xl font-bold">
+                        <p class="block antialiased font-sans text-gray-900 dark:text-gray-100  dark:text-gray-100  mb-2 text-3xl font-bold">
                             {{ 'RESUME.EXPERIENCE_TITLE' | translate }}</p>
                         <p
                             class="block antialiased font-sans text-xl font-normal leading-relaxed text-inherit !text-gray-500">
@@ -171,7 +167,7 @@
                 <div bis_skin_checked="1">
                     <div class=" block lg:mb-14 md:mb-12 sm:mb-20" bis_skin_checked="1">
                         <p
-                            class=" antialiased font-sans mt-6 text-gray-900 mb-2 lg:text-3xl  md:text-2xl  sm:text-xl font-bold">
+                            class=" antialiased font-sans mt-6 text-gray-900 dark:text-gray-300 mb-2 lg:text-3xl  md:text-2xl  sm:text-xl font-bold">
                            
                             {{'RESUME.TECHNICAL_SKILLS' |translate}}</p>
 

@@ -1,22 +1,22 @@
-<div class="relative ">
+<div class="relative justify-center bg-gradient-to-b  from-indigo-200 to-pink-200 dark:bg-gradient-to-b dark:from-[#4a4e69] dark:to-[#22223b] text-white">
     <section id="home"
-        class=" home-section h-screen flex flex-col items-start justify-center bg-gradient-to-b from-green-200 to-blue-200">
+        class=" home-section h-screen flex flex-col items-start justify-center ">
         <div class="h-screen bloc grid grid-cols-1 md:grid-cols-2">
             <div class="flex flex-col justify-center">
-                <h1 class="home-section text-4xl sm:text-5xl md:text-6xl p-4 ml-4 sm:ml-6 md:ml-8 lg:ml-10 text-gray-700 leading-relaxed font-bold">
+                <h1 class="home-section text-4xl sm:text-5xl md:text-6xl p-4 ml-4 sm:ml-6 md:ml-8 lg:ml-10 text-gray-700 dark:text-gray-200 leading-relaxed font-bold">
                     Kamal Naim
                 </h1>
                 <h2 id="typewriter"
-                    class="text-2xl sm:text-3xl md:text-4xl p-4 ml-4 sm:ml-6 md:ml-8 lg:ml-10 font-normal text-gray-700 leading-relaxed">
+                    class="text-2xl sm:text-3xl md:text-4xl p-4 ml-4 sm:ml-6 md:ml-8 lg:ml-10 font-normal text-gray-700 dark:text-gray-200 leading-relaxed">
                     {{ 'home.welecomeMessage' | translate }} {{ displayText }}
                 </h2>
               
-                <div class="p-2   flex-1 sm:ml-2 md:ml-4 lg:ml-8">
+                <div class="p-4 mr-4    flex-1 sm:ml-2 md:ml-4 lg:ml-8">
                     <ul class="flex justify-start lg:mt-4 md:mt-2 sm:mt-1 space-x-5">
                         <li>
                             <a href="#" (click)="redirectToMedia('linkedin')"
                                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-                                <svg class="w-8 h-8 sm:w-10 sm:h-10 fill-current" role="img" viewBox="0 0 256 256"
+                                <svg class="w-12 h-12 fill-current text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" role="img" viewBox="0 0 256 256"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g>
                                         <path
@@ -29,8 +29,9 @@
                         <li>
                             <a href="#" (click)="redirectToMedia('github')"
                                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="w-8 h-8 sm:w-10 sm:h-10 fill-current"
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    aria-hidden="true" role="img" class="w-12 h-12 fill-current text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                     <g fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -43,7 +44,7 @@
                         <li>
                             <a href="#" (click)="redirectToMedia('x')"
                                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-                                <svg class="w-8 h-8 sm:w-10 sm:h-10 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="w-12 h-12 fill-current text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" role="img" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 93 92">
                                     <path
                                         d="M50.7568 42.1716L69.3704 21H64.9596L48.7974 39.383L35.8887 21H21L40.5205 48.7983L21 71H25.4111L42.4788 51.5869L56.1113 71H71L50.7557 42.1716H50.7568ZM44.7152 49.0433L42.7374 46.2752L27.0005 24.2492H33.7756L46.4755 42.0249L48.4533 44.7929L64.9617 67.8986H58.1865L44.7152 49.0443V49.0433Z">
@@ -61,17 +62,17 @@
         </div>
     </section>
     <section id="about"
-    class="about-section min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-indigo-200 to-purple-200 text-white">
+    class="about-section min-h-screen flex flex-col items-center justify-center  text-white">
     <app-about></app-about>   
     </section>
     <section
-    class="resume-section min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-indigo-200 to-pink-200 text-white">
+    class="resume-section min-h-screen flex flex-col items-center justify-center  text-white">
 <app-resume></app-resume>
 </section >
     <section id="services"
-        class="services-section h-screen flex flex-col items-center  justify-center bg-gradient-to-b from-blue-200 to-indigo-100 text-black">
+        class="services-section h-screen flex flex-col items-center  justify-center  text-black">
 <app-services></app-services>    </section>
 <section id="about"
-class="contact-section min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-indigo-200 to-purple-200 text-white">
+class="contact-section min-h-screen flex flex-col items-center justify-center  text-white">
 <app-contact></app-contact></section>
 </div>

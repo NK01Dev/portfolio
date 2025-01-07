@@ -12,7 +12,7 @@
     <ng-container *ngFor="let lang of languageService.languages">
       <ng-container *ngIf="lang.code === (languageService.currentLang$ | async)">
         <span class="flex items-center space-x-2">
-          <span class="fi fi-{{lang.flag}}"></span>
+          
           <span class="hidden sm:inline">{{ lang.label }}</span>
         </span>
       </ng-container>
@@ -53,9 +53,7 @@
         [class.dark:bg-gray-700]="lang.code === (languageService.currentLang$ | async)"
         role="menuitem"
       >
-        <!-- Language Icon -->
-        <span class="fi fi-{{lang.flag}} mr-3"></span>
-        <!-- Language Label -->
+        
         <span>{{ lang.label }}</span>
         <!-- Selected Language Checkmark -->
         <svg
