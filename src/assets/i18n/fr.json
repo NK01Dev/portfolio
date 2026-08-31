@@ -26,10 +26,13 @@
   },
   "NAVBAR": {
     "HOME": "Accueil",
+    "WORK": "Projets",
     "ABOUT": "À propos",
+    "EXPERIENCE": "Expérience",
     "RESUME": "CV",
     "SERVICES": "Services",
     "CONTACT": "Contact",
+    "LETS_TALK": "Parlons-en",
     "LANGUAGE": "Français"
   },
   "RESUME": {

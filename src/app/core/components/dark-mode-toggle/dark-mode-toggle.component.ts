@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DarkModeService } from '../../../dark-mode.service';
 
 @Component({
   selector: 'app-dark-mode-toggle',
   standalone: false,
-  
   templateUrl: './dark-mode-toggle.component.html',
   styleUrl: './dark-mode-toggle.component.css'
 })
-export class DarkModeToggleComponent {
+export class DarkModeToggleComponent implements OnInit, OnDestroy {
   isDarkMode = false;
-  constructor(private darkModeService: DarkModeService) {
-    this.isDarkMode = this.darkModeService.getIsDarkMode();
+  private sub?: Subscription;
+
+  constructor(private darkModeService: DarkModeService) {}
+
+  ngOnInit(): void {
+    // Subscribe reactively so icon updates when toggled externally
+    this.sub = this.darkModeService.isDarkMode$.subscribe(
+      isDark => (this.isDarkMode = isDark)
+    );
   }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
+
   toggleDarkMode(): void {
     this.darkModeService.toggleDarkMode();
-    this.isDarkMode = this.darkModeService.getIsDarkMode();
   }
 }

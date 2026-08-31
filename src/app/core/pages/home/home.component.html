@@ -1,5 +1,8 @@
 <div class="relative justify-center bg-gradient-to-b from-indigo-200 to-pink-200 dark:bg-gradient-to-b dark:from-[#4a4e69] dark:to-[#22223b] text-white">
-    <!-- Full-Screen Cinematic Video Hero -->
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 1: HERO (#home)
+         ══════════════════════════════════════════════════════ -->
     <section id="home"
         class="page-content home-section relative min-h-[100svh] w-full flex flex-col justify-center overflow-hidden">
         
@@ -81,18 +84,40 @@
         </div>
     </section>
 
-    <section id="about"
-    class="about-section page-content min-h-screen flex flex-col items-center justify-center  text-white">
-    <app-about></app-about>   
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 2: WORK (#work)
+         ══════════════════════════════════════════════════════ -->
+    <section id="work"
+        class="work-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        style="scroll-margin-top: 80px;">
+        <app-services></app-services>
     </section>
-    <section
-    class="resume-section page-content min-h-screen flex flex-col items-center justify-center  text-white">
-<app-resume></app-resume>
-</section >
-    <section id="services"
-        class="services-section page-content h-screen flex flex-col items-center  justify-center  text-black">
-<app-services></app-services>    </section>
-<section id="contact"
-class="contact-section page-content min-h-screen flex flex-col items-center justify-center  text-white">
-<app-contact></app-contact></section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 3: ABOUT (#about)
+         ══════════════════════════════════════════════════════ -->
+    <section id="about"
+        class="about-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        style="scroll-margin-top: 80px;">
+        <app-about></app-about>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 4: EXPERIENCE (#experience)
+         ══════════════════════════════════════════════════════ -->
+    <section id="experience"
+        class="experience-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        style="scroll-margin-top: 80px;">
+        <app-resume></app-resume>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 5: CONTACT (#contact)
+         ══════════════════════════════════════════════════════ -->
+    <section id="contact"
+        class="contact-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        style="scroll-margin-top: 80px;">
+        <app-contact></app-contact>
+    </section>
+
 </div>

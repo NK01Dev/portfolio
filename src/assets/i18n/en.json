@@ -26,10 +26,13 @@
   },
   "NAVBAR": {
     "HOME": "Home",
+    "WORK": "Work",
     "ABOUT": "About",
+    "EXPERIENCE": "Experience",
     "RESUME": "Resume",
     "SERVICES": "Services",
     "CONTACT": "Contact",
+    "LETS_TALK": "Let's Talk",
     "LANGUAGE": "English"
   },
   "RESUME": {

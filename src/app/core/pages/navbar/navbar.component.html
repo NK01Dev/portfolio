@@ -1,98 +1,230 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVBAR
+     3 states: hero (transparent) | scrolled (glass pill) | mobile overlay
+     ═══════════════════════════════════════════════════════════════ -->
+
 <nav
-[ngClass]="{ 'lg:bg-opacity-90 fo	sm:bg-white ': activeSection !== 'home-section' }"
+  #navbarEl
+  aria-label="Main navigation"
+  [class]="isScrolled ? 'navbar navbar--scrolled' : 'navbar navbar--hero'"
+>
+  <!-- ── Inner container ─────────────────────────────────────────── -->
+  <div [class]="isScrolled ? 'nav-inner nav-inner--scrolled' : 'nav-inner nav-inner--hero'">
 
- class="bg-white border-gray-200 dark:bg-[#22223b] fixed top-0 left-0 w-full z-50">
-
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="" class="justify-start">
-      <app-dark-mode-toggle></app-dark-mode-toggle>
-    </a>
-    <a routerLink="/" 
-    class="flex items-center space-x-3 rtl:space-x-reverse"
-    [ngClass]="{ 'text-blue-700 font-bold': activeSection === 'home-section' }"
+    <!-- ── LEFT: Logo ─────────────────────────────────────────────── -->
+    <a
+      class="logo"
+      href="#"
+      (click)="scrollToSection('.home-section'); $event.preventDefault()"
+      aria-label="Kamal Naim - Back to top"
     >
-      <span class="self-center lg:text-2xl md:text-xl py-4 text-center sm:text-base font-semibold whitespace-nowrap dark:text-white">Kamal Naim</span>
-    
+      KAMAL NAIM
     </a>
-   
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button type="button"
-      (click)="scrollToSection('contact-section')"
-      [ngClass]="{ 'text-blue-700 dark:text-blue-700 font-bold': activeSection === 'home-section' }"
-        class="text-white dark:text-gray-700 text-pretty dark:hover:text-blue-200 md:text-base lg:text-xl sm:text-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  px-4 py-2 text-center dark:bg-blue-200 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        {{ 'NAVBAR.CONTACT' | translate }}
-      </button>
-      
-      <button 
-        (click)="toggleMenu()"
+
+    <!-- ── CENTER: Desktop nav links ──────────────────────────────── -->
+    <ul class="hidden md:flex items-center gap-1" role="list">
+      <li *ngFor="let item of navItems" class="relative">
+        <a
+          class="nav-link"
+          [class.nav-link--active]="activeSection === item.id"
+          href="#"
+          (click)="scrollToSection(item.anchor); $event.preventDefault()"
+          [attr.aria-current]="activeSection === item.id ? 'page' : null"
+        >
+          {{ item.labelKey | translate }}
+
+          <!-- Purple active dot -->
+          <span
+            *ngIf="activeSection === item.id"
+            class="nav-dot"
+            aria-hidden="true"
+          ></span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- ── RIGHT: Actions ─────────────────────────────────────────── -->
+    <div class="flex items-center gap-2 md:gap-3">
+
+      <!-- Divider (desktop only) -->
+      <span class="hidden md:block nav-divider" aria-hidden="true"></span>
+
+      <!-- Language selector (desktop + tablet) -->
+      <app-select class="hidden md:inline-block"></app-select>
+
+      <!-- Dark mode toggle -->
+      <app-dark-mode-toggle
+        [class]="isScrolled ? 'scrolled-mode-toggle' : ''"
+      ></app-dark-mode-toggle>
+
+      <!-- Let's Talk CTA (desktop) -->
+      <button
+        class="hidden md:inline-flex lets-talk-btn"
+        (click)="scrollToContact()"
         type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-cta" 
-        [attr.aria-expanded]="isMenuOpen">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15" />
+      >
+        {{ 'NAVBAR.LETS_TALK' | translate }}
+      </button>
+
+      <!-- Hamburger (mobile ONLY — hidden at md+) -->
+      <button
+        id="hamburger-btn"
+        class="hamburger-btn"
+        type="button"
+        (click)="openMobileMenu()"
+        aria-label="Open navigation menu"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        aria-controls="mobile-menu-overlay"
+      >
+        <!-- Hamburger lines -->
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="3" y1="6"  x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
         </svg>
       </button>
-    </div>
-    
-    <div 
-      class="items-center justify-between w-full md:flex md:w-auto md:order-1" 
-      [ngClass]="{'hidden': !isMenuOpen}"
-      id="navbar-cta">
-      <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   dark:border-gray-700">
-        <li>
-          <a 
-          (click)="scrollToSection('home-section')" 
-          [ngClass]="{
-            'text-blue-700 dark:text-blue-500': activeSection === 'home-section',
-            'text-gray-900 dark:text-white': activeSection !== 'home-section'
-          }"
-            class="block py-2 px-3 md:p-0 md:text-xl lg:text-2xl sm:text-sm text-gray-900 rounded md:hover:bg-blue-200 hover:border-blue-200 hover:p-1   md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">                  
-                 {{ 'NAVBAR.HOME' | translate }}          </a>
-        </li>
-        <li>
-          <a 
 
-          (click)="scrollToSection('about-section')"
-          [ngClass]="{
-            'text-blue-700 dark:text-blue-500': activeSection === 'about-section',
-            'text-gray-900 dark:text-white': activeSection !== 'about-section'
-          }"
-            class="block py-2 px-3 md:p-0 md:text-xl lg:text-2xl sm:text-sm text-gray-900 rounded md:hover:bg-blue-200 hover:border-blue-200 hover:p-1   md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">            
-            {{ 'NAVBAR.ABOUT' | translate }}
-          </a>
-        </li>
-        <li>
-          <a 
-          (click)="scrollToSection('resume-section')"
-          [ngClass]="{
-            'text-blue-700 dark:text-blue-500': activeSection === 'resume-section',
-            'text-gray-900 dark:text-white': activeSection !== 'resume-section'
-          }"
-                        class="block py-2 px-3 md:p-0 md:text-xl lg:text-2xl sm:text-sm text-gray-900 rounded md:hover:bg-blue-200 hover:border-blue-200 hover:p-1   md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">   {{ 'NAVBAR.RESUME' | translate }}
-         </a>
-        </li>
-        <li>
-          <a 
-          (click)="scrollToSection('services-section')"
-          [ngClass]="{
-            'text-blue-700 dark:text-blue-500': activeSection === 'services-section',
-            'text-gray-900 dark:text-white': activeSection !== 'services-section'
-          }"
-      
-            class="block py-2 px-3 md:p-0 md:text-xl lg:text-2xl sm:text-sm text-gray-900 rounded md:hover:bg-blue-200 hover:border-blue-200 hover:p-1   md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-
-           >
-           {{ 'NAVBAR.SERVICES' | translate }}
-          </a>
-        </li>
-        <li>
-         <app-select></app-select>
-        </li>
-      </ul>
     </div>
   </div>
 </nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MOBILE SIDE DRAWER  (slides from right, z-[100])
+     ═══════════════════════════════════════════════════════════════ -->
+
+<ng-container *ngIf="isMobileMenuOpen">
+
+  <!-- Backdrop — tap to close -->
+  <div
+    class="drawer-backdrop"
+    (click)="closeMobileMenu()"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Side Drawer Panel -->
+  <div
+    #mobileOverlayEl
+    id="mobile-menu-overlay"
+    class="side-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Navigation menu"
+  >
+
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <div class="drawer-header">
+      <span class="logo logo--dark">KAMAL NAIM</span>
+
+      <button
+        class="mobile-close-btn"
+        type="button"
+        (click)="closeMobileMenu()"
+        aria-label="Close navigation menu"
+      >
+        <svg class="w-5 h-5" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6"  x2="6"  y2="18"/>
+          <line x1="6"  y1="6"  x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ── Nav items ──────────────────────────────────────────── -->
+    <nav aria-label="Mobile navigation" class="drawer-nav">
+      <ul class="drawer-nav-list" role="list">
+        <li *ngFor="let item of navItems" data-menu-item>
+          <a
+            class="drawer-nav-link"
+            [class.drawer-nav-link--active]="activeSection === item.id"
+            href="#"
+            tabindex="0"
+            (click)="onMobileNavItemClick(item.anchor); $event.preventDefault()"
+            [attr.aria-current]="activeSection === item.id ? 'page' : null"
+          >
+            <!-- Active purple dot -->
+            <span
+              *ngIf="activeSection === item.id"
+              class="mobile-active-dot"
+              aria-hidden="true"
+            ></span>
+
+            {{ item.labelKey | translate }}
+
+            <!-- Chevron arrow -->
+            <svg class="drawer-chevron" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <div class="drawer-footer" data-menu-item>
+
+      <div class="mobile-divider" aria-hidden="true"></div>
+
+      <!-- Social icons -->
+      <div class="drawer-social-row">
+
+        <a href="https://www.linkedin.com/in/kamal-naim-014989310/"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn Profile" class="mobile-social-link">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 256 256"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055"/>
+          </svg>
+        </a>
+
+        <a href="https://github.com/NK01Dev"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub Profile" class="mobile-social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+            class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+              fill="currentColor"/>
+          </svg>
+        </a>
+
+        <a href="mailto:kamalnaim.dev@gmail.com"
+          aria-label="Email Kamal Naim" class="mobile-social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+            class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+        </a>
+
+      </div>
+
+      <!-- Language switcher + CTA -->
+      <div class="drawer-cta-row">
+        <app-select></app-select>
+
+        <button
+          class="lets-talk-btn lets-talk-btn--mobile"
+          type="button"
+          (click)="onMobileNavItemClick('.contact-section')"
+        >
+          {{ 'NAVBAR.LETS_TALK' | translate }}
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</ng-container>
