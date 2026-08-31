@@ -60,5 +60,10 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
     "typescript": "~5.6.2"
+  },
+  "overrides": {
+    "ngx-page-scroll-core": {
+      "@angular/common": "$@angular/common"
+    }
   }
 }
