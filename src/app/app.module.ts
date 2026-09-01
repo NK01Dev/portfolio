@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/pages/navbar/navbar.component';
@@ -47,7 +46,6 @@ export function playerFactory() {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPageScrollCoreModule,
     ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({

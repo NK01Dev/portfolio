@@ -11,7 +11,6 @@ import {
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { PageScrollService } from 'ngx-page-scroll-core';
 import { Subscription } from 'rxjs';
 import { AnimationsService } from '../../../animations.service';
 import { DarkModeService } from '../../../dark-mode.service';
@@ -60,7 +59,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private pageScrollService: PageScrollService,
     private translate: TranslateService,
     private animations: AnimationsService,
     private darkModeService: DarkModeService,
@@ -153,12 +151,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // ─── Scroll navigation ─────────────────────────────────────────────────────
 
   scrollToSection(anchor: string): void {
-    this.pageScrollService.scroll({
-      document: this.document,
-      scrollTarget: anchor,
-      duration: 800,
-      scrollOffset: this.navbarState === 'scrolled' ? 80 : 0,
-    });
+    const el = this.document.querySelector(anchor);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   scrollToContact(): void {
