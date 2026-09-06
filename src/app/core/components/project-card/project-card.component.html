@@ -211,21 +211,21 @@
     <!-- ── TYPE 2: MOBILE SMARTPHONE MOCKUP (QuoteVerse) ───────────── -->
     <div
       *ngIf="project.type === 'mobile'"
-      class="relative flex flex-col items-center justify-center py-2 px-2 sm:px-4 z-10 transition-transform duration-300 group-hover:scale-[1.015]"
+      class="relative flex flex-col items-center justify-center my-auto px-2 z-10 transition-transform duration-300 group-hover:scale-[1.015]"
     >
       <!-- Ambient violet glow behind phone -->
       <div
-        class="pointer-events-none absolute w-56 h-56 bg-violet-600/15 dark:bg-violet-600/20 rounded-full blur-3xl"
+        class="pointer-events-none absolute w-48 h-48 bg-violet-600/15 dark:bg-violet-600/20 rounded-full blur-2xl"
         aria-hidden="true"
       ></div>
 
       <!-- Smartphone Hardware Frame (Clean, Realistic Bezel) -->
       <div
-        class="relative z-10 w-[190px] sm:w-[215px] lg:w-[230px] aspect-[9/20] rounded-[38px] sm:rounded-[42px] p-[6px] border-[5px] sm:border-[6px] border-zinc-800 dark:border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/50 overflow-hidden flex flex-col"
+        class="relative z-10 h-[290px] sm:h-[320px] lg:h-[350px] xl:h-[360px] aspect-[9/20] rounded-[32px] sm:rounded-[36px] p-[5px] border-[4px] border-zinc-800 dark:border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/40 overflow-hidden flex flex-col shrink-0"
       >
         <!-- Phone Screen Interior -->
         <div
-          class="w-full h-full rounded-[30px] sm:rounded-[34px] overflow-hidden bg-zinc-950 relative flex flex-col justify-between select-none"
+          class="w-full h-full rounded-[24px] sm:rounded-[28px] overflow-hidden bg-zinc-950 relative flex flex-col justify-between select-none"
         >
           <!-- Real App Screenshot (edge-to-edge, authentic display) -->
           <img
@@ -269,7 +269,7 @@
       <!-- Interactive Screen Switcher Pills -->
       <div
         *ngIf="project.screenshots && project.screenshots.length > 0"
-        class="flex items-center gap-1.5 mt-3 z-20 select-none"
+        class="flex items-center gap-2 mt-2.5 z-20 select-none"
       >
         <button
           type="button"
