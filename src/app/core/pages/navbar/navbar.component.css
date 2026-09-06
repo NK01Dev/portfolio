@@ -34,7 +34,7 @@
   left: clamp(14px, 1.8vw, 32px);
   right: clamp(14px, 1.8vw, 32px);
   border-radius: 9999px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);

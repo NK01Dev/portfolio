@@ -14,6 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { AnimationsService } from '../../../animations.service';
 import { DarkModeService } from '../../../dark-mode.service';
+import { SmoothScrollService } from '../../../services/smooth-scroll.service';
 
 export type NavbarState = 'hero' | 'scrolled';
 
@@ -63,6 +64,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private animations: AnimationsService,
     private darkModeService: DarkModeService,
     private ngZone: NgZone,
+    private smoothScrollService: SmoothScrollService,
     @Inject(DOCUMENT) private document: Document,
   ) {}
 
@@ -151,9 +153,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // ─── Scroll navigation ─────────────────────────────────────────────────────
 
   scrollToSection(anchor: string): void {
-    const el = this.document.querySelector(anchor);
+    const el = this.document.querySelector(anchor) as HTMLElement | null;
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (this.smoothScrollService.instance) {
+        this.smoothScrollService.scrollTo(el, { offset: -70 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 
