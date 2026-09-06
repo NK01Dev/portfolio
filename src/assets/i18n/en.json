@@ -2,6 +2,36 @@
   "home": {
     "welecomeMessage": "Hi, I am"
   },
+  "WORK": {
+    "EYEBROW": "SELECTED WORK",
+    "SECTION_TITLE": "What I've Built",
+    "SECTION_SUBTITLE": "Products and systems I've designed and engineered.",
+    "VIEW_CASE_STUDY": "View Case Study",
+    "VIEW_CODE": "View Code",
+    "SCROLL_HINT": "Scroll to explore",
+    "INTRO_EYEBROW": "Showcase Reel",
+    "INTRO_TITLE": "Crafting Scalable Digital Products",
+    "INTRO_SUBTITLE": "Explore recent applications engineered with high performance, elegant UI, and robust architectures.",
+    "OUTRO_TITLE": "Ready to build something remarkable?",
+    "OUTRO_SUBTITLE": "Let's collaborate on your next mobile app or full-stack platform.",
+    "OUTRO_CTA": "Get in touch",
+    "WIFI_MANAGER": {
+      "DESCRIPTION": "Desktop network management software for monitoring networks, devices, security controls and operational activity.",
+      "IMAGE_ALT": "WiFi Manager enterprise desktop network management and analytics dashboard"
+    },
+    "QUOTEVERSE": {
+      "DESCRIPTION": "A multilingual, offline-first quotes application built with Flutter and Riverpod.",
+      "IMAGE_ALT": "QuoteVerse mobile application showing multilingual quotes interface"
+    },
+    "BLUEPRINT": {
+      "DESCRIPTION": "A modern full-stack learning platform featuring course authoring, interactive lessons, and real-time student analytics.",
+      "IMAGE_ALT": "BluePrint Academy learning ecosystem web interface"
+    },
+    "OMNIPULSE": {
+      "DESCRIPTION": "High-performance cross-platform data synchronization engine with offline cache, push triggers, and cloud integration.",
+      "IMAGE_ALT": "OmniPulse cross-platform application interface"
+    }
+  },
   "about": {
     "title": "About me",
     "description": "I’m a passionate  Mobile App Developer with over 2 years of experience creating and launching Succesful  apps. My skills cover full-stack development, including both backend and frontend technologies, as well as mobile platforms. I work with Framework as Node.js, Express, Angular, Flutter, and Android, which allows me to create flexible and scalable solutions tailored to different business needs.",

@@ -2,17 +2,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@keyframes appear {
-    from{
-        opacity: 0;
-scale: 0.5;
-    } to{
-        opacity: 1;
-        scale: 1;
-    }
+
+/* ═══════════════════════════════════════════════════════════════
+   LENIS SMOOTH SCROLL INTEGRATION
+   ═══════════════════════════════════════════════════════════════ */
+html.lenis,
+html.lenis body {
+  height: auto;
 }
-.block {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 10%;
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

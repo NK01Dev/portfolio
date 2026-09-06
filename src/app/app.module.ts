@@ -19,6 +19,8 @@ import { SelectComponent } from './core/components/select/select.component';
 import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
 import { DarkModeToggleComponent } from './core/components/dark-mode-toggle/dark-mode-toggle.component';
+import { WorkComponent } from './core/pages/work/work.component';
+import { ProjectCardComponent } from './core/components/project-card/project-card.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -42,6 +44,8 @@ export function playerFactory() {
     FooterComponent,
     SelectComponent,
     DarkModeToggleComponent,
+    WorkComponent,
+    ProjectCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,167 @@
+<section
+  #containerEl
+  id="work"
+  class="work-section relative w-full select-none bg-[#F7F7FA] dark:bg-[#09090B] text-[#18181B] dark:text-[#FAFAFA] transition-colors duration-300"
+  [class.work-section--desktop]="isDesktop"
+  aria-labelledby="work-heading"
+>
+  <!-- Atmospheric decorative ambient glow -->
+  <div
+    class="pointer-events-none absolute -top-40 left-1/4 w-[500px] h-[500px] bg-violet-600/10 dark:bg-violet-600/15 rounded-full blur-3xl"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute -bottom-40 right-1/4 w-[600px] h-[600px] bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <!-- ── Compact Editorial Header ────────────────────────────── -->
+  <header
+    class="relative z-20 w-full pt-10 sm:pt-14 pb-4 sm:pb-6 px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
+  >
+    <div>
+      <!-- Eyebrow: 01 — SELECTED WORK -->
+      <div class="flex items-center gap-2">
+        <span
+          class="inline-block w-2 h-2 rounded-full bg-[#7C3AED] dark:bg-[#8B5CF6] animate-pulse"
+          aria-hidden="true"
+        ></span>
+        <p
+          class="text-xs font-mono font-bold tracking-[0.25em] uppercase text-[#7C3AED] dark:text-[#8B5CF6]"
+        >
+          01 — {{ 'WORK.EYEBROW' | translate }}
+        </p>
+      </div>
+
+      <!-- Main Section Heading: Digital products built across web, desktop and mobile. -->
+      <h2
+        id="work-heading"
+        class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181B] dark:text-[#FAFAFA] tracking-tight mt-2.5 leading-[1.15]"
+      >
+        Digital products built across
+        <span class="text-[#7C3AED] dark:text-[#8B5CF6]">web, desktop and mobile.</span>
+      </h2>
+    </div>
+
+    <!-- ── Desktop Carousel HUD & Interactive Controls ──────────── -->
+    <div class="hidden md:flex items-center gap-6">
+      <!-- Active counter e.g. 01 / 04 -->
+      <div class="flex items-center gap-3">
+        <span
+          class="text-xs font-mono font-semibold text-[#71717A] dark:text-[#A1A1AA] tracking-wider"
+          aria-live="polite"
+        >
+          {{ currentActiveIndex }} / {{ totalProjectsFormatted }}
+        </span>
+        <!-- Smooth progress bar -->
+        <div
+          class="w-28 lg:w-36 h-1.5 bg-[#E4E4E7] dark:bg-[#27272A] rounded-full overflow-hidden"
+          role="progressbar"
+          [attr.aria-valuenow]="scrollProgress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div
+            class="h-full bg-[#7C3AED] dark:bg-[#8B5CF6] transition-all duration-150 ease-out rounded-full"
+            [style.width.%]="scrollProgress"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Prev / Next interactive navigation buttons -->
+      <div
+        class="flex items-center gap-2"
+        role="group"
+        aria-label="Project navigation controls"
+      >
+        <button
+          type="button"
+          (click)="prevProject()"
+          [disabled]="currentIndex === 0"
+          class="w-10 h-10 rounded-full border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-violet-50 dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] disabled:opacity-25 disabled:cursor-not-allowed transition-all flex items-center justify-center focus-visible:outline-2 focus-visible:outline-[#7C3AED] shadow-sm"
+          aria-label="Previous project"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          (click)="nextProject()"
+          [disabled]="currentIndex >= projects.length - 1"
+          class="w-10 h-10 rounded-full border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-violet-50 dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] disabled:opacity-25 disabled:cursor-not-allowed transition-all flex items-center justify-center focus-visible:outline-2 focus-visible:outline-[#7C3AED] shadow-sm"
+          aria-label="Next project"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation hint -->
+      <div
+        class="hidden lg:flex items-center gap-1.5 text-xs text-[#71717A] dark:text-[#A1A1AA] font-medium"
+      >
+        <span>{{ 'WORK.SCROLL_HINT' | translate }}</span>
+        <svg
+          class="w-3.5 h-3.5 translate-x-0.5 animate-pulse text-[#7C3AED] dark:text-[#8B5CF6]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── DESKTOP: Horizontal Translating Track (≥ 768px) ───────── -->
+  <div class="hidden md:flex relative z-10 w-full flex-1 items-center overflow-visible py-4 lg:py-6">
+    <div
+      #trackEl
+      class="work-track flex flex-nowrap items-center gap-8 lg:gap-12 px-6 sm:px-12 lg:px-20 will-change-transform"
+      role="list"
+      aria-label="Projects Showcase Reel"
+    >
+      <app-project-card
+        *ngFor="let project of projects; let last = last"
+        [project]="project"
+        [totalCount]="totalProjectsFormatted"
+        [isLast]="last"
+        (onNext)="nextProject()"
+      ></app-project-card>
+    </div>
+  </div>
+
+  <!-- ── MOBILE: Natural Vertical Stack (< 768px) ───────────────── -->
+  <div
+    class="md:hidden flex flex-col gap-6 px-4 sm:px-6 py-6"
+    role="list"
+    aria-label="Projects List"
+  >
+    <app-project-card
+      *ngFor="let project of projects; let last = last"
+      [project]="project"
+      [totalCount]="totalProjectsFormatted"
+      [isLast]="last"
+      (onNext)="nextProject()"
+    ></app-project-card>
+  </div>
+</section>

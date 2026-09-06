@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.project-card {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card figure,
+  .project-card * {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

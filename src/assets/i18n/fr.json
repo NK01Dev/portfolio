@@ -2,6 +2,36 @@
   "home": {
     "welecomeMessage": "Salut, je suis"
   },
+  "WORK": {
+    "EYEBROW": "PROJETS SÉLECTIONNÉS",
+    "SECTION_TITLE": "Ce que j'ai conçu",
+    "SECTION_SUBTITLE": "Produits et systèmes que j'ai conçus et développés.",
+    "VIEW_CASE_STUDY": "Voir l'étude de cas",
+    "VIEW_CODE": "Voir le code",
+    "SCROLL_HINT": "Défiler pour explorer",
+    "INTRO_EYEBROW": "Showcase Sélectionné",
+    "INTRO_TITLE": "Création de Produits Numériques Évolutifs",
+    "INTRO_SUBTITLE": "Découvrez des applications récentes alliant haute performance, ergonomie moderne et architectures solides.",
+    "OUTRO_TITLE": "Envie de concevoir un projet d'envergure ?",
+    "OUTRO_SUBTITLE": "Collaborons ensemble sur votre prochaine application mobile ou plateforme web.",
+    "OUTRO_CTA": "Me contacter",
+    "WIFI_MANAGER": {
+      "DESCRIPTION": "Logiciel de gestion réseau de bureau pour la surveillance des réseaux, appareils, contrôles de sécurité et activités opérationnelles.",
+      "IMAGE_ALT": "Tableau de bord de gestion et d'analytique réseau de bureau WiFi Manager"
+    },
+    "QUOTEVERSE": {
+      "DESCRIPTION": "Application de citations multilingue et hors-ligne conçue avec Flutter et Riverpod.",
+      "IMAGE_ALT": "Interface de l'application mobile QuoteVerse"
+    },
+    "BLUEPRINT": {
+      "DESCRIPTION": "Une plateforme d'apprentissage moderne proposant création de cours interactifs et suivi analytique en temps réel.",
+      "IMAGE_ALT": "Interface web de l'écosystème éducatif BluePrint Academy"
+    },
+    "OMNIPULSE": {
+      "DESCRIPTION": "Moteur de synchronisation multiplateforme haute performance avec cache hors-ligne et intégration cloud.",
+      "IMAGE_ALT": "Interface de l'application multiplateforme OmniPulse"
+    }
+  },
   "about": {
     "title": "À propos de moi",
     "description": "Je suis un développeur d'applications mobiles passionné avec plus de 2 ans d'expérience dans la création et le lancement d'applications réussies. Mes compétences couvrent le développement full-stack, incluant les technologies backend et frontend, ainsi que les plateformes mobiles. Je travaille avec des frameworks tels que Node.js, Express, Angular, Flutter et Android, ce qui me permet de créer des solutions flexibles et évolutives adaptées aux différents besoins des entreprises.",

@@ -1,41 +1,37 @@
-<div  id="about-section" class="flex flex-col items-center justify-start mt-48 min-h-screen  text-white px-4">
+<div id="about-section" class="flex flex-col items-center justify-start py-20 min-h-screen text-gray-800 dark:text-gray-100 px-4 w-full max-w-7xl mx-auto">
     <!-- Main Title -->
-    <!-- <h1 class="text-4xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-700 mt-8 md:mt-12 lg:mt-16 text-center"> -->
-      <h1 class=" block text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-700   pl-2 my-2 border-l-4  font-heading border-blue-600  dark:border-blue-300 dark:text-gray-200">
-
+    <h1 class="block text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 pl-2 my-2 border-l-4 font-heading border-indigo-600 dark:border-pink-400 dark:text-gray-100">
         {{ 'NAVBAR.ABOUT' | translate }}   
     </h1>
     
     <!-- Subtitle -->
-    <h2 class="block text-3xl mr-10 sm:text-xl md:text-2xl lg:text-4xl  p-4 ml-4 sm:ml-6 md:ml-8 lg:ml-10 font-bold text-blue-500    dark:text-blue-200 mt-4 text-left w-full sm:w-10/12 md:w-8/12 lg:w-full">
+    <h2 class="block text-2xl sm:text-xl md:text-2xl lg:text-3xl p-4 font-bold text-indigo-600 dark:text-pink-300 mt-4 text-left w-full sm:w-10/12 md:w-8/12 lg:w-full">
       {{ 'about.title' | translate }}  
     </h2>
   
     <!-- Paragraph -->
-    <p class="block text-base sm:text-sm md:text-base lg:text-lg font-medium p-4 sm:p-2 md:p-4 lg:p-4 ml-4 sm:ml-2 md:ml-8 lg:ml-10 text-gray-700 dark:text-gray-200 mt-4 text-justify w-full sm:w-full md:w-8/12 lg:w-full mr-4 sm:mr-2 md:mr-10 lg:mr-10">
+    <p class="block text-base sm:text-sm md:text-base lg:text-lg font-normal p-4 text-gray-700 dark:text-gray-300 mt-2 text-justify w-full sm:w-full md:w-8/12 lg:w-full leading-relaxed">
       {{ 'about.description' | translate }}  
     </p>
-    <h2 class="block text-3xl mr-10 sm:text-xl md:text-2xl lg:text-4xl  p-4 ml-4 sm:ml-6 md:ml-8 lg:ml-10 font-bold text-blue-500 dark:text-blue-200 mt-4 text-left w-full sm:w-10/12 md:w-8/12 lg:w-full">
+    <h2 class="block text-2xl sm:text-xl md:text-2xl lg:text-3xl p-4 font-bold text-indigo-600 dark:text-pink-300 mt-4 text-left w-full sm:w-10/12 md:w-8/12 lg:w-full">
       {{ 'about.tool' | translate }}  
-
     </h2>
-    <p class="block text-base sm:text-sm md:text-base lg:text-lg font-medium p-4 sm:p-2 md:p-4 lg:p-4 ml-4 sm:ml-2 md:ml-8 lg:ml-10 text-gray-700 dark:text-gray-200 mt-4 text-justify w-full sm:w-full md:w-8/12 lg:w-full mr-4 sm:mr-2 md:mr-10 lg:mr-10">
-
+    <p class="block text-base sm:text-sm md:text-base lg:text-lg font-normal p-4 text-gray-700 dark:text-gray-300 mt-2 text-justify w-full sm:w-full md:w-8/12 lg:w-full leading-relaxed">
       {{ 'about.tools' | translate }}  
     </p>
 
-    <div #zoomElement id="zoomElement" class="random-demo grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8 p-4">
+    <div #zoomElement id="zoomElement" class="random-demo grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8 p-4 w-full">
       <div
         *ngFor="let card of cards"
-        class="animate-card block bg-white bg-opacity-20 dark:bg-opacity-60 hover:bg-opacity-30 transition-all duration-300 ease-in-out rounded-lg shadow-lg flex items-center justify-start p-4 sm:p-2 hover:shadow-xl"
+        class="animate-card block bg-white/80 dark:bg-white/10 hover:bg-white dark:hover:bg-white/20 transition-all duration-300 ease-in-out rounded-2xl shadow-md dark:shadow-none flex items-center justify-start p-4 sm:p-3 hover:shadow-lg border border-gray-200/70 dark:border-white/10 backdrop-blur-sm"
       >
         <img
           [src]="card.svg"
           alt="{{ card.title }}"
-          class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mr-2 sm:mr-4 object-contain"
+          class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 mr-3 object-contain"
         />
         <div class="flex flex-col">
-          <h3 class="text-sm sm:text-base md:text-lg font-semibold text-gray-900 text-center">{{ card.title }}</h3>
+          <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-100 text-center">{{ card.title }}</h3>
         </div>
       </div>
     </div>

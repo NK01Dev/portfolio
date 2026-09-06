@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.work-section {
+  position: relative;
+  width: 100%;
+}
+
+/* On desktop (>= 768px), pinned horizontal container */
+@media (min-width: 768px) {
+  .work-section--desktop {
+    height: 100vh;
+    min-height: 640px;
+    max-height: 960px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.work-track {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-track,
+  .work-section,
+  .work-section * {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

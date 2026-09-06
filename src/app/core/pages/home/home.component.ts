@@ -1,19 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Inject,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimationsService } from '../../../animations.service';
 import { DarkModeService } from '../../../dark-mode.service';
-
-const HERO_MEDIA = {
-  dark: {
-    video: '/assets/videos/hero-dark.mp4',
-    poster: '/assets/images/video-posters/hero-dark.webp',
-  },
-  light: {
-    video: '/assets/videos/hero-light.mp4',
-    poster: '/assets/images/video-posters/hero-light.webp',
-  },
-} as const;
 
 @Component({
   selector: 'app-home',
@@ -21,9 +22,10 @@ const HERO_MEDIA = {
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  currentVideo: string = HERO_MEDIA.dark.video;
-  currentPoster: string = HERO_MEDIA.dark.poster;
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('darkVideo') darkVideoRef?: ElementRef<HTMLVideoElement>;
+  @ViewChild('lightVideo') lightVideoRef?: ElementRef<HTMLVideoElement>;
+
   shouldAutoplay = true;
 
   words: string[] = ['Full-Stack Developer', 'Mobile Developer'];
@@ -36,11 +38,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private routerSubscription?: Subscription;
   private darkModeSubscription?: Subscription;
+  private scrollTriggers: ScrollTrigger[] = [];
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
     private animations: AnimationsService,
-    private darkModeService: DarkModeService
+    private darkModeService: DarkModeService,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit(): void {
@@ -50,11 +55,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.shouldAutoplay = !prefersReducedMotion;
     }
 
-    // Subscribe to dark mode state to reactively load only the active theme video
+    // Subscribe to dark mode state to reactively play the active theme video
     this.darkModeSubscription = this.darkModeService.isDarkMode$.subscribe((isDark) => {
-      const theme = isDark ? 'dark' : 'light';
-      this.currentVideo = HERO_MEDIA[theme].video;
-      this.currentPoster = HERO_MEDIA[theme].poster;
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => {
+          const activeVideo = isDark ? this.darkVideoRef?.nativeElement : this.lightVideoRef?.nativeElement;
+          if (activeVideo && this.shouldAutoplay) {
+            activeVideo.play().catch(() => {});
+          }
+        }, 60);
+      }
     });
 
     this.type(); // Start the typewriter effect
@@ -71,12 +81,23 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    setTimeout(() => {
+      this.scrollTriggers = this.animations.initScrollTextAnimations();
+    }, 150);
+  }
+
   ngOnDestroy(): void {
     if (this.typeTimeoutId) {
       clearTimeout(this.typeTimeoutId);
     }
     this.routerSubscription?.unsubscribe();
     this.darkModeSubscription?.unsubscribe();
+
+    this.scrollTriggers.forEach((t) => t.kill());
+    this.scrollTriggers = [];
   }
 
   redirectToMedia(name: string): void {
@@ -117,4 +138,3 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
 }
-

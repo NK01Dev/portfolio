@@ -1,28 +1,44 @@
-<div class="relative justify-center bg-gradient-to-b from-indigo-200 to-pink-200 dark:bg-gradient-to-b dark:from-[#4a4e69] dark:to-[#22223b] text-white">
+<div class="relative justify-center bg-gradient-to-b from-indigo-200 to-pink-200 dark:bg-gradient-to-b dark:from-[#4a4e69] dark:to-[#22223b]">
 
     <!-- ══════════════════════════════════════════════════════
          SECTION 1: HERO (#home)
          ══════════════════════════════════════════════════════ -->
     <section id="home"
-        class="page-content home-section relative min-h-[100svh] w-full flex flex-col justify-center overflow-hidden">
+        class="home-section relative z-10 min-h-[100svh] w-full flex flex-col justify-center overflow-hidden">
         
-        <!-- Layer 0: Full-screen Background Video -->
+        <!-- Layer 0: Full-screen Background Video - Dark Mode -->
         <video
-            [src]="currentVideo"
-            [poster]="currentPoster"
-            [autoplay]="shouldAutoplay"
-            [muted]="true"
-            [loop]="true"
-            [playsInline]="true"
-            preload="metadata"
+            #darkVideo
+            src="/assets/videos/hero-dark.mp4"
+            poster="/assets/images/video-posters/hero-dark.webp"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
             aria-hidden="true"
             tabindex="-1"
-            class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none">
+            class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none hidden dark:block">
+        </video>
+
+        <!-- Layer 0: Full-screen Background Video - Light Mode -->
+        <video
+            #lightVideo
+            src="/assets/videos/hero-light.mp4"
+            poster="/assets/images/video-posters/hero-light.webp"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+            tabindex="-1"
+            class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none block dark:hidden">
         </video>
 
         <!-- Layer 1: Atmospheric Tint & Directional Contrast Overlays -->
-        <div class="absolute inset-0 z-10 pointer-events-none bg-slate-900/20 dark:bg-black/40"></div>
-        <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-indigo-100/90 via-indigo-50/75 to-transparent dark:from-[#22223b]/95 dark:via-[#22223b]/75 dark:to-transparent"></div>
+        <div class="absolute inset-0 z-10 pointer-events-none bg-black/5 dark:bg-black/35"></div>
+        <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-white/70 via-white/35 to-transparent dark:from-[#22223b]/85 dark:via-[#22223b]/45 dark:to-transparent"></div>
 
         <!-- Layer 2: Hero Floating Content -->
         <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-24 md:py-32 flex flex-col justify-center">
@@ -85,37 +101,36 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════
-         SECTION 2: WORK (#work)
+         SECTION 2: WORK (#work) - Quartz & Obsidian Violet
          ══════════════════════════════════════════════════════ -->
-    <section id="work"
-        class="work-section page-content min-h-screen flex flex-col items-center justify-center text-white"
-        style="scroll-margin-top: 80px;">
-        <app-services></app-services>
-    </section>
+    <div id="work"
+        class="work-section relative z-10 w-full rounded-t-[2.5rem] sm:rounded-t-[3.5rem] shadow-[0_-25px_60px_rgba(99,102,241,0.12)] dark:shadow-[0_-35px_80px_rgba(0,0,0,0.8)] border-t border-indigo-200/80 dark:border-white/10 bg-gradient-to-b from-white via-indigo-50/90 to-purple-50/70 dark:from-[#18192b]/98 dark:via-[#151624]/98 dark:to-[#1a172e]/98 overflow-hidden">
+        <app-work></app-work>
+    </div>
 
     <!-- ══════════════════════════════════════════════════════
-         SECTION 3: ABOUT (#about)
+         SECTION 3: ABOUT (#about) - Warm Rose & Velvet Plum
          ══════════════════════════════════════════════════════ -->
     <section id="about"
-        class="about-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        class="about-section page-content relative z-10 min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-50/90 via-pink-50/80 to-rose-50/75 dark:from-[#1a172e]/98 dark:via-[#1f182b]/98 dark:to-[#22162a]/98 border-t border-purple-200/40 dark:border-white/5 transition-colors duration-300"
         style="scroll-margin-top: 80px;">
         <app-about></app-about>
     </section>
 
     <!-- ══════════════════════════════════════════════════════
-         SECTION 4: EXPERIENCE (#experience)
+         SECTION 4: EXPERIENCE (#experience) - Cool Azure & Midnight Navy
          ══════════════════════════════════════════════════════ -->
     <section id="experience"
-        class="experience-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        class="experience-section page-content relative z-10 min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-rose-50/70 via-slate-50/95 to-sky-50/80 dark:from-[#22162a]/98 dark:via-[#161a29]/98 dark:to-[#121826]/98 border-t border-pink-200/30 dark:border-white/5 transition-colors duration-300"
         style="scroll-margin-top: 80px;">
         <app-resume></app-resume>
     </section>
 
     <!-- ══════════════════════════════════════════════════════
-         SECTION 5: CONTACT (#contact)
+         SECTION 5: CONTACT (#contact) - Sunset Twilight & Cosmic Void
          ══════════════════════════════════════════════════════ -->
     <section id="contact"
-        class="contact-section page-content min-h-screen flex flex-col items-center justify-center text-white"
+        class="contact-section page-content relative z-10 min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-sky-50/70 via-indigo-50/90 to-purple-100/90 dark:from-[#121826]/98 dark:via-[#10121e]/98 dark:to-[#0a0b12]/98 border-t border-indigo-200/40 dark:border-white/5 transition-colors duration-300"
         style="scroll-margin-top: 80px;">
         <app-contact></app-contact>
     </section>
