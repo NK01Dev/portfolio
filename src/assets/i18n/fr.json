@@ -1,15 +1,17 @@
 {
   "home": {
+    "welcomeMessage": "Salut, je suis",
     "welecomeMessage": "Salut, je suis",
     "cta_about": "À propos",
-    "cta_contact": "Contact"
+    "cta_contact": "Contact",
+    "availability": "Basé au Maroc · Disponible pour des contrats locaux et des missions remote mondiales."
   },
   "WORK": {
     "EYEBROW": "PROJETS SÉLECTIONNÉS",
     "SECTION_TITLE": "Ce que j'ai conçu",
     "SECTION_SUBTITLE": "Produits et systèmes que j'ai conçus et développés.",
     "VIEW_CASE_STUDY": "Voir l'étude de cas",
-    "VIEW_CODE": "Voir le code",
+    "VIEW_CODE": "Code source",
     "SCROLL_HINT": "Défiler pour explorer",
     "INTRO_EYEBROW": "Showcase Sélectionné",
     "INTRO_TITLE": "Création de Produits Numériques Évolutifs",
@@ -18,26 +20,26 @@
     "OUTRO_SUBTITLE": "Collaborons ensemble sur votre prochaine application mobile ou plateforme web.",
     "OUTRO_CTA": "Me contacter",
     "WIFI_MANAGER": {
-      "DESCRIPTION": "Logiciel de gestion réseau de bureau pour la surveillance des réseaux, appareils, contrôles de sécurité et activités opérationnelles.",
+      "DESCRIPTION": "Application desktop hors-ligne pour la gestion réseau en entreprise : surveillance des appareils, contrôles de sécurité et analyses opérationnelles. Chiffrement AES-256-GCM et hachage Argon2 intégrés.",
       "IMAGE_ALT": "Tableau de bord de gestion et d'analytique réseau de bureau WiFi Manager"
     },
     "QUOTEVERSE": {
-      "DESCRIPTION": "Application de citations multilingue et hors-ligne conçue avec Flutter et Riverpod.",
+      "DESCRIPTION": "Application de citations multilingue et hors-ligne conçue avec Flutter et Riverpod. Stockage local Isar, synchronisation Supabase, navigation GoRouter et intégration AdMob.",
       "IMAGE_ALT": "Interface de l'application mobile QuoteVerse"
     },
     "BLUEPRINT": {
-      "DESCRIPTION": "Une plateforme d'apprentissage moderne proposant création de cours interactifs et suivi analytique en temps réel.",
+      "DESCRIPTION": "Portail académique full-stack conteneurisé avec services frontend et backend séparés. Création de cours, analytique étudiante en temps réel et orchestration Docker Compose.",
       "IMAGE_ALT": "Interface web de l'écosystème éducatif BluePrint Academy"
     },
-    "OMNIPULSE": {
-      "DESCRIPTION": "Moteur de synchronisation multiplateforme haute performance avec cache hors-ligne et intégration cloud.",
-      "IMAGE_ALT": "Interface de l'application multiplateforme OmniPulse"
+    "HASBI": {
+      "DESCRIPTION": "Application mobile de gestion des finances personnelles et des dépenses avec budgétisation hors-ligne, suivi des transactions intuitif et analyses locales. Conçue avec Flutter et Riverpod.",
+      "IMAGE_ALT": "Application mobile Hasbi affichant le tableau de bord de suivi des dépenses"
     }
   },
   "about": {
     "eyebrow": "À PROPOS / PROFIL INGÉNIERIE",
     "title": "Je conçois des logiciels et des systèmes qui fonctionnent au-delà du prototype.",
-    "description": "Ingénieur logiciel intervenant sur les applications mobiles, web, backend et desktop, avec une expérience pratique en infrastructure, réseaux, serveurs et déploiement.",
+    "description": "Ingénieur logiciel avec 2+ ans d'expérience sur les applications mobiles, web, backend et desktop, avec une maîtrise pratique de l'infrastructure, des réseaux, des serveurs et du déploiement.",
     "capabilities": "MOBILE · WEB · BACKEND · DESKTOP · INFRASTRUCTURE · RÉSEAUX",
     "cta": {
       "work": "Voir mes projets",
@@ -95,15 +97,15 @@
     },
     "stack": {
       "title": "TECHNOLOGIES",
-      "applications": "APPLICATIONS",
-      "backend": "BACKEND",
+      "applications": "MOBILE & DESKTOP",
+      "backend": "BACKEND & API",
       "data": "DONNÉES",
-      "infrastructure": "INFRASTRUCTURE",
+      "infrastructure": "INFRASTRUCTURE & DevOps",
       "networking": "RÉSEAUX"
     },
     "stats": {
       "repositories": "DÉPÔTS PUBLICS",
-      "multiplatform": "MULTIPATEFORME",
+      "multiplatform": "MULTIPLATEFORME",
       "infrastructure": "LOGICIEL + INFRASTRUCTURE"
     },
     "tool": "Technologies et Outils",
@@ -139,7 +141,7 @@
   "RESUME": {
     "TITLE": "CV",
     "NAME": "Kamal Naim",
-    "DESCRIPTION": "Développeur logiciel avec plus d'un an d'expérience en Flutter, Dart, Java, Node.js, Angular et MongoDB, spécialisé dans les applications évolutives.",
+    "DESCRIPTION": "Développeur logiciel avec 2+ ans d'expérience en Flutter, Dart, TypeScript, Node.js, Angular et MongoDB, spécialisé dans les applications cross-platform évolutives.",
     "EMAIL": "E-mail",
     "PHONE": "Téléphone",
     "DOWNLOAD_BUTTON": "Télécharger le CV",
@@ -149,12 +151,12 @@
       {
         "YEAR": "2023-2025",
         "TITLE": "Master d'université spécialisé - Ecole Nationale des Sciences Appliquées",
-        "DESCRIPTION": "Ingénierie Logicielle et Management des Systèmes d’Information (ILMSI)."
+        "DESCRIPTION": "Ingénierie Logicielle et Management des Systèmes d'Information (ILMSI)."
       },
       {
         "YEAR": "2021-2022",
         "TITLE": "Licence D'Université Spécialisée - La Faculté des Sciences de Kenitra",
-        "DESCRIPTION": "Systèmes d’Information et logiciels systèmes d’Information d’Entreprise."
+        "DESCRIPTION": "Systèmes d'Information et logiciels systèmes d'Information d'Entreprise."
       },
       {
         "YEAR": "2016-2018",
@@ -163,68 +165,67 @@
       },
       {
         "YEAR": "2015-2016",
-        "TITLE": "baccalauréat -lycee wafiq Marrakech",
-        "DESCRIPTION": "science physique et chimie."
+        "TITLE": "Baccalauréat - Lycée Wafiq Marrakech",
+        "DESCRIPTION": "Sciences Physiques et Chimie."
       }
     ],
     "EXPERIENCE": [
       {
         "YEAR": "2022-Présent",
-        "TITLE": "Freelancer Web Mobile Developer",
-        "DESCRIPTION": "Spécialisé en Flutter, Express, Angular et Android, je développe des applications modernes, sur mesure, avec une interface soignée et optimisée."      },
+        "TITLE": "Développeur Freelance Web & Mobile",
+        "DESCRIPTION": "Spécialisé en Flutter, Express, Angular et Android, je développe des applications modernes, sur mesure, avec une interface soignée et optimisée. Livraisons réussies pour des clients locaux et internationaux."
+      },
       {
         "YEAR": "2018",
-        "TITLE": "Technicien en IT au Hotel Fairmont Royal Palm",
+        "TITLE": "Technicien en IT — Hôtel Fairmont Royal Palm",
         "DESCRIPTION": "Au sein du département IT, j'ai assuré la maintenance des systèmes informatiques, du réseau, et coordonné l'installation de services IT (VOIP, caméras IP)."
       }
     ],
-    "TECHNICAL_SKILLS":"COMPÉTENCES",
-
-    "SKILLS":  [
-        {
-          "NAME": "Compétences Techniques",
-          "TITLE": "Technologies Backend",
-          "DESCRIPTION": "Expérience avec Node.js et MongoDB pour la création de solutions serveur évolutives."
-        },
-        {
-          "NAME": "Compétences Techniques",
-          "TITLE": "Développement Mobile",
-          "DESCRIPTION": "Spécialisé dans le développement Flutter avec un fort accent sur les principes d'architecture propre et une gestion d'état efficace."
-        },
-        {
-          "NAME": "Compétences Techniques",
-          "TITLE": "Développement Frontend ",
-          "DESCRIPTION": "Compétent en Angular et en conception UI/UX, créant des applications web réactives et centrées sur l'utilisateur."
-        },
-        {
-          "NAME": "Compétences Techniques",
-          "TITLE": "Langages de Programmation",
-          "DESCRIPTION": "Solide base en Dart, Java, TypeScript et JavaScript, avec une expertise dans l'écriture de code propre et maintenable."
-        },
-        {
-          "NAME": "Compétences Techniques",
-          "TITLE": "Conception UI/UX (Figma)",
-          "DESCRIPTION": "Compétent dans l'utilisation de Figma pour concevoir des interfaces utilisateur intuitives, modernes et réactives. Expérience dans la création de maquettes, prototypes et designs haute-fidélité qui améliorent l'expérience utilisateur et facilitent la collaboration avec les équipes de développement."
-        },
-        {
-          "NAME": "Compétences Techniques",
-          "TITLE": "Conception Web Responsive",
-          "DESCRIPTION": "Compétent dans la création de mises en page réactives utilisant CSS Grid, Flexbox et les media queries. Assure que les sites web s'adaptent parfaitement à différentes tailles d'écran et appareils."
-        },
-        {
-          "NAME": "Compétences Interpersonnelles",
-          "TITLE": "Attention aux Détails",
-          "DESCRIPTION": "Attention méticuleuse aux détails dans la qualité du code, la conception de l'interface utilisateur et les tests pour garantir des applications web sans erreur et conviviales."
-        },
-        {
-          "NAME": "Compétences Interpersonnelles",
-          "TITLE": "Gestion du Temps",
-          "DESCRIPTION": "Excellentes compétences en gestion du temps pour respecter les délais des projets, prioriser efficacement les tâches et gérer plusieurs projets simultanément."
-        }
-      ]
-  
+    "TECHNICAL_SKILLS": "COMPÉTENCES",
+    "SKILLS": [
+      {
+        "NAME": "Compétences Techniques",
+        "TITLE": "Technologies Backend",
+        "DESCRIPTION": "Expérience avec Node.js, Express, NestJS et MongoDB pour la création de solutions serveur évolutives et d'API REST."
+      },
+      {
+        "NAME": "Compétences Techniques",
+        "TITLE": "Développement Mobile",
+        "DESCRIPTION": "Spécialisé dans le développement Flutter avec un fort accent sur les principes d'architecture propre et une gestion d'état efficace avec Riverpod."
+      },
+      {
+        "NAME": "Compétences Techniques",
+        "TITLE": "Développement Frontend",
+        "DESCRIPTION": "Compétent en Angular et React avec TypeScript, créant des applications web réactives et centrées sur l'utilisateur avec Tailwind CSS."
+      },
+      {
+        "NAME": "Compétences Techniques",
+        "TITLE": "Langages de Programmation",
+        "DESCRIPTION": "Solide base en Dart, TypeScript, JavaScript et Java, avec une expertise dans l'écriture de code propre et maintenable."
+      },
+      {
+        "NAME": "Compétences Techniques",
+        "TITLE": "Conception UI/UX (Figma)",
+        "DESCRIPTION": "Compétent dans l'utilisation de Figma pour concevoir des interfaces utilisateur intuitives, modernes et réactives. Expérience dans la création de maquettes, prototypes et designs haute-fidélité."
+      },
+      {
+        "NAME": "Compétences Techniques",
+        "TITLE": "Conception Web Responsive",
+        "DESCRIPTION": "Compétent dans la création de mises en page réactives utilisant CSS Grid, Flexbox, Tailwind CSS et les media queries. Assure que les sites web s'adaptent parfaitement à différentes tailles d'écran."
+      },
+      {
+        "NAME": "Compétences Interpersonnelles",
+        "TITLE": "Attention aux Détails",
+        "DESCRIPTION": "Attention méticuleuse aux détails dans la qualité du code, la conception de l'interface utilisateur et les tests pour garantir des applications sans erreur et conviviales."
+      },
+      {
+        "NAME": "Compétences Interpersonnelles",
+        "TITLE": "Gestion du Temps",
+        "DESCRIPTION": "Planification structurée de projets, décomposition des tâches et livraison agile. Capacité prouvée à respecter les jalons tout en maintenant une qualité de code stricte et une architecture propre."
+      }
+    ]
   },
-  "CONTACT":{
+  "CONTACT": {
     "contactMe": "Contactez-moi",
     "workTogether": "Travaillons ensemble ! Contactez-moi et je vous répondrai bientôt.",
     "fullName": "Nom complet",
@@ -239,8 +240,8 @@
     "validationSubject": "Veuillez entrer un sujet.",
     "validationMessage": "Veuillez entrer un message.",
     "placeholderFullName": "Jean Dupont",
-  "placeholderEmail": "jeandupont@exemple.com",
-  "placeholderSubject": "Travaillons ensemble !",
-  "placeholderMessage": "Bonjour, je souhaite discuter d'un projet..."
+    "placeholderEmail": "jeandupont@exemple.com",
+    "placeholderSubject": "Travaillons ensemble !",
+    "placeholderMessage": "Bonjour, je souhaite discuter d'un projet..."
   }
 }

@@ -1,15 +1,17 @@
 {
   "home": {
+    "welcomeMessage": "Hi, I am",
     "welecomeMessage": "Hi, I am",
     "cta_about": "About me",
-    "cta_contact": "Contact"
+    "cta_contact": "Contact",
+    "availability": "Based in Morocco · Available for local contracts & worldwide remote roles."
   },
   "WORK": {
     "EYEBROW": "SELECTED WORK",
     "SECTION_TITLE": "What I've Built",
     "SECTION_SUBTITLE": "Products and systems I've designed and engineered.",
     "VIEW_CASE_STUDY": "View Case Study",
-    "VIEW_CODE": "View Code",
+    "VIEW_CODE": "Source Code",
     "SCROLL_HINT": "Scroll to explore",
     "INTRO_EYEBROW": "Showcase Reel",
     "INTRO_TITLE": "Crafting Scalable Digital Products",
@@ -18,26 +20,26 @@
     "OUTRO_SUBTITLE": "Let's collaborate on your next mobile app or full-stack platform.",
     "OUTRO_CTA": "Get in touch",
     "WIFI_MANAGER": {
-      "DESCRIPTION": "Desktop network management software for monitoring networks, devices, security controls and operational activity.",
+      "DESCRIPTION": "Offline-first enterprise desktop application for network monitoring, device management, security controls and operational analytics. Features local AES-256-GCM encryption and Argon2 hashing.",
       "IMAGE_ALT": "WiFi Manager enterprise desktop network management and analytics dashboard"
     },
     "QUOTEVERSE": {
-      "DESCRIPTION": "A multilingual, offline-first quotes application built with Flutter and Riverpod.",
-      "IMAGE_ALT": "QuoteVerse mobile application showing multilingual quotes interface"
+      "DESCRIPTION": "A multilingual, offline-first quotes application built with Flutter and Riverpod. Features Isar local storage, Supabase sync, GoRouter navigation, and AdMob integration.",
+      "IMAGE_ALT": "QuoteVerse mobile application showing multilingual daily quotes interface"
     },
     "BLUEPRINT": {
-      "DESCRIPTION": "A modern full-stack learning platform featuring course authoring, interactive lessons, and real-time student analytics.",
+      "DESCRIPTION": "Containerized full-stack academic management portal with separated frontend and backend services. Features course authoring, real-time student analytics, and Docker Compose orchestration.",
       "IMAGE_ALT": "BluePrint Academy learning ecosystem web interface"
     },
-    "OMNIPULSE": {
-      "DESCRIPTION": "High-performance cross-platform data synchronization engine with offline cache, push triggers, and cloud integration.",
-      "IMAGE_ALT": "OmniPulse cross-platform application interface"
+    "HASBI": {
+      "DESCRIPTION": "Personal finance and expense management mobile app with offline-first budgeting, intuitive transaction tracking, and local analytics. Built with Flutter and Riverpod.",
+      "IMAGE_ALT": "Hasbi personal finance mobile app showing expense tracking dashboard"
     }
   },
   "about": {
     "eyebrow": "ABOUT / ENGINEERING PROFILE",
     "title": "I build software and systems that work beyond the prototype.",
-    "description": "Software engineer working across mobile, web, backend and desktop applications, with hands-on experience in infrastructure, networking, servers and deployment.",
+    "description": "Software engineer with 2+ years of experience across mobile, web, backend and desktop applications, with hands-on expertise in infrastructure, networking, servers and deployment.",
     "capabilities": "MOBILE · WEB · BACKEND · DESKTOP · INFRASTRUCTURE · NETWORKING",
     "cta": {
       "work": "View my work",
@@ -95,10 +97,10 @@
     },
     "stack": {
       "title": "TECHNOLOGY",
-      "applications": "APPLICATIONS",
-      "backend": "BACKEND",
+      "applications": "MOBILE & DESKTOP",
+      "backend": "BACKEND & APIs",
       "data": "DATA",
-      "infrastructure": "INFRASTRUCTURE",
+      "infrastructure": "INFRASTRUCTURE & DevOps",
       "networking": "NETWORKING"
     },
     "stats": {
@@ -139,7 +141,7 @@
   "RESUME": {
     "TITLE": "Resume",
     "NAME": "Kamal Naim",
-    "DESCRIPTION": "Software Developer with 1+ year of experience in Flutter, Dart, Java, Node.js, Angular, and MongoDB, specializing in scalable applications.",
+    "DESCRIPTION": "Software Developer with 2+ years of experience in Flutter, Dart, TypeScript, Node.js, Angular, and MongoDB, specializing in scalable cross-platform applications.",
     "EMAIL": "Email",
     "PHONE": "Phone",
     "DOWNLOAD_BUTTON": "Download Resume",
@@ -163,85 +165,83 @@
       },
       {
         "YEAR": "2015-2016",
-        "TITLE": "Baccalaureate - Lycee Wafiq Marrakech",
+        "TITLE": "Baccalaureate - Lycée Wafiq Marrakech",
         "DESCRIPTION": "Physical Sciences and Chemistry."
       }
     ],
     "EXPERIENCE": [
       {
         "YEAR": "2022-Present",
-        "TITLE": "Freelancer Web Mobile Developer",
-        "DESCRIPTION": "Specialized in Flutter, Express, Angular, and Android, developing modern and custom applications with optimized interfaces."
+        "TITLE": "Freelance Web & Mobile Developer",
+        "DESCRIPTION": "Specialized in Flutter, Express, Angular, and Android, developing modern and custom applications with optimized interfaces. Successfully delivered cross-platform products for local and international clients."
       },
       {
         "YEAR": "2018",
-        "TITLE": "IT Technician at Hotel Fairmont Royal Palm",
+        "TITLE": "IT Technician — Hotel Fairmont Royal Palm",
         "DESCRIPTION": "In the IT department, ensured maintenance of IT systems, networks, and coordinated the installation of IT services (VOIP, IP cameras)."
       }
     ],
-    "TECHNICAL_SKILLS":"SKILLS",
-    "SKILLS":  [
-        {
-          "NAME": "Technical Skills",
-          "TITLE": "Backend Technologies",
-          "DESCRIPTION": "Experience with Node.js and MongoDB for building scalable server-side solutions."
-        },
-        {
-          "NAME": "Technical Skills",
-          "TITLE": "Mobile Development",
-          "DESCRIPTION": "Specialized in Flutter development with strong focus on clean architecture principles and efficient state management."
-        },
-        {
-          "NAME": "Technical Skills",
-          "TITLE": "Frontend Development",
-          "DESCRIPTION": "Proficient in Angular and UI/UX design, creating responsive and user-centric web applications."
-        },
-        {
-          "NAME": "Technical Skills",
-          "TITLE": "Programming Languages",
-          "DESCRIPTION": "Strong foundation in Dart, Java, TypeScript, and JavaScript, with expertise in writing clean, maintainable code."
-        },
-        {
-          "NAME": "Technical Skills",
-          "TITLE": "UI/UX Design (Figma)",
-          "DESCRIPTION": "Proficient in using Figma for designing intuitive, modern, and responsive user interfaces. Skilled in creating wireframes, prototypes, and high-fidelity designs that enhance user experiences and streamline collaboration with development teams."
-        },
-        {
-          "NAME": "Technical Skills",
-          "TITLE": "Responsive Web Design",
-          "DESCRIPTION": "Skilled in creating responsive layouts using CSS Grid, Flexbox, and media queries. Ensures websites adapt seamlessly to various screen sizes and devices."
-        },
-        {
-          "NAME": "Soft Skills",
-          "TITLE": "Attention to Detail",
-          "DESCRIPTION": "Meticulous attention to detail in code quality, user interface design, and testing to ensure error-free and user-friendly web applications."
-        },
-        {
-          "NAME": "Soft Skills",
-          "TITLE": "Time Management",
-          "DESCRIPTION": "Skilled in creating responsive layouts using CSS Grid, Flexbox, and media queries. Ensures websites adapt seamlessly to various screen sizes and devices."
-        }
-      ]
-  
-},
-"CONTACT":{
-  "contactMe": "Contact Me",
-  "workTogether": "Let’s work together! Reach out and I’ll get back to you soon.",
-  "fullName": "Full Name",
-  "email": "Email",
-  "subject": "Subject",
-  "message": "Message",
-  "sendMessage": "Send Message",
-  "messageSentSuccess": "Message sent successfully!",
-  "messageSentError": "Oops! Something went wrong. Please try again.",
-  "validationFullName": "Please enter your full name.",
-  "validationEmail": "Please enter a valid email address.",
-  "validationSubject": "Please enter a subject.",
-  "validationMessage": "Please enter a message.",
-  "placeholderFullName": "John Doe",
-  "placeholderEmail": "johndoe@example.com",
-  "placeholderSubject": "Let’s work together!",
-  "placeholderMessage": "Hi, I’d like to discuss a project..."
-}
-
+    "TECHNICAL_SKILLS": "SKILLS",
+    "SKILLS": [
+      {
+        "NAME": "Technical Skills",
+        "TITLE": "Backend Technologies",
+        "DESCRIPTION": "Experience with Node.js, Express, NestJS, and MongoDB for building scalable server-side solutions and REST APIs."
+      },
+      {
+        "NAME": "Technical Skills",
+        "TITLE": "Mobile Development",
+        "DESCRIPTION": "Specialized in Flutter development with strong focus on clean architecture principles and efficient state management using Riverpod."
+      },
+      {
+        "NAME": "Technical Skills",
+        "TITLE": "Frontend Development",
+        "DESCRIPTION": "Proficient in Angular and React with TypeScript, creating responsive and user-centric web applications with Tailwind CSS."
+      },
+      {
+        "NAME": "Technical Skills",
+        "TITLE": "Programming Languages",
+        "DESCRIPTION": "Strong foundation in Dart, TypeScript, JavaScript, and Java, with expertise in writing clean, maintainable code."
+      },
+      {
+        "NAME": "Technical Skills",
+        "TITLE": "UI/UX Design (Figma)",
+        "DESCRIPTION": "Proficient in using Figma for designing intuitive, modern, and responsive user interfaces. Skilled in creating wireframes, prototypes, and high-fidelity designs that enhance user experiences."
+      },
+      {
+        "NAME": "Technical Skills",
+        "TITLE": "Responsive Web Design",
+        "DESCRIPTION": "Skilled in creating responsive layouts using CSS Grid, Flexbox, Tailwind CSS, and media queries. Ensures websites adapt seamlessly to various screen sizes and devices."
+      },
+      {
+        "NAME": "Soft Skills",
+        "TITLE": "Attention to Detail",
+        "DESCRIPTION": "Meticulous attention to detail in code quality, user interface design, and testing to ensure error-free and user-friendly applications."
+      },
+      {
+        "NAME": "Soft Skills",
+        "TITLE": "Time Management",
+        "DESCRIPTION": "Structured project planning, task decomposition, and agile delivery. Proven ability to meet milestones while maintaining strict code quality and clean architecture."
+      }
+    ]
+  },
+  "CONTACT": {
+    "contactMe": "Contact Me",
+    "workTogether": "Let's work together! Reach out and I'll get back to you soon.",
+    "fullName": "Full Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "messageSentSuccess": "Message sent successfully!",
+    "messageSentError": "Oops! Something went wrong. Please try again.",
+    "validationFullName": "Please enter your full name.",
+    "validationEmail": "Please enter a valid email address.",
+    "validationSubject": "Please enter a subject.",
+    "validationMessage": "Please enter a message.",
+    "placeholderFullName": "John Doe",
+    "placeholderEmail": "johndoe@example.com",
+    "placeholderSubject": "Let's work together!",
+    "placeholderMessage": "Hi, I'd like to discuss a project..."
+  }
 }

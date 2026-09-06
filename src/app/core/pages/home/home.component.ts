@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   shouldAutoplay = true;
 
-  words: string[] = ['Full-Stack Developer', 'Mobile Developer'];
+  words: string[] = ['Software Engineer', 'Cross-Platform Developer', 'Flutter Developer', 'Full-Stack Developer'];
   displayText = '';
 
   private currentWordIndex = 0;
