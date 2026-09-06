@@ -41,6 +41,13 @@
       "work": "View my work",
       "github": "GitHub"
     },
+    "scope": {
+      "title": "ENGINEERING SCOPE",
+      "software_desc": "Mobile · Web · Desktop",
+      "systems_desc": "APIs · Architecture · Data",
+      "infra_desc": "Networks · Servers · Virtualization",
+      "delivery_desc": "Docker · CI/CD · Cloud"
+    },
     "profile": {
       "title": "ENGINEERING PROFILE",
       "software": "SOFTWARE",

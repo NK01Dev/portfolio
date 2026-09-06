@@ -37,6 +37,12 @@ export interface TechGroup {
   items: TechItem[];
 }
 
+export interface ScopeItem {
+  number: string;
+  categoryKey: string;
+  descKey: string;
+}
+
 @Component({
   selector: 'app-about',
   standalone: false,
@@ -45,6 +51,29 @@ export interface TechGroup {
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
   private gsapContext: gsap.Context | null = null;
+
+  readonly scopeItems: ScopeItem[] = [
+    {
+      number: '01',
+      categoryKey: 'about.profile.software',
+      descKey: 'about.scope.software_desc',
+    },
+    {
+      number: '02',
+      categoryKey: 'about.profile.systems',
+      descKey: 'about.scope.systems_desc',
+    },
+    {
+      number: '03',
+      categoryKey: 'about.profile.infrastructure',
+      descKey: 'about.scope.infra_desc',
+    },
+    {
+      number: '04',
+      categoryKey: 'about.profile.delivery',
+      descKey: 'about.scope.delivery_desc',
+    },
+  ];
 
   readonly capabilityItems: string[] = [
     'MOBILE',
@@ -256,6 +285,19 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
               clearProps: 'transform',
             },
             '-=0.3'
+          )
+          .fromTo(
+            root.querySelectorAll('.scope-row-reveal'),
+            { opacity: 0, x: 12 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.5,
+              stagger: 0.06,
+              ease: 'power2.out',
+              clearProps: 'transform',
+            },
+            '-=0.4'
           );
 
         // 2. ENGINEERING PROFILE SEQUENCE

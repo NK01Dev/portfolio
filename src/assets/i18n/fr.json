@@ -41,6 +41,13 @@
       "work": "Voir mes projets",
       "github": "GitHub"
     },
+    "scope": {
+      "title": "PÉRIMÈTRE TECHNIQUE",
+      "software_desc": "Mobile · Web · Desktop",
+      "systems_desc": "API · Architecture · Données",
+      "infra_desc": "Réseaux · Serveurs · Virtualisation",
+      "delivery_desc": "Docker · CI/CD · Cloud"
+    },
     "profile": {
       "title": "PROFIL INGÉNIERIE",
       "software": "LOGICIEL",

@@ -1,5 +1,14 @@
 :host {
   display: block;
+  width: 100%;
+}
+
+/* Heading typography and word wrapping */
+.about-heading {
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  line-height: 1.05;
 }
 
 /* Micro-interaction transition declarations for hardware acceleration */
@@ -7,6 +16,7 @@
 .infra-node,
 .tech-pill,
 .tech-group-card,
+.scope-row-card,
 .proof-item {
   will-change: transform, border-color, box-shadow;
 }
@@ -16,7 +26,8 @@
   box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12);
 }
 
-.profile-pillar-reveal:hover {
+.profile-pillar-reveal:hover,
+.scope-row-card:hover {
   box-shadow: 0 6px 22px rgba(124, 58, 237, 0.07);
 }
 
@@ -34,6 +45,8 @@
   #about-section *,
   .about-intro-reveal,
   .about-cap-item,
+  .scope-row-reveal,
+  .scope-row-card,
   .profile-pillar-reveal,
   .infra-node,
   .infra-line-draw,
