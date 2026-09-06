@@ -1,6 +1,8 @@
 {
   "home": {
-    "welecomeMessage": "Salut, je suis"
+    "welecomeMessage": "Salut, je suis",
+    "cta_about": "À propos",
+    "cta_contact": "Contact"
   },
   "WORK": {
     "EYEBROW": "PROJETS SÉLECTIONNÉS",

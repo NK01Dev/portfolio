@@ -1,6 +1,8 @@
 {
   "home": {
-    "welecomeMessage": "Hi, I am"
+    "welecomeMessage": "Hi, I am",
+    "cta_about": "About me",
+    "cta_contact": "Contact"
   },
   "WORK": {
     "EYEBROW": "SELECTED WORK",
