@@ -1,4 +1,39 @@
+# ── Standard Crawling ─────────────────────────────────────────────────────
 User-agent: *
 Allow: /
 
+# ── Generative Engine Optimization (GEO) ──────────────────────────────────
+# Explicit AI search engine access for LLM citation and discovery
+
+# OpenAI — ChatGPT Search
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic — Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google — Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Meta — Llama
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Common Crawl (used by many LLMs for training)
+User-agent: CCBot
+Allow: /
+
+# ── Sitemap ───────────────────────────────────────────────────────────────
 Sitemap: https://kamalnaim.vercel.app/sitemap.xml
