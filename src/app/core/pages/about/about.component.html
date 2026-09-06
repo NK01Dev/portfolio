@@ -1,42 +1,364 @@
-<div id="about-section" class="flex flex-col items-center justify-start py-20 min-h-screen text-gray-800 dark:text-gray-100 px-4 w-full max-w-7xl mx-auto">
-    <!-- Main Title -->
-    <h1 class="block text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 pl-2 my-2 border-l-4 font-heading border-indigo-600 dark:border-pink-400 dark:text-gray-100">
-        {{ 'NAVBAR.ABOUT' | translate }}   
-    </h1>
-    
-    <!-- Subtitle -->
-    <h2 class="block text-2xl sm:text-xl md:text-2xl lg:text-3xl p-4 font-bold text-indigo-600 dark:text-pink-300 mt-4 text-left w-full sm:w-10/12 md:w-8/12 lg:w-full">
-      {{ 'about.title' | translate }}  
-    </h2>
-  
-    <!-- Paragraph -->
-    <p class="block text-base sm:text-sm md:text-base lg:text-lg font-normal p-4 text-gray-700 dark:text-gray-300 mt-2 text-justify w-full sm:w-full md:w-8/12 lg:w-full leading-relaxed">
-      {{ 'about.description' | translate }}  
-    </p>
-    <h2 class="block text-2xl sm:text-xl md:text-2xl lg:text-3xl p-4 font-bold text-indigo-600 dark:text-pink-300 mt-4 text-left w-full sm:w-10/12 md:w-8/12 lg:w-full">
-      {{ 'about.tool' | translate }}  
-    </h2>
-    <p class="block text-base sm:text-sm md:text-base lg:text-lg font-normal p-4 text-gray-700 dark:text-gray-300 mt-2 text-justify w-full sm:w-full md:w-8/12 lg:w-full leading-relaxed">
-      {{ 'about.tools' | translate }}  
-    </p>
+<section
+  id="about-section"
+  aria-labelledby="about-title"
+  class="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FAFAFA] dark:bg-[#09090B] text-[#18181B] dark:text-[#FAFAFA] transition-colors duration-300 overflow-hidden"
+>
+  <!-- Subtle ambient violet glow accents (no pink, no heavy glassmorphism) -->
+  <div
+    class="pointer-events-none absolute -top-32 right-1/4 w-96 h-96 bg-violet-600/5 dark:bg-violet-600/10 rounded-full blur-3xl"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute -bottom-32 left-1/4 w-96 h-96 bg-violet-500/5 dark:bg-violet-500/10 rounded-full blur-3xl"
+    aria-hidden="true"
+  ></div>
 
-    <div #zoomElement id="zoomElement" class="random-demo grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8 p-4 w-full">
-      <div
-        *ngFor="let card of cards"
-        class="animate-card block bg-white/80 dark:bg-white/10 hover:bg-white dark:hover:bg-white/20 transition-all duration-300 ease-in-out rounded-2xl shadow-md dark:shadow-none flex items-center justify-start p-4 sm:p-3 hover:shadow-lg border border-gray-200/70 dark:border-white/10 backdrop-blur-sm"
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- ── SECTION HEADER ───────────────────────────────────────────── -->
+    <header class="max-w-4xl">
+      <!-- Eyebrow -->
+      <div class="about-reveal flex items-center gap-2 mb-3 sm:mb-4">
+        <span
+          class="inline-block w-2 h-2 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA] animate-pulse"
+          aria-hidden="true"
+        ></span>
+        <p
+          class="text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#7C3AED] dark:text-[#A78BFA]"
+        >
+          {{ 'about.eyebrow' | translate }}
+        </p>
+      </div>
+
+      <!-- Main Heading: "I build software that works beyond the prototype." -->
+      <h2
+        id="about-title"
+        class="about-reveal text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#18181B] dark:text-[#FAFAFA] tracking-tight leading-[1.12]"
       >
-        <img
-          [src]="card.svg"
-          alt="{{ card.title }}"
-          class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 mr-3 object-contain"
-        />
-        <div class="flex flex-col">
-          <h3 class="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-100 text-center">{{ card.title }}</h3>
+        {{ 'about.title' | translate }}
+      </h2>
+
+      <!-- Supporting Paragraph -->
+      <p
+        class="about-reveal text-base sm:text-lg text-[#71717A] dark:text-[#A1A1AA] mt-4 sm:mt-5 max-w-3xl leading-relaxed text-left"
+      >
+        {{ 'about.description' | translate }}
+      </p>
+
+      <!-- Compact Capability Line -->
+      <div class="about-reveal flex items-center gap-2 mt-5 sm:mt-6 flex-wrap">
+        <span
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-violet-50 text-[#7C3AED] border border-violet-200/80 dark:bg-[#18181B] dark:text-[#A78BFA] dark:border-[#27272A]"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA]" aria-hidden="true"></span>
+          {{ 'about.capabilities' | translate }}
+        </span>
+      </div>
+
+      <!-- CTAs: View my work & GitHub -->
+      <div class="about-reveal flex items-center gap-4 mt-7 sm:mt-8 flex-wrap">
+        <!-- View my work -->
+        <button
+          type="button"
+          (click)="scrollToWork()"
+          class="min-h-[44px] px-6 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] dark:bg-[#7C3AED] dark:hover:bg-[#8B5CF6] text-white text-sm font-semibold shadow-md shadow-[#7C3AED]/20 hover:shadow-[#7C3AED]/35 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] flex items-center gap-2 cursor-pointer"
+          [attr.aria-label]="'about.cta.work' | translate"
+        >
+          <span>{{ 'about.cta.work' | translate }}</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+
+        <!-- GitHub ↗ -->
+        <a
+          href="https://github.com/NK01Dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="min-h-[44px] px-5 py-2.5 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] flex items-center gap-2.5 shadow-sm"
+          [attr.aria-label]="'about.cta.github' | translate"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+          <span>{{ 'about.cta.github' | translate }}</span>
+          <span class="text-xs leading-none">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- ── 2-COLUMN SECTION: ENGINEERING FOCUS & TECHNOLOGY ──────────── -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-14 sm:mt-16 items-start">
+      <!-- ── LEFT COLUMN: ENGINEERING FOCUS ───────────────────────────── -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="about-reveal flex items-center justify-between pb-2 border-b border-[#E4E4E7] dark:border-[#27272A]">
+          <h3 class="text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#71717A] dark:text-[#A1A1AA]">
+            {{ 'about.focus.title' | translate }}
+          </h3>
+          <span class="text-[11px] font-mono font-semibold text-[#7C3AED] dark:text-[#A78BFA]">06 DOMAINS</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div
+            *ngFor="let focus of engineeringFocuses"
+            class="about-reveal focus-card p-4 rounded-xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm transition-all duration-200 hover:-translate-y-[3px] hover:border-violet-400/60 dark:hover:border-violet-500/50 hover:shadow-[0_4px_18px_rgba(124,58,237,0.08)]"
+          >
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-2.5">
+                <!-- Icon badge -->
+                <span
+                  class="w-7 h-7 rounded-lg bg-violet-50 dark:bg-[#27272A] border border-violet-200/70 dark:border-zinc-700 flex items-center justify-center text-[#7C3AED] dark:text-[#A78BFA] shrink-0"
+                  aria-hidden="true"
+                >
+                  <!-- Mobile Icon -->
+                  <svg *ngIf="focus.icon === 'mobile'" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  <!-- Web Icon -->
+                  <svg *ngIf="focus.icon === 'web'" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                  <!-- Backend Icon -->
+                  <svg *ngIf="focus.icon === 'backend'" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                  </svg>
+                  <!-- Desktop Icon -->
+                  <svg *ngIf="focus.icon === 'desktop'" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <!-- Cloud Icon -->
+                  <svg *ngIf="focus.icon === 'cloud'" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg>
+                  <!-- AI Icon -->
+                  <svg *ngIf="focus.icon === 'ai'" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </span>
+                <h4 class="text-sm font-bold text-[#18181B] dark:text-[#FAFAFA]">
+                  {{ focus.titleKey | translate }}
+                </h4>
+              </div>
+              <span class="text-[10px] font-mono text-[#71717A] dark:text-[#A1A1AA] bg-[#F4F4F5] dark:bg-[#27272A] px-2 py-0.5 rounded-full border border-[#E4E4E7] dark:border-zinc-700">
+                {{ focus.tag }}
+              </span>
+            </div>
+            <p class="text-xs text-[#71717A] dark:text-[#A1A1AA] leading-relaxed pl-9">
+              {{ focus.descKey | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT COLUMN: TECHNOLOGY ─────────────────────────────────── -->
+      <div class="lg:col-span-7 flex flex-col gap-4">
+        <div class="about-reveal flex items-center justify-between pb-2 border-b border-[#E4E4E7] dark:border-[#27272A]">
+          <h3 class="text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#71717A] dark:text-[#A1A1AA]">
+            {{ 'about.stack.title' | translate }}
+          </h3>
+          <span class="text-[11px] font-mono font-semibold text-[#7C3AED] dark:text-[#A78BFA]">STACK BY DOMAIN</span>
+        </div>
+
+        <div class="flex flex-col gap-3.5">
+          <div
+            *ngFor="let cat of techCategories"
+            class="about-reveal p-4 sm:p-5 rounded-xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm transition-all duration-200"
+          >
+            <!-- Category Title -->
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA]" aria-hidden="true"></span>
+              <h4 class="text-xs font-mono font-bold tracking-wider uppercase text-[#18181B] dark:text-[#FAFAFA]">
+                {{ cat.titleKey | translate }}
+              </h4>
+            </div>
+
+            <!-- Technology Pills / Cards -->
+            <ul class="flex flex-wrap gap-2 sm:gap-2.5" role="list">
+              <li
+                *ngFor="let item of cat.items"
+                class="tech-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F4F4F5] dark:bg-[#1F1F23] border border-[#E4E4E7] dark:border-[#27272A] text-xs font-medium text-[#18181B] dark:text-[#FAFAFA] transition-all duration-200 ease-out hover:-translate-y-[3px] hover:border-violet-400/70 dark:hover:border-violet-500/60 hover:shadow-[0_4px_14px_rgba(124,58,237,0.12)] cursor-default select-none"
+              >
+                <!-- Image Icon if available -->
+                <img
+                  *ngIf="item.iconPath"
+                  [src]="item.iconPath"
+                  [alt]="item.name + ' icon'"
+                  class="w-4 h-4 object-contain shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <!-- Inline SVG Vector fallback for modern technologies -->
+                <!-- React -->
+                <svg
+                  *ngIf="item.svgType === 'react'"
+                  class="w-4 h-4 text-[#00D8FF] shrink-0"
+                  viewBox="0 0 115.3 100"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <ellipse cx="57.6" cy="50" rx="14.3" ry="14.3" />
+                  <ellipse cx="57.6" cy="50" rx="57.6" ry="20" transform="matrix(0.866 -0.5 0.5 0.866 -17.3 36.6)" fill="none" stroke="currentColor" stroke-width="6" />
+                  <ellipse cx="57.6" cy="50" rx="57.6" ry="20" transform="matrix(0.866 0.5 -0.5 0.866 32.7 -20.6)" fill="none" stroke="currentColor" stroke-width="6" />
+                  <ellipse cx="57.6" cy="50" rx="57.6" ry="20" fill="none" stroke="currentColor" stroke-width="6" />
+                </svg>
+
+                <!-- NestJS -->
+                <svg
+                  *ngIf="item.svgType === 'nestjs'"
+                  class="w-4 h-4 text-[#E0234E] shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm5.71 14.86c-.36.36-.85.56-1.36.56-.51 0-1-.2-1.36-.56L12 13.88l-2.98 2.98c-.36.36-.85.56-1.36.56-.51 0-1-.2-1.36-.56-.75-.75-.75-1.97 0-2.72L9.28 11.16 6.3 8.18c-.75-.75-.75-1.97 0-2.72.75-.75 1.97-.75 2.72 0l2.98 2.98 2.98-2.98c.75-.75 1.97-.75 2.72 0 .75.75.75 1.97 0 2.72l-2.98 2.98 2.98 2.98c.75.75.75 1.97 0 2.72z" />
+                </svg>
+
+                <!-- Spring Boot -->
+                <svg
+                  *ngIf="item.svgType === 'spring'"
+                  class="w-4 h-4 text-[#6DB33F] shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M21.57 9.87c-.38-.97-1.12-1.74-2.07-2.14l-6.28-2.65a3.24 3.24 0 00-2.44 0L4.5 7.73c-.95.4-1.69 1.17-2.07 2.14a3.17 3.17 0 00.32 2.77l4.5 7.15c.57.9 1.55 1.45 2.61 1.45h4.28c1.06 0 2.04-.55 2.61-1.45l4.5-7.15a3.17 3.17 0 00.32-2.77zM12 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z" />
+                </svg>
+
+                <!-- PostgreSQL -->
+                <svg
+                  *ngIf="item.svgType === 'postgres'"
+                  class="w-4 h-4 text-[#4169E1] shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+                </svg>
+
+                <!-- AWS -->
+                <svg
+                  *ngIf="item.svgType === 'aws'"
+                  class="w-4 h-4 text-[#FF9900] shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M18.75 14.5c-.2 0-.41-.05-.6-.15l-4.15-2.22-4.15 2.22c-.37.2-.82.16-1.15-.1-.33-.26-.47-.69-.35-1.1l1.1-3.66-2.85-2.38c-.32-.27-.44-.71-.3-1.11.14-.4.51-.66.94-.66h3.75l1.35-3.61c.15-.4.53-.66.96-.66s.81.26.96.66l1.35 3.61h3.75c.43 0 .8.26.94.66.14.4.02.84-.3 1.11l-2.85 2.38 1.1 3.66c.12.41-.02.84-.35 1.1-.17.14-.38.2-.59.2z" />
+                </svg>
+
+                <!-- Docker -->
+                <svg
+                  *ngIf="item.svgType === 'docker'"
+                  class="w-4 h-4 text-[#2496ED] shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M13.98 11.08h1.68V9.4h-1.68v1.68zm-2.24 0h1.68V9.4h-1.68v1.68zm-2.24 0h1.68V9.4H9.5v1.68zm-2.24 0h1.68V9.4H7.26v1.68zm6.72-2.24h1.68V7.16h-1.68v1.68zm-2.24 0h1.68V7.16h-1.68v1.68zm-2.24 0h1.68V7.16H9.5v1.68zm4.48-2.24h1.68V4.92h-1.68v1.68zm7.39 6.84c-.38-.28-.9-.39-1.42-.31-.19-.85-.75-1.57-1.54-1.93l-.4-.18-.28.32c-.36.42-.64.91-.82 1.44h-8.86v-1.68H6.7v1.68c-.96.02-2.02.45-2.67 1.3-.43.56-.63 1.25-.56 1.95.14 1.44 1.28 2.65 2.73 2.92 1.83.34 3.73.41 5.59.2 2.33-.26 4.62-1.07 6.64-2.38.83-.54 1.48-1.28 1.86-2.18.23-.55.24-.86.1-1.15z" />
+                </svg>
+
+                <!-- CI/CD -->
+                <svg
+                  *ngIf="item.svgType === 'cicd'"
+                  class="w-4 h-4 text-[#7C3AED] dark:text-[#A78BFA] shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+
+                <span>{{ item.name }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div class="h-14 sm:h-16 md:h-20 lg:h-24"></div>
-  
+
+    <!-- ── PROOF / METRICS ROW ───────────────────────────────────────── -->
+    <div
+      class="about-reveal grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-14 sm:mt-16 pt-10 border-t border-[#E4E4E7] dark:border-[#27272A]"
+      role="region"
+      aria-label="Engineering metrics and proof"
+    >
+      <!-- Metric 1: Public Repositories -->
+      <div
+        class="proof-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[3px] hover:border-violet-400/60 dark:hover:border-violet-500/50 hover:shadow-[0_4px_18px_rgba(124,58,237,0.08)]"
+      >
+        <div class="flex items-center justify-between">
+          <span
+            class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#18181B] dark:text-[#FAFAFA] font-mono"
+          >
+            38+
+          </span>
+          <span
+            class="w-9 h-9 rounded-xl bg-violet-50 dark:bg-[#27272A] border border-violet-200/80 dark:border-zinc-700 flex items-center justify-center text-[#7C3AED] dark:text-[#A78BFA] shrink-0"
+            aria-hidden="true"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </span>
+        </div>
+        <p class="text-xs font-mono font-bold tracking-wider uppercase text-[#71717A] dark:text-[#A1A1AA] mt-4">
+          {{ 'about.stats.repositories' | translate }}
+        </p>
+      </div>
+
+      <!-- Metric 2: Multi-Platform -->
+      <div
+        class="proof-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[3px] hover:border-violet-400/60 dark:hover:border-violet-500/50 hover:shadow-[0_4px_18px_rgba(124,58,237,0.08)]"
+      >
+        <div class="flex items-center justify-between">
+          <span
+            class="text-xl sm:text-2xl font-extrabold tracking-tight text-[#18181B] dark:text-[#FAFAFA]"
+          >
+            {{ 'about.stats.multiplatform_title' | translate }}
+          </span>
+          <span
+            class="w-9 h-9 rounded-xl bg-violet-50 dark:bg-[#27272A] border border-violet-200/80 dark:border-zinc-700 flex items-center justify-center text-[#7C3AED] dark:text-[#A78BFA] shrink-0"
+            aria-hidden="true"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </span>
+        </div>
+        <p class="text-xs font-mono font-bold tracking-wider uppercase text-[#7C3AED] dark:text-[#A78BFA] mt-4">
+          {{ 'about.stats.multiplatform' | translate }}
+        </p>
+      </div>
+
+      <!-- Metric 3: Clean Architecture -->
+      <div
+        class="proof-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[3px] hover:border-violet-400/60 dark:hover:border-violet-500/50 hover:shadow-[0_4px_18px_rgba(124,58,237,0.08)]"
+      >
+        <div class="flex items-center justify-between">
+          <span
+            class="text-xl sm:text-2xl font-extrabold tracking-tight text-[#18181B] dark:text-[#FAFAFA]"
+          >
+            {{ 'about.stats.architecture_title' | translate }}
+          </span>
+          <span
+            class="w-9 h-9 rounded-xl bg-violet-50 dark:bg-[#27272A] border border-violet-200/80 dark:border-zinc-700 flex items-center justify-center text-[#7C3AED] dark:text-[#A78BFA] shrink-0"
+            aria-hidden="true"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </span>
+        </div>
+        <p class="text-xs font-mono font-bold tracking-wider uppercase text-[#7C3AED] dark:text-[#A78BFA] mt-4">
+          {{ 'about.stats.architecture' | translate }}
+        </p>
+      </div>
+    </div>
   </div>
-  
+</section>

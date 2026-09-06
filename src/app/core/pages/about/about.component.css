@@ -1,11 +1,25 @@
-.animate-card:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
+:host {
+  display: block;
 }
 
+/* Base smooth transition for interactive elements */
+.focus-card,
+.tech-pill,
+.proof-card {
+  will-change: transform, box-shadow;
+}
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}   
+/* Accessibility: Full reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  #about-section,
+  #about-section *,
+  .about-reveal,
+  .focus-card,
+  .tech-pill,
+  .proof-card {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -33,8 +33,44 @@
     }
   },
   "about": {
-    "title": "À propos de moi",
-    "description": "Je suis un développeur d'applications mobiles passionné avec plus de 2 ans d'expérience dans la création et le lancement d'applications réussies. Mes compétences couvrent le développement full-stack, incluant les technologies backend et frontend, ainsi que les plateformes mobiles. Je travaille avec des frameworks tels que Node.js, Express, Angular, Flutter et Android, ce qui me permet de créer des solutions flexibles et évolutives adaptées aux différents besoins des entreprises.",
+    "eyebrow": "À PROPOS / PROFIL INGÉNIERIE",
+    "title": "Je conçois des logiciels qui fonctionnent au-delà du prototype.",
+    "description": "Ingénieur logiciel spécialisé dans la création d'applications mobiles, web, backend et cloud fiables, reposant sur une architecture propre, des bases solides et des systèmes maintenables.",
+    "capabilities": "Mobile · Web · Backend · Desktop · Cloud",
+    "cta": {
+      "work": "Voir mes projets",
+      "github": "GitHub"
+    },
+    "focus": {
+      "title": "AXES D'INGÉNIERIE",
+      "mobile": "Applications mobiles",
+      "mobile_desc": "Applications iOS & Android haute performance avec gestion hors-ligne et interactions fluides à 120Hz.",
+      "web": "Applications web",
+      "web_desc": "Applications web modernes réactives et accessibles avec Angular et TypeScript d'entreprise.",
+      "backend": "Systèmes backend",
+      "backend_desc": "API REST et événementielles résilientes, architectures en couches et pipelines d'authentification sécurisés.",
+      "desktop": "Applications desktop",
+      "desktop_desc": "Outils desktop multiplateformes (Windows / macOS) avec cache SQLite local et chiffrement AES.",
+      "cloud": "Infrastructure cloud",
+      "cloud_desc": "Charges conteneurisées, pipelines d'intégration continue et déploiements cloud automatisés.",
+      "ai": "Applications propulsées par l'IA",
+      "ai_desc": "Intégrations concrètes d'IA, recherche vectorielle et flux agentiques taillés pour la production."
+    },
+    "stack": {
+      "title": "TECHNOLOGIES",
+      "mobile": "MOBILE",
+      "web": "WEB",
+      "backend": "BACKEND",
+      "data": "DONNÉES",
+      "cloud": "CLOUD & DEVOPS"
+    },
+    "stats": {
+      "repositories": "DÉPÔTS PUBLICS",
+      "multiplatform_title": "MULTIPATEFORME",
+      "multiplatform": "MOBILE · WEB · DESKTOP",
+      "architecture_title": "ARCHITECTURE PROPRE",
+      "architecture": "SYSTÈMES MAINTENABLES"
+    },
     "tool": "Technologies et Outils",
     "tools": "Je me concentre sur la création d'applications dynamiques et conviviales qui fonctionnent bien en combinant une architecture solide avec des principes de design moderne."
   },
