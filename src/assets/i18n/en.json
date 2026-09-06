@@ -34,42 +34,68 @@
   },
   "about": {
     "eyebrow": "ABOUT / ENGINEERING PROFILE",
-    "title": "I build software that works beyond the prototype.",
-    "description": "Software engineer focused on building reliable mobile, web, backend and cloud applications with clean architecture, strong engineering foundations and maintainable systems.",
-    "capabilities": "Mobile · Web · Backend · Desktop · Cloud",
+    "title": "I build software and systems that work beyond the prototype.",
+    "description": "Software engineer working across mobile, web, backend and desktop applications, with hands-on experience in infrastructure, networking, servers and deployment.",
+    "capabilities": "MOBILE · WEB · BACKEND · DESKTOP · INFRASTRUCTURE · NETWORKING",
     "cta": {
       "work": "View my work",
       "github": "GitHub"
     },
-    "focus": {
-      "title": "ENGINEERING FOCUS",
+    "profile": {
+      "title": "ENGINEERING PROFILE",
+      "software": "SOFTWARE",
+      "systems": "SYSTEMS",
+      "infrastructure": "INFRASTRUCTURE",
+      "delivery": "DELIVERY",
       "mobile": "Mobile applications",
-      "mobile_desc": "High-performance iOS & Android applications with offline-first state and fluid 120Hz interactions.",
       "web": "Web applications",
-      "web_desc": "Responsive, accessible SPAs and modern web applications with enterprise Angular and TypeScript.",
-      "backend": "Backend systems",
-      "backend_desc": "Resilient RESTful and event-driven APIs, clean layered architectures, and secure auth pipelines.",
+      "backend": "Backend services",
       "desktop": "Desktop applications",
-      "desktop_desc": "Multi-platform desktop tools for Windows and macOS with local SQLite caching and secure crypto.",
-      "cloud": "Cloud infrastructure",
-      "cloud_desc": "Containerized workloads, continuous integration pipelines, and automated cloud deployments.",
-      "ai": "AI-powered applications",
-      "ai_desc": "Practical AI integrations, vector search pipelines, and agentic workflows designed for production."
+      "architecture": "Application architecture",
+      "api": "REST APIs",
+      "database": "Databases",
+      "integration": "System integration",
+      "maintainable": "Maintainable software",
+      "networking": "Networking",
+      "switching": "Switching",
+      "routing": "Routing",
+      "winserver": "Windows Server",
+      "linux": "Ubuntu / Linux",
+      "proxmox": "Proxmox",
+      "docker": "Docker",
+      "cicd": "CI/CD",
+      "cloud": "Cloud",
+      "deployment": "Deployment",
+      "automation": "Automation"
+    },
+    "infrastructure": {
+      "title": "INFRASTRUCTURE & NETWORKS",
+      "description": "Beyond application development, I work with the systems that applications depend on — networks, servers, virtualization and deployment environments.",
+      "flow": {
+        "network": "NETWORK",
+        "switching": "SWITCHING / ROUTING",
+        "servers": "SERVERS",
+        "virtualization": "VIRTUALIZATION",
+        "applications": "APPLICATIONS"
+      }
+    },
+    "mindset": {
+      "label": "ENGINEERING MINDSET",
+      "title": "Good software is more than working code.",
+      "description": "It needs solid architecture, reliable infrastructure, clear boundaries and enough simplicity to remain maintainable."
     },
     "stack": {
       "title": "TECHNOLOGY",
-      "mobile": "MOBILE",
-      "web": "WEB",
+      "applications": "APPLICATIONS",
       "backend": "BACKEND",
       "data": "DATA",
-      "cloud": "CLOUD & DEVOPS"
+      "infrastructure": "INFRASTRUCTURE",
+      "networking": "NETWORKING"
     },
     "stats": {
       "repositories": "PUBLIC REPOSITORIES",
-      "multiplatform_title": "MULTI-PLATFORM",
-      "multiplatform": "MOBILE · WEB · DESKTOP",
-      "architecture_title": "CLEAN ARCHITECTURE",
-      "architecture": "MAINTAINABLE SYSTEMS"
+      "multiplatform": "MULTI-PLATFORM",
+      "infrastructure": "SOFTWARE + INFRASTRUCTURE"
     },
     "tool": "Technologies and Tools",
     "tools": "I focus on building dynamic, user-friendly applications that perform well by combining solid architecture with modern design principles"

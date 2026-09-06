@@ -2,24 +2,49 @@
   display: block;
 }
 
-/* Base smooth transition for interactive elements */
-.focus-card,
+/* Micro-interaction transition declarations for hardware acceleration */
+.profile-pillar-reveal,
+.infra-node,
 .tech-pill,
-.proof-card {
-  will-change: transform, box-shadow;
+.tech-group-card,
+.proof-item {
+  will-change: transform, border-color, box-shadow;
 }
 
-/* Accessibility: Full reduced-motion support */
+/* Subtle violet glow on interactive elements */
+.tech-pill:hover {
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12);
+}
+
+.profile-pillar-reveal:hover {
+  box-shadow: 0 6px 22px rgba(124, 58, 237, 0.07);
+}
+
+.infra-node:hover {
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.1);
+}
+
+.proof-item:hover {
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08);
+}
+
+/* Accessibility: Full reduced motion compliance */
 @media (prefers-reduced-motion: reduce) {
   #about-section,
   #about-section *,
-  .about-reveal,
-  .focus-card,
+  .about-intro-reveal,
+  .about-cap-item,
+  .profile-pillar-reveal,
+  .infra-node,
+  .infra-line-draw,
+  .tech-group-card,
   .tech-pill,
-  .proof-card {
+  .mindset-reveal,
+  .proof-item {
     transition: none !important;
     transform: none !important;
     animation: none !important;
     opacity: 1 !important;
+    scale: 1 !important;
   }
 }

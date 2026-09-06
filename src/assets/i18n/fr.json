@@ -34,42 +34,68 @@
   },
   "about": {
     "eyebrow": "À PROPOS / PROFIL INGÉNIERIE",
-    "title": "Je conçois des logiciels qui fonctionnent au-delà du prototype.",
-    "description": "Ingénieur logiciel spécialisé dans la création d'applications mobiles, web, backend et cloud fiables, reposant sur une architecture propre, des bases solides et des systèmes maintenables.",
-    "capabilities": "Mobile · Web · Backend · Desktop · Cloud",
+    "title": "Je conçois des logiciels et des systèmes qui fonctionnent au-delà du prototype.",
+    "description": "Ingénieur logiciel intervenant sur les applications mobiles, web, backend et desktop, avec une expérience pratique en infrastructure, réseaux, serveurs et déploiement.",
+    "capabilities": "MOBILE · WEB · BACKEND · DESKTOP · INFRASTRUCTURE · RÉSEAUX",
     "cta": {
       "work": "Voir mes projets",
       "github": "GitHub"
     },
-    "focus": {
-      "title": "AXES D'INGÉNIERIE",
+    "profile": {
+      "title": "PROFIL INGÉNIERIE",
+      "software": "LOGICIEL",
+      "systems": "SYSTÈMES",
+      "infrastructure": "INFRASTRUCTURE",
+      "delivery": "LIVRAISON & DEVOPS",
       "mobile": "Applications mobiles",
-      "mobile_desc": "Applications iOS & Android haute performance avec gestion hors-ligne et interactions fluides à 120Hz.",
       "web": "Applications web",
-      "web_desc": "Applications web modernes réactives et accessibles avec Angular et TypeScript d'entreprise.",
-      "backend": "Systèmes backend",
-      "backend_desc": "API REST et événementielles résilientes, architectures en couches et pipelines d'authentification sécurisés.",
+      "backend": "Services backend",
       "desktop": "Applications desktop",
-      "desktop_desc": "Outils desktop multiplateformes (Windows / macOS) avec cache SQLite local et chiffrement AES.",
-      "cloud": "Infrastructure cloud",
-      "cloud_desc": "Charges conteneurisées, pipelines d'intégration continue et déploiements cloud automatisés.",
-      "ai": "Applications propulsées par l'IA",
-      "ai_desc": "Intégrations concrètes d'IA, recherche vectorielle et flux agentiques taillés pour la production."
+      "architecture": "Architecture applicative",
+      "api": "API REST",
+      "database": "Bases de données",
+      "integration": "Intégration de systèmes",
+      "maintainable": "Logiciels maintenables",
+      "networking": "Réseaux informatiques",
+      "switching": "Commutation (Switching)",
+      "routing": "Routage",
+      "winserver": "Windows Server",
+      "linux": "Ubuntu / Linux",
+      "proxmox": "Proxmox",
+      "docker": "Docker",
+      "cicd": "CI/CD",
+      "cloud": "Cloud",
+      "deployment": "Déploiement",
+      "automation": "Automatisation"
+    },
+    "infrastructure": {
+      "title": "INFRASTRUCTURE & RÉSEAUX",
+      "description": "Au-delà du développement applicatif, je maîtrise les socles techniques dont dépendent les applications : réseaux, serveurs, virtualisation et environnements de déploiement.",
+      "flow": {
+        "network": "RÉSEAU",
+        "switching": "COMMUTATION / ROUTAGE",
+        "servers": "SERVEURS",
+        "virtualization": "VIRTUALISATION",
+        "applications": "APPLICATIONS"
+      }
+    },
+    "mindset": {
+      "label": "PHILOSOPHIE TECHNIQUE",
+      "title": "Un logiciel d'excellence va bien au-delà d'un code qui fonctionne.",
+      "description": "Il exige une architecture solide, une infrastructure fiable, des limites nettes et une simplicité étudiée pour rester pérenne et maintenable."
     },
     "stack": {
       "title": "TECHNOLOGIES",
-      "mobile": "MOBILE",
-      "web": "WEB",
+      "applications": "APPLICATIONS",
       "backend": "BACKEND",
       "data": "DONNÉES",
-      "cloud": "CLOUD & DEVOPS"
+      "infrastructure": "INFRASTRUCTURE",
+      "networking": "RÉSEAUX"
     },
     "stats": {
       "repositories": "DÉPÔTS PUBLICS",
-      "multiplatform_title": "MULTIPATEFORME",
-      "multiplatform": "MOBILE · WEB · DESKTOP",
-      "architecture_title": "ARCHITECTURE PROPRE",
-      "architecture": "SYSTÈMES MAINTENABLES"
+      "multiplatform": "MULTIPATEFORME",
+      "infrastructure": "LOGICIEL + INFRASTRUCTURE"
     },
     "tool": "Technologies et Outils",
     "tools": "Je me concentre sur la création d'applications dynamiques et conviviales qui fonctionnent bien en combinant une architecture solide avec des principes de design moderne."
