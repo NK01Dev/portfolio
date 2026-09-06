@@ -1,7 +1,7 @@
 <section
   id="about-section"
   aria-labelledby="about-title"
-  class="w-full bg-[#FAFAFA] dark:bg-[#09090B] text-[#18181B] dark:text-[#FAFAFA] transition-colors duration-300 py-16 sm:py-20 lg:py-24 relative overflow-hidden"
+  class="w-full bg-[#FAFAFA] dark:bg-[#09090B] text-[#18181B] dark:text-[#FAFAFA] transition-colors duration-300 relative overflow-hidden"
 >
   <!-- Subtle ambient radial violet atmosphere (extremely restrained, no glowing blob) -->
   <div
@@ -9,145 +9,237 @@
     aria-hidden="true"
   ></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- ── INTRODUCTION GRID: Controlled Editorial Width & Right-Side Scope Anchor ── -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
-      <!-- ── LEFT COLUMN: Headline + Description + Capability Line + CTAs ── -->
-      <div class="lg:col-span-7 xl:col-span-8 flex flex-col justify-start">
-        <!-- Eyebrow -->
-        <div class="about-intro-reveal flex items-center gap-2 mb-3.5 sm:mb-4">
-          <span
-            class="inline-block w-2 h-2 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA] animate-pulse"
-            aria-hidden="true"
-          ></span>
-          <p
-            class="text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#7C3AED] dark:text-[#A78BFA]"
-          >
-            {{ 'about.eyebrow' | translate }}
-          </p>
-        </div>
+  <!-- ── STICKY NAVIGATION HEADER (mirrors Work section) ── -->
+  <header
+    #aboutHeader
+    class="about-nav-header sticky top-0 z-30 w-full bg-[#FAFAFA]/90 dark:bg-[#09090B]/90 backdrop-blur-md border-b border-[#E4E4E7]/70 dark:border-[#27272A]/70"
+    role="navigation"
+    aria-label="About section navigation"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 
-        <!-- Controlled Heading (Max ~850px, no hardcoded br, natural wrap, hyphens none) -->
-        <h2
-          id="about-title"
-          class="about-intro-reveal about-heading text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-extrabold text-[#18181B] dark:text-[#FAFAFA] tracking-tight max-w-[850px] mb-4 sm:mb-5 leading-[1.05]"
-        >
-          {{ 'about.title' | translate }}
-        </h2>
-
-        <!-- Supporting Copy -->
-        <p
-          class="about-intro-reveal text-base sm:text-lg text-[#71717A] dark:text-[#A1A1AA] max-w-2xl leading-relaxed text-left mb-5 sm:mb-6"
-        >
-          {{ 'about.description' | translate }}
+      <!-- Left: Eyebrow + Active Section Label -->
+      <div class="flex items-center gap-3">
+        <span
+          class="inline-block w-2 h-2 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA] animate-pulse shrink-0"
+          aria-hidden="true"
+        ></span>
+        <p class="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#7C3AED] dark:text-[#A78BFA]">
+          02 — {{ 'about.eyebrow' | translate }}
         </p>
-
-        <!-- Compact Technical Capability Line -->
-        <div
-          class="flex items-center gap-2 sm:gap-2.5 mb-7 sm:mb-8 flex-wrap"
-          role="list"
-          aria-label="Core Engineering Capabilities"
+        <!-- Active sub-section label -->
+        <span
+          class="hidden sm:inline text-xs font-mono text-[#71717A] dark:text-[#A1A1AA] tracking-wider border-l border-[#E4E4E7] dark:border-[#27272A] pl-3 ml-1 transition-all duration-300"
+          aria-live="polite"
         >
-          <ng-container *ngFor="let cap of capabilityItems; let last = last">
-            <span
-              class="about-cap-item text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-[#71717A] dark:text-[#A1A1AA] uppercase select-none"
-              role="listitem"
-            >
-              {{ cap }}
-            </span>
-            <span
-              *ngIf="!last"
-              class="text-[#7C3AED] dark:text-[#A78BFA] text-xs font-bold select-none"
-              aria-hidden="true"
-            >
-              ·
-            </span>
-          </ng-container>
+          {{ activeSectionLabel }}
+        </span>
+      </div>
+
+      <!-- Right: Progress + Prev/Next Controls -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <!-- Section counter + progress bar -->
+        <div class="flex items-center gap-3">
+          <span
+            class="text-xs font-mono font-semibold text-[#71717A] dark:text-[#A1A1AA] tracking-wider"
+            aria-live="polite"
+          >
+            {{ currentSectionFormatted }} / {{ totalSectionsFormatted }}
+          </span>
+          <div
+            class="w-24 sm:w-32 h-1.5 bg-[#E4E4E7] dark:bg-[#27272A] rounded-full overflow-hidden"
+            role="progressbar"
+            [attr.aria-valuenow]="sectionProgress"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="about-progress-bar h-full bg-[#7C3AED] dark:bg-[#A78BFA] rounded-full transition-all duration-300 ease-out"
+              [style.width.%]="sectionProgress"
+            ></div>
+          </div>
         </div>
 
-        <!-- Dual CTAs: [ View my work ] [ GitHub ↗ ] -->
-        <div class="about-intro-reveal flex items-center gap-4 flex-wrap">
-          <!-- Primary: View my work -->
+        <!-- Prev / Next navigation buttons -->
+        <div
+          class="flex items-center gap-2"
+          role="group"
+          aria-label="About section navigation controls"
+        >
           <button
             type="button"
-            (click)="scrollToWork()"
-            class="min-h-[44px] px-6 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] dark:bg-[#7C3AED] dark:hover:bg-[#8B5CF6] text-white text-sm font-semibold shadow-md shadow-[#7C3AED]/20 hover:shadow-[#7C3AED]/35 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] flex items-center gap-2 cursor-pointer hover:-translate-y-[2px]"
-            [attr.aria-label]="'about.cta.work' | translate"
+            (click)="prevSection()"
+            [disabled]="currentSectionIndex === 0"
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-violet-50 dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] disabled:opacity-25 disabled:cursor-not-allowed transition-all flex items-center justify-center focus-visible:outline-2 focus-visible:outline-[#7C3AED] shadow-sm"
+            aria-label="Previous section"
           >
-            <span>{{ 'about.cta.work' | translate }}</span>
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          <!-- Secondary: GitHub ↗ -->
-          <a
-            href="https://github.com/NK01Dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="min-h-[44px] px-5 py-2.5 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] flex items-center gap-2.5 shadow-sm hover:-translate-y-[2px]"
-            [attr.aria-label]="'about.cta.github' | translate"
+          <button
+            type="button"
+            (click)="nextSection()"
+            [disabled]="currentSectionIndex >= aboutSubSections.length - 1"
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-violet-50 dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] disabled:opacity-25 disabled:cursor-not-allowed transition-all flex items-center justify-center focus-visible:outline-2 focus-visible:outline-[#7C3AED] shadow-sm"
+            aria-label="Next section"
           >
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
-              />
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
             </svg>
-            <span>{{ 'about.cta.github' | translate }}</span>
-            <span class="text-xs leading-none">↗</span>
-          </a>
+          </button>
+        </div>
+
+        <!-- Scroll hint (desktop only) -->
+        <div class="hidden lg:flex items-center gap-1.5 text-xs text-[#71717A] dark:text-[#A1A1AA] font-medium">
+          <span>Scroll to explore</span>
+          <svg
+            class="w-3.5 h-3.5 animate-pulse text-[#7C3AED] dark:text-[#A78BFA]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </div>
 
-      <!-- ── RIGHT COLUMN: Engineering Scope Visual Anchor ── -->
-      <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-center mt-2 lg:mt-0">
-        <div
-          class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121217] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col gap-4"
-          aria-label="Engineering Scope Overview"
-        >
-          <!-- Header -->
-          <div class="flex items-center justify-between pb-3 border-b border-[#E4E4E7]/60 dark:border-[#27272A]/70">
-            <span class="text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#71717A] dark:text-[#A1A1AA]">
-              {{ 'about.scope.title' | translate }}
-            </span>
-            <span class="w-2 h-2 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA]" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20 lg:py-24">
+
+    <!-- ── SUB-SECTION 1: INTRODUCTION ── -->
+    <div id="about-intro" class="about-sub-section">
+      <!-- ── INTRODUCTION GRID: Controlled Editorial Width & Right-Side Scope Anchor ── -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+        <!-- ── LEFT COLUMN: Headline + Description + Capability Line + CTAs ── -->
+        <div class="lg:col-span-7 xl:col-span-8 flex flex-col justify-start">
+          <!-- Heading -->
+          <h2
+            id="about-title"
+            class="about-intro-reveal about-heading text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-extrabold text-[#18181B] dark:text-[#FAFAFA] tracking-tight max-w-[850px] mb-4 sm:mb-5 leading-[1.05]"
+          >
+            {{ 'about.title' | translate }}
+          </h2>
+
+          <!-- Supporting Copy -->
+          <p
+            class="about-intro-reveal text-base sm:text-lg text-[#71717A] dark:text-[#A1A1AA] max-w-2xl leading-relaxed text-left mb-5 sm:mb-6"
+          >
+            {{ 'about.description' | translate }}
+          </p>
+
+          <!-- Compact Technical Capability Line -->
+          <div
+            class="flex items-center gap-2 sm:gap-2.5 mb-7 sm:mb-8 flex-wrap"
+            role="list"
+            aria-label="Core Engineering Capabilities"
+          >
+            <ng-container *ngFor="let cap of capabilityItems; let last = last">
+              <span
+                class="about-cap-item text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-[#71717A] dark:text-[#A1A1AA] uppercase select-none"
+                role="listitem"
+              >
+                {{ cap }}
+              </span>
+              <span
+                *ngIf="!last"
+                class="text-[#7C3AED] dark:text-[#A78BFA] text-xs font-bold select-none"
+                aria-hidden="true"
+              >
+                ·
+              </span>
+            </ng-container>
           </div>
 
-          <!-- Scope Rows with Subtle Indicators -->
-          <div class="flex flex-col divide-y divide-[#E4E4E7]/50 dark:divide-[#27272A]/60" role="list">
-            <div
-              *ngFor="let item of scopeItems"
-              class="scope-row-reveal scope-row-card py-3 first:pt-0 last:pb-0 flex items-baseline justify-between gap-3 group transition-all duration-200 hover:-translate-y-[2px]"
-              role="listitem"
+          <!-- Dual CTAs: [ View my work ] [ GitHub ↗ ] -->
+          <div class="about-intro-reveal flex items-center gap-4 flex-wrap">
+            <!-- Primary: View my work -->
+            <button
+              type="button"
+              (click)="scrollToWork()"
+              class="min-h-[44px] px-6 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] dark:bg-[#7C3AED] dark:hover:bg-[#8B5CF6] text-white text-sm font-semibold shadow-md shadow-[#7C3AED]/20 hover:shadow-[#7C3AED]/35 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] flex items-center gap-2 cursor-pointer hover:-translate-y-[2px]"
+              [attr.aria-label]="'about.cta.work' | translate"
             >
-              <div class="flex items-baseline gap-2.5">
-                <span class="font-mono text-xs font-bold text-[#7C3AED] dark:text-[#A78BFA]">
-                  {{ item.number }}
-                </span>
-                <span class="text-xs font-bold tracking-wider uppercase text-[#18181B] dark:text-[#FAFAFA] group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-                  {{ item.categoryKey | translate }}
+              <span>{{ 'about.cta.work' | translate }}</span>
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+
+            <!-- Secondary: GitHub ↗ -->
+            <a
+              href="https://github.com/NK01Dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="min-h-[44px] px-5 py-2.5 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] text-[#18181B] dark:text-[#FAFAFA] text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] flex items-center gap-2.5 shadow-sm hover:-translate-y-[2px]"
+              [attr.aria-label]="'about.cta.github' | translate"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+              <span>{{ 'about.cta.github' | translate }}</span>
+              <span class="text-xs leading-none">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── RIGHT COLUMN: Engineering Scope Visual Anchor ── -->
+        <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-center mt-2 lg:mt-0">
+          <div
+            class="scope-card-reveal p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121217] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col gap-4"
+            aria-label="Engineering Scope Overview"
+          >
+            <!-- Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-[#E4E4E7]/60 dark:border-[#27272A]/70">
+              <span class="text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#71717A] dark:text-[#A1A1AA]">
+                {{ 'about.scope.title' | translate }}
+              </span>
+              <span class="w-2 h-2 rounded-full bg-[#7C3AED] dark:bg-[#A78BFA]" aria-hidden="true"></span>
+            </div>
+
+            <!-- Scope Rows with Subtle Indicators -->
+            <div class="flex flex-col divide-y divide-[#E4E4E7]/50 dark:divide-[#27272A]/60" role="list">
+              <div
+                *ngFor="let item of scopeItems"
+                class="scope-row-reveal scope-row-card py-3 first:pt-0 last:pb-0 flex items-baseline justify-between gap-3 group transition-all duration-200 hover:-translate-y-[2px]"
+                role="listitem"
+              >
+                <div class="flex items-baseline gap-2.5">
+                  <span class="font-mono text-xs font-bold text-[#7C3AED] dark:text-[#A78BFA]">
+                    {{ item.number }}
+                  </span>
+                  <span class="text-xs font-bold tracking-wider uppercase text-[#18181B] dark:text-[#FAFAFA] group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                    {{ item.categoryKey | translate }}
+                  </span>
+                </div>
+                <span class="text-[11px] font-mono text-[#71717A] dark:text-[#A1A1AA] text-right truncate">
+                  {{ item.descKey | translate }}
                 </span>
               </div>
-              <span class="text-[11px] font-mono text-[#71717A] dark:text-[#A1A1AA] text-right truncate">
-                {{ item.descKey | translate }}
-              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── 11: INFRASTRUCTURE & NETWORKS FLOW ────────────────────────── -->
-    <section id="infra-flow-section" class="mt-20 sm:mt-24 lg:mt-28" aria-labelledby="infra-heading">
+    <!-- ── SUB-SECTION 2: INFRASTRUCTURE & NETWORKS FLOW ── -->
+    <section id="infra-flow-section" class="about-sub-section mt-20 sm:mt-24 lg:mt-28" aria-labelledby="infra-heading">
       <div class="flex items-center justify-between pb-3 border-b border-[#E4E4E7] dark:border-[#27272A] mb-5">
         <h3
           id="infra-heading"
@@ -231,8 +323,8 @@
       </div>
     </section>
 
-    <!-- ── 14: TECHNOLOGY (Organized by Context with Compact Pills) ───── -->
-    <section id="tech-stack-section" class="mt-20 sm:mt-24 lg:mt-28" aria-labelledby="tech-heading">
+    <!-- ── SUB-SECTION 3: TECHNOLOGY (Organized by Context with Compact Pills) ── -->
+    <section id="tech-stack-section" class="about-sub-section mt-20 sm:mt-24 lg:mt-28" aria-labelledby="tech-heading">
       <div class="flex items-center justify-between pb-3 border-b border-[#E4E4E7] dark:border-[#27272A] mb-8 sm:mb-10">
         <h3
           id="tech-heading"
@@ -308,7 +400,7 @@
                   fill="currentColor"
                   aria-hidden="true"
                 >
-                  <path d="M21.57 9.87c-.38-.97-1.12-1.74-2.07-2.14l-6.28-2.65a3.24 3.24 0 00-2.44 0L4.5 7.73c-.95.4-1.69 1.17-2.07 2.14a3.17 3.17 0 00.32 2.77l4.5 7.15c.57.9 1.55 1.45 2.61 1.45h4.28c1.06 0 2.04-.55 2.61-1.45l4.5-7.15a3.17 3.17 0 00.32-2.77zM12 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z" />
+                  <path d="M18.75 14.5c-.2 0-.41-.05-.6-.15l-4.15-2.22-4.15 2.22c-.37.2-.82.16-1.15-.1-.33-.26-.47-.69-.35-1.1l1.1-3.66-2.85-2.38c-.32-.27-.44-.71-.3-1.11.14-.4.51-.66.94-.66h3.75l1.35-3.61c.15-.4.53-.66.96-.66s.81.26.96.66l1.35 3.61h3.75c.43 0 .8.26.94.66.14.4.02.84-.3 1.11l-2.85 2.38 1.1 3.66c.12.41-.02.84-.35 1.1-.17.14-.38.2-.59.2z" />
                 </svg>
 
                 <!-- PostgreSQL Vector -->
@@ -365,8 +457,8 @@
       </div>
     </section>
 
-    <!-- ── 18: ENGINEERING MINDSET (Quiet Editorial Section) ─────────── -->
-    <section id="mindset-section" class="mt-20 sm:mt-28 lg:mt-32 max-w-4xl" aria-labelledby="mindset-label">
+    <!-- ── SUB-SECTION 4: ENGINEERING MINDSET (Quiet Editorial Section) ── -->
+    <section id="mindset-section" class="about-sub-section mt-20 sm:mt-28 lg:mt-32 max-w-4xl" aria-labelledby="mindset-label">
       <p
         id="mindset-label"
         class="mindset-reveal text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#7C3AED] dark:text-[#A78BFA] mb-4"
@@ -385,20 +477,20 @@
       </p>
     </section>
 
-    <!-- ── 20: MINIMAL PROOF STRIP ───────────────────────────────────── -->
+    <!-- ── SUB-SECTION 5: MINIMAL PROOF STRIP ── -->
     <div
       id="proof-strip"
-      class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mt-16 sm:mt-20 pt-10 border-t border-[#E4E4E7] dark:border-[#27272A]"
+      class="about-sub-section grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mt-16 sm:mt-20 pt-10 border-t border-[#E4E4E7] dark:border-[#27272A]"
       role="region"
       aria-label="Engineering metrics and verified proof"
     >
       <!-- Proof 1: Public Repositories -->
       <div
-        class="proof-item p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[2px] hover:border-violet-400/50 dark:hover:border-violet-500/40"
+        class="proof-item proof-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[2px] hover:border-violet-400/50 dark:hover:border-violet-500/40"
       >
         <div class="flex items-center justify-between">
           <span
-            class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#18181B] dark:text-[#FAFAFA] font-mono"
+            class="proof-counter text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#18181B] dark:text-[#FAFAFA] font-mono"
           >
             38+
           </span>
@@ -418,7 +510,7 @@
 
       <!-- Proof 2: Multi-Platform -->
       <div
-        class="proof-item p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[2px] hover:border-violet-400/50 dark:hover:border-violet-500/40"
+        class="proof-item proof-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[2px] hover:border-violet-400/50 dark:hover:border-violet-500/40"
       >
         <div class="flex items-center justify-between">
           <span
@@ -442,7 +534,7 @@
 
       <!-- Proof 3: Software + Infrastructure -->
       <div
-        class="proof-item p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[2px] hover:border-violet-400/50 dark:hover:border-violet-500/40"
+        class="proof-item proof-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#18181B] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm flex flex-col justify-between transition-all duration-200 hover:-translate-y-[2px] hover:border-violet-400/50 dark:hover:border-violet-500/40"
       >
         <div class="flex items-center justify-between">
           <span
@@ -460,9 +552,10 @@
           </span>
         </div>
         <p class="text-xs font-mono font-bold tracking-wider uppercase text-[#7C3AED] dark:text-[#A78BFA] mt-4">
-          CLEAN ARCHITECTURE & DEVOPS
+          CLEAN ARCHITECTURE &amp; DEVOPS
         </p>
       </div>
     </div>
+
   </div>
 </section>

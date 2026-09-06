@@ -11,17 +11,40 @@
   line-height: 1.05;
 }
 
-/* Micro-interaction transition declarations for hardware acceleration */
+/* ── Sticky navigation header ────────────────────────────────────────── */
+.about-nav-header {
+  top: 70px; /* below the main navbar */
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Header shadow on scroll (applied via JS class or CSS :has) */
+.about-nav-header.is-scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Progress bar smooth fill */
+.about-progress-bar {
+  will-change: width;
+}
+
+/* ── Sub-section scroll margins (account for sticky headers) ─────────── */
+.about-sub-section {
+  scroll-margin-top: 160px;
+}
+
+/* ── Hardware-accelerated animation targets ───────────────────────────── */
 .profile-pillar-reveal,
 .infra-node,
 .tech-pill,
 .tech-group-card,
 .scope-row-card,
-.proof-item {
-  will-change: transform, border-color, box-shadow;
+.proof-card,
+.proof-item,
+.scope-card-reveal {
+  will-change: transform, opacity, clip-path;
 }
 
-/* Subtle violet glow on interactive elements */
+/* ── Subtle violet glow on interactive elements ──────────────────────── */
 .tech-pill:hover {
   box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12);
 }
@@ -35,17 +58,32 @@
   box-shadow: 0 4px 16px rgba(124, 58, 237, 0.1);
 }
 
+.proof-card:hover,
 .proof-item:hover {
   box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08);
 }
 
-/* Accessibility: Full reduced motion compliance */
+/* ── Tech group card entrance initial state (pre-GSAP) ───────────────── */
+.tech-group-card {
+  transform-origin: center bottom;
+}
+
+/* ── Proof card initial visibility guard ─────────────────────────────── */
+/* Prevent FOUC: cards are invisible until GSAP plays */
+.proof-card {
+  opacity: 0;
+}
+
+/* ── Accessibility: Full reduced motion compliance ────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  .about-nav-header,
+  .about-progress-bar,
   #about-section,
   #about-section *,
   .about-intro-reveal,
   .about-cap-item,
   .scope-row-reveal,
+  .scope-card-reveal,
   .scope-row-card,
   .profile-pillar-reveal,
   .infra-node,
@@ -53,11 +91,13 @@
   .tech-group-card,
   .tech-pill,
   .mindset-reveal,
+  .proof-card,
   .proof-item {
     transition: none !important;
     transform: none !important;
     animation: none !important;
     opacity: 1 !important;
+    clip-path: none !important;
     scale: 1 !important;
   }
 }
