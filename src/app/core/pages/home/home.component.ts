@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimationsService } from '../../../animations.service';
 import { DarkModeService } from '../../../dark-mode.service';
+import { SmoothScrollService } from '../../../services/smooth-scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -45,8 +46,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     private router: Router,
     private animations: AnimationsService,
     private darkModeService: DarkModeService,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private smoothScroll: SmoothScrollService
   ) {}
+
+  scrollToAbout(): void {
+    this.smoothScroll.scrollTo('#about', { offset: -80 });
+  }
+
+  scrollToContact(): void {
+    this.smoothScroll.scrollTo('#contact', { offset: -80 });
+  }
 
   ngOnInit(): void {
     // Check user preference for reduced motion
