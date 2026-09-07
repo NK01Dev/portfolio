@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DarkModeService } from '../../../dark-mode.service';
+import { AnalyticsService } from '../../analytics/analytics.service';
 
 @Component({
   selector: 'app-dark-mode-toggle',
@@ -11,6 +12,7 @@ import { DarkModeService } from '../../../dark-mode.service';
 export class DarkModeToggleComponent implements OnInit, OnDestroy {
   isDarkMode = false;
   private sub?: Subscription;
+  private readonly analytics = inject(AnalyticsService);
 
   constructor(private darkModeService: DarkModeService) {}
 
@@ -26,6 +28,8 @@ export class DarkModeToggleComponent implements OnInit, OnDestroy {
   }
 
   toggleDarkMode(): void {
+    const nextTheme = !this.isDarkMode ? 'dark' : 'light';
     this.darkModeService.toggleDarkMode();
+    this.analytics.trackThemeChange(nextTheme);
   }
 }

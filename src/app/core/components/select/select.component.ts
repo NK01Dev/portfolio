@@ -1,5 +1,6 @@
-import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, inject } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
+import { AnalyticsService } from '../../analytics/analytics.service';
 
 @Component({
   selector: 'app-select',
@@ -13,6 +14,8 @@ export class SelectComponent {
 
   @ViewChild('languageToggle', { static: false }) languageToggle!: ElementRef;
   @ViewChild('languageDropdown', { static: false }) languageDropdown!: ElementRef;
+
+  private readonly analytics = inject(AnalyticsService);
 
   constructor(public languageService: LanguageService) {}
 
@@ -68,6 +71,7 @@ export class SelectComponent {
 
   selectLanguage(langCode: string) {
     this.languageService.changeLanguage(langCode);
+    this.analytics.trackLanguageChange(langCode);
     this.isOpen = false;
   }
 }

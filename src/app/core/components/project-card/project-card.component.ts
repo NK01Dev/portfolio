@@ -8,9 +8,11 @@ import {
   OnInit,
   Output,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { Project } from '../../../models/project.interface';
 import { AnimationsService } from '../../../animations.service';
+import { AnalyticsService } from '../../analytics/analytics.service';
 
 @Component({
   selector: 'app-project-card',
@@ -25,6 +27,8 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() onNext = new EventEmitter<void>();
   @ViewChild('cardEl') cardEl!: ElementRef<HTMLElement>;
 
+  private readonly analytics = inject(AnalyticsService);
+
   imageFailed = false;
   secondaryImageFailed = false;
   selectedScreenIndex = -1;
@@ -32,6 +36,18 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
   private animated = false;
 
   constructor(private animations: AnimationsService) {}
+
+  onCaseStudyClick(): void {
+    this.analytics.trackProjectView(this.project.id, this.project.title);
+  }
+
+  onDemoClick(): void {
+    this.analytics.trackProjectDemoClick(this.project.id);
+  }
+
+  onGithubClick(): void {
+    this.analytics.trackProjectGithubClick(this.project.id);
+  }
 
   ngOnInit(): void {}
 
@@ -82,6 +98,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
   get caseUrl(): string | undefined {
     return this.project?.caseStudyUrl || this.project?.liveUrl;
+  }
+
+  get isInternalCaseUrl(): boolean {
+    return !!this.caseUrl && this.caseUrl.startsWith('/');
   }
 
   get progressPercent(): number {

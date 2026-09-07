@@ -6,6 +6,7 @@ import {
   Inject,
   NgZone,
   OnDestroy,
+  OnInit,
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
@@ -13,6 +14,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Project } from '../../../models/project.interface';
+import { PROJECTS_DATA } from '../../../data/projects.data';
+import { SeoService } from '../../../services/seo.service';
 
 @Component({
   selector: 'app-work',
@@ -20,7 +23,7 @@ import { Project } from '../../../models/project.interface';
   templateUrl: './work.component.html',
   styleUrl: './work.component.css',
 })
-export class WorkComponent implements AfterViewInit, OnDestroy {
+export class WorkComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('containerEl') containerEl!: ElementRef<HTMLElement>;
   @ViewChild('trackEl') trackEl!: ElementRef<HTMLElement>;
 
@@ -31,99 +34,7 @@ export class WorkComponent implements AfterViewInit, OnDestroy {
   private tween: gsap.core.Tween | null = null;
   private resizeObserver: ResizeObserver | null = null;
 
-  readonly projects: Project[] = [
-    {
-      id: 'wifi-manager',
-      number: '01',
-      title: 'WiFi Manager',
-      type: 'desktop',
-      category: 'WINDOWS · DESKTOP',
-      descriptionKey: 'WORK.WIFI_MANAGER.DESCRIPTION',
-      technologies: [
-        'Flutter',
-        'Riverpod',
-        'Drift',
-        'SQLite',
-        'Clean Arch',
-        'AES-256',
-      ],
-      heroImage: '/assets/projects/wifi-manager/hero.webp',
-      image: '/assets/projects/wifi-manager/hero.webp',
-      imageAlt: 'WiFi Manager enterprise desktop network management and analytics dashboard',
-      repositoryUrl: 'https://github.com/NK01Dev/flutter_wifi_manager',
-      caseStudyUrl: 'https://github.com/NK01Dev/flutter_wifi_manager#readme',
-    },
-    {
-      id: 'quoteverse',
-      number: '02',
-      title: 'QuoteVerse',
-      type: 'mobile',
-      category: 'MOBILE · OFFLINE-FIRST',
-      descriptionKey: 'WORK.QUOTEVERSE.DESCRIPTION',
-      technologies: [
-        'Flutter',
-        'Riverpod',
-        'Isar',
-        'Supabase',
-        'GoRouter',
-        'AdMob',
-      ],
-      heroImage: '/assets/projects/quoteverse/hero.webp',
-      image: '/assets/projects/quoteverse/hero.webp',
-      imageAlt: 'QuoteVerse mobile application showing multilingual daily quotes interface',
-      screenshots: [
-        '/assets/projects/quoteverse/01.webp',
-        '/assets/projects/quoteverse/02.webp',
-        '/assets/projects/quoteverse/03.webp',
-        '/assets/projects/quoteverse/04.webp',
-        '/assets/projects/quoteverse/05.webp',
-        '/assets/projects/quoteverse/06.webp',
-      ],
-      repositoryUrl: 'https://github.com/NK01Dev/quote_verse',
-      caseStudyUrl: 'https://github.com/NK01Dev/quote_verse#readme',
-    },
-    {
-      id: 'blueprint',
-      number: '03',
-      title: 'BluePrint Academy',
-      type: 'web',
-      category: 'FULL-STACK · DOCKER · MONOREPO',
-      descriptionKey: 'WORK.BLUEPRINT.DESCRIPTION',
-      technologies: [
-        'TypeScript',
-        'Angular',
-        'Express',
-        'Docker Compose',
-        'MongoDB',
-        'REST API',
-      ],
-      heroImage: '/assets/projects/blueprint/hero.webp',
-      image: '/assets/projects/blueprint/hero.webp',
-      imageAlt: 'BluePrint Academy interactive learning platform web interface',
-      repositoryUrl: 'https://github.com/NK01Dev/blue_print_academy',
-      caseStudyUrl: 'https://github.com/NK01Dev/blue_print_academy#readme',
-    },
-    {
-      id: 'hasbi',
-      number: '04',
-      title: 'Hasbi',
-      type: 'mobile',
-      category: 'MOBILE · PERSONAL FINANCE',
-      descriptionKey: 'WORK.HASBI.DESCRIPTION',
-      technologies: [
-        'Flutter',
-        'Dart',
-        'Riverpod',
-        'Local Storage',
-        'Clean Arch',
-      ],
-      heroImage: '/assets/projects/wifi-manager/hero.webp',
-      image: '/assets/projects/wifi-manager/hero.webp',
-      imageAlt: 'Hasbi personal finance mobile app showing expense tracking dashboard',
-      repositoryUrl: 'https://github.com/NK01Dev/hasbi',
-      caseStudyUrl: 'https://github.com/NK01Dev/hasbi#readme',
-    },
-  ];
+  readonly projects: Project[] = PROJECTS_DATA;
 
   get totalProjectsFormatted(): string {
     const count = this.projects.length;
@@ -137,8 +48,22 @@ export class WorkComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private seoService: SeoService
   ) {}
+
+  ngOnInit(): void {
+    this.seoService.updateSeo({
+      title: 'Featured Projects & Engineering Case Studies — Kamal Naim',
+      description:
+        'Explore software engineering case studies by Kamal Naim across mobile (Flutter, Riverpod), web (Angular, TypeScript, Docker), and desktop (offline-first Drift SQLite).',
+      canonicalUrl: 'https://kamalnaim.vercel.app/projects',
+      breadcrumbs: [
+        { name: 'Home', url: 'https://kamalnaim.vercel.app/' },
+        { name: 'Projects', url: 'https://kamalnaim.vercel.app/projects' },
+      ],
+    });
+  }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;

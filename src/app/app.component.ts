@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { SmoothScrollService } from './services/smooth-scroll.service';
 import { AnimationsService } from './animations.service';
+import { AnalyticsService } from './core/analytics/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { AnimationsService } from './animations.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'Kamal naim';
-
+  private readonly analytics = inject(AnalyticsService);
   constructor(
     translate: TranslateService,
     private smoothScrollService: SmoothScrollService,

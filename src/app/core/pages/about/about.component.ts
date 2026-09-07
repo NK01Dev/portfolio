@@ -6,6 +6,7 @@ import {
   Inject,
   NgZone,
   OnDestroy,
+  OnInit,
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
@@ -13,6 +14,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SmoothScrollService } from '../../../services/smooth-scroll.service';
+import { SeoService } from '../../../services/seo.service';
 
 export interface ProfilePillar {
   number: string;
@@ -192,8 +194,22 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object,
     private el: ElementRef<HTMLElement>,
     private ngZone: NgZone,
-    private smoothScroll: SmoothScrollService
+    private smoothScroll: SmoothScrollService,
+    private seoService: SeoService
   ) {}
+
+  ngOnInit(): void {
+    this.seoService.updateSeo({
+      title: 'About Kamal Naim — Software Engineer & Cross-Platform Developer',
+      description:
+        'Professional profile, software architecture philosophy, infrastructure scope, and technical background of Kamal Naim, Software Engineer based in Morocco.',
+      canonicalUrl: 'https://kamalnaim.vercel.app/about',
+      breadcrumbs: [
+        { name: 'Home', url: 'https://kamalnaim.vercel.app/' },
+        { name: 'About', url: 'https://kamalnaim.vercel.app/about' },
+      ],
+    });
+  }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;

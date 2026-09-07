@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AnalyticsService } from '../../analytics/analytics.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   readonly currentYear = new Date().getFullYear();
+
+  private readonly analytics = inject(AnalyticsService);
+
+  onSocialClick(platform: string): void {
+    this.analytics.trackSocialClick(platform);
+  }
+
+  onEmailClick(): void {
+    this.analytics.trackEmailClick();
+  }
 }

@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import { SeoService } from '../../../services/seo.service';
+import { AnalyticsService } from '../../analytics/analytics.service';
+
 @Component({
   selector: 'app-contact',
   standalone: false,
-  
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   lottieOptions: AnimationOptions = {
     path: '/assets/animation/email.json', // Correct path
     loop: true, // Whether the animation should loop
@@ -25,7 +27,13 @@ export class ContactComponent {
   success = false;
   error = false;
   loading = false;
-  constructor(private fb: FormBuilder) {
+
+  private readonly analytics = inject(AnalyticsService);
+
+  constructor(
+    private fb: FormBuilder,
+    private seoService: SeoService
+  ) {
     // Initialize the form in the constructor where fb is available.
     this.form = this.fb.group({
       from_name: ['', Validators.required],
@@ -33,6 +41,19 @@ export class ContactComponent {
       from_email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
       message: ['', Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    this.seoService.updateSeo({
+      title: 'Contact Kamal Naim — Software Engineer & Cross-Platform Developer',
+      description:
+        'Get in touch with Kamal Naim for software engineering roles, cross-platform app development (Flutter), full-stack projects, and technical consulting.',
+      canonicalUrl: 'https://kamalnaim.vercel.app/contact',
+      breadcrumbs: [
+        { name: 'Home', url: 'https://kamalnaim.vercel.app/' },
+        { name: 'Contact', url: 'https://kamalnaim.vercel.app/contact' },
+      ],
     });
   }
 
@@ -62,6 +83,7 @@ export class ContactComponent {
       console.log('EmailJS Response:', response);
 
       this.success = true;
+      this.analytics.trackContactSubmit();
       this.form.reset();
     } catch (err) {
       console.error('FAILED...', err);

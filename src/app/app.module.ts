@@ -22,6 +22,10 @@ import { DarkModeToggleComponent } from './core/components/dark-mode-toggle/dark
 import { WorkComponent } from './core/pages/work/work.component';
 import { ProjectCardComponent } from './core/components/project-card/project-card.component';
 import { ScrollProgressBarComponent } from './core/components/scroll-progress-bar/scroll-progress-bar.component';
+import { ProjectDetailComponent } from './core/pages/project-detail/project-detail.component';
+import { NotFoundComponent } from './core/pages/not-found/not-found.component';
+import { PrivacyComponent } from './core/pages/privacy/privacy.component';
+import { TrackSectionDirective } from './core/analytics/track-section.directive';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,6 +52,9 @@ export function playerFactory() {
     WorkComponent,
     ProjectCardComponent,
     ScrollProgressBarComponent,
+    ProjectDetailComponent,
+    NotFoundComponent,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,8 @@ export function playerFactory() {
           deps: [HttpClient]
       }
     }),
-    LottieComponent ,
+    LottieComponent,
+    TrackSectionDirective,
   
 
   ],

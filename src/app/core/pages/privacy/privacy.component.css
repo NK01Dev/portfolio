@@ -1,0 +1,4 @@
+/* Component scoped styles for PrivacyComponent */
+:host {
+  display: block;
+}

@@ -7,6 +7,7 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
@@ -15,6 +16,7 @@ import { Subscription } from 'rxjs';
 import { AnimationsService } from '../../../animations.service';
 import { DarkModeService } from '../../../dark-mode.service';
 import { SmoothScrollService } from '../../../services/smooth-scroll.service';
+import { AnalyticsService } from '../../analytics/analytics.service';
 
 export type NavbarState = 'hero' | 'scrolled';
 
@@ -50,6 +52,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     { id: 'experience', labelKey: 'NAVBAR.EXPERIENCE', anchor: '.experience-section' },
     { id: 'contact',    labelKey: 'NAVBAR.CONTACT',    anchor: '.contact-section' },
   ];
+
+  private readonly analytics = inject(AnalyticsService);
 
   // ─── Private ───────────────────────────────────────────────────────────────
   private readonly SCROLL_THRESHOLD = 80;
@@ -153,6 +157,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // ─── Scroll navigation ─────────────────────────────────────────────────────
 
   scrollToSection(anchor: string): void {
+    const sectionName = anchor.replace(/^\./, '').replace(/-section$/, '').replace(/^#/, '');
+    this.analytics.trackNavigationClick(sectionName || anchor);
+
+    if (this.router.url !== '/' && !this.router.url.startsWith('/#')) {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          this.smoothScrollService.scrollTo(anchor, { offset: -88, duration: 1.2 });
+        }, 150);
+      });
+      return;
+    }
     this.smoothScrollService.scrollTo(anchor, { offset: -88, duration: 1.4 });
   }
 

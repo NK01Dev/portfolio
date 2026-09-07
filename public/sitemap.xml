@@ -1,12 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
   <url>
     <loc>https://kamalnaim.vercel.app/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://kamalnaim.vercel.app/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://kamalnaim.vercel.app/?lang=fr"/>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kamalnaim.vercel.app/"/>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/about</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Resume & Credentials -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/resume</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Projects Showcase -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/projects</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Study: WiFi Manager -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/projects/wifi-manager</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Study: QuoteVerse -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/projects/quoteverse</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Study: BluePrint Academy -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/projects/blueprint</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Study: Hasbi -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/projects/hasbi</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/contact</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://kamalnaim.vercel.app/privacy</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

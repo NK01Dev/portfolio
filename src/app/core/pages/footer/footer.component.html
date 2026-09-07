@@ -15,6 +15,7 @@
           href="https://github.com/NK01Dev"
           target="_blank"
           rel="noopener noreferrer"
+          (click)="onSocialClick('github')"
           aria-label="Kamal Naim on GitHub"
           class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[#71717A] dark:text-[#A1A1AA] hover:text-[#7C3AED] dark:hover:text-[#A78BFA] hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#7C3AED] focus-visible:outline-offset-2"
         >
@@ -28,6 +29,7 @@
           href="https://www.linkedin.com/in/kamal-naim-014989310/"
           target="_blank"
           rel="noopener noreferrer"
+          (click)="onSocialClick('linkedin')"
           aria-label="Kamal Naim on LinkedIn"
           class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[#71717A] dark:text-[#A1A1AA] hover:text-[#7C3AED] dark:hover:text-[#A78BFA] hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#7C3AED] focus-visible:outline-offset-2"
         >
@@ -39,6 +41,7 @@
         <!-- Email -->
         <a
           href="mailto:kamal.nk.naim@gmail.com"
+          (click)="onEmailClick()"
           aria-label="Send email to Kamal Naim"
           class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[#71717A] dark:text-[#A1A1AA] hover:text-[#7C3AED] dark:hover:text-[#A78BFA] hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#7C3AED] focus-visible:outline-offset-2"
         >
@@ -51,10 +54,14 @@
       <!-- Divider -->
       <div class="w-full max-w-xs h-px bg-[#E4E4E7] dark:bg-[#27272A]" aria-hidden="true"></div>
 
-      <!-- Copyright -->
-      <p class="text-xs font-mono text-[#71717A] dark:text-[#A1A1AA] text-center">
-        &copy; {{ currentYear }} <span class="font-semibold text-[#18181B] dark:text-[#FAFAFA]">Kamal Naim</span>. All rights reserved.
-      </p>
+      <!-- Copyright & Privacy Policy -->
+      <div class="flex flex-col sm:flex-row items-center gap-2 text-xs font-mono text-[#71717A] dark:text-[#A1A1AA] text-center">
+        <p>&copy; {{ currentYear }} <span class="font-semibold text-[#18181B] dark:text-[#FAFAFA]">Kamal Naim</span>. All rights reserved.</p>
+        <span class="hidden sm:inline" aria-hidden="true">·</span>
+        <a routerLink="/privacy" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors underline-offset-4 hover:underline">
+          Privacy Policy
+        </a>
+      </div>
 
     </div>
   </div>

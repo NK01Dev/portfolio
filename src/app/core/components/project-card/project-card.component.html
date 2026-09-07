@@ -59,10 +59,34 @@
     <!-- Row 5: CTAs & Actions -->
     <div class="pt-6 sm:pt-8 mt-4 flex items-center justify-between gap-4">
       <div class="flex items-center gap-4 sm:gap-5 flex-wrap">
-        <!-- View Case Study Button -->
+        <!-- View Case Study Button (Internal Route) -->
         <a
-          *ngIf="caseUrl"
+          *ngIf="caseUrl && isInternalCaseUrl"
+          [routerLink]="caseUrl"
+          (click)="onCaseStudyClick()"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] dark:bg-[#7C3AED] dark:hover:bg-[#8B5CF6] text-white text-xs sm:text-sm font-semibold shadow-md shadow-[#7C3AED]/25 transition-all focus-visible:outline-2 focus-visible:outline-[#7C3AED]"
+          [attr.aria-label]="'View ' + project.title + ' case study'"
+        >
+          <span>{{ 'WORK.VIEW_CASE_STUDY' | translate }}</span>
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <!-- View Case Study Button (External Link) -->
+        <a
+          *ngIf="caseUrl && !isInternalCaseUrl"
           [href]="caseUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="onDemoClick()"
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] dark:bg-[#7C3AED] dark:hover:bg-[#8B5CF6] text-white text-xs sm:text-sm font-semibold shadow-md shadow-[#7C3AED]/25 transition-all focus-visible:outline-2 focus-visible:outline-[#7C3AED]"
           [attr.aria-label]="'View ' + project.title + ' case study'"
         >
@@ -85,6 +109,7 @@
           [href]="repoUrl"
           target="_blank"
           rel="noopener noreferrer"
+          (click)="onGithubClick()"
           class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#71717A] hover:text-[#18181B] dark:text-[#A1A1AA] dark:hover:text-[#FAFAFA] transition-colors focus-visible:outline-2 focus-visible:outline-[#7C3AED]"
           [attr.aria-label]="'View ' + project.title + ' source code on GitHub'"
         >

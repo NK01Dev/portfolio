@@ -1,18 +1,20 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ── Primary SEO ─────────────────────────────────────────────────── -->
+  <!-- ── Primary SEO & Entity Disambiguation ────────────────────────── -->
   <title>Kamal Naim — Software Engineer &amp; Cross-Platform Developer</title>
-  <meta name="description" content="Portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.">
+  <meta name="description"
+    content="Official portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.">
   <meta name="author" content="Kamal Naim">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://kamalnaim.vercel.app/">
 
-  <!-- ── GEO Targeting ───────────────────────────────────────────────── -->
+  <!-- ── GEO Targeting & Regional Signals ────────────────────────────── -->
   <meta name="geo.region" content="MA">
   <meta name="geo.placename" content="Morocco">
 
@@ -21,11 +23,12 @@
   <link rel="alternate" hreflang="fr" href="https://kamalnaim.vercel.app/?lang=fr">
   <link rel="alternate" hreflang="x-default" href="https://kamalnaim.vercel.app/">
 
-  <!-- ── OpenGraph ───────────────────────────────────────────────────── -->
+  <!-- ── OpenGraph Metadata ─────────────────────────────────────────── -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kamalnaim.vercel.app/">
   <meta property="og:title" content="Kamal Naim — Software Engineer &amp; Cross-Platform Developer">
-  <meta property="og:description" content="Portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.">
+  <meta property="og:description"
+    content="Official portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.">
   <meta property="og:image" content="https://kamalnaim.vercel.app/assets/images/og-preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -36,38 +39,191 @@
   <!-- ── Twitter / X Card ───────────────────────────────────────────── -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kamal Naim — Software Engineer &amp; Cross-Platform Developer">
-  <meta name="twitter:description" content="Portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.">
+  <meta name="twitter:description"
+    content="Official portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.">
   <meta name="twitter:image" content="https://kamalnaim.vercel.app/assets/images/og-preview.jpg">
 
-  <!-- ── Favicon ─────────────────────────────────────────────────────── -->
+  <!-- ── Favicon & Web App Manifest ─────────────────────────────────── -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- ── Schema.org JSON-LD Structured Data ─────────────────────────── -->
+  <!-- ── Google Tag & Analytics ─────────────────────────────────────── -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKMTHLVMP3"></script>
+  <meta name="google-site-verification" content="7B-f4t8idkUvj5S3bSAYVK8OWPDLDVV8yIpuAyPGLv8" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EKMTHLVMP3', { send_page_view: false });
+  </script>
+
+  <!-- ── Microsoft Clarity ──────────────────────────────────────────── -->
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "yer424vkua");
+  </script>
+
+  <!-- ── Schema.org Linked Entity Graph (JSON-LD) ─────────────────────── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kamal Naim",
-    "jobTitle": "Software Engineer & Cross-Platform Developer",
-    "url": "https://kamalnaim.vercel.app/",
-    "email": "kamal.nk.naim@gmail.com",
-    "telephone": "+212670572967",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "MA"
-    },
-    "sameAs": [
-      "https://github.com/NK01Dev",
-      "https://www.linkedin.com/in/kamal-naim-014989310/"
-    ],
-    "knowsAbout": [
-      "Flutter", "Dart", "Angular", "TypeScript", "Node.js",
-      "Docker", "Infrastructure", "Networking", "Cross-Platform Development"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://kamalnaim.vercel.app/#person",
+        "name": "Kamal Naim",
+        "jobTitle": "Software Engineer & Cross-Platform Developer",
+        "url": "https://kamalnaim.vercel.app/",
+        "email": "kamal.nk.naim@gmail.com",
+        "telephone": "+212670572967",
+        "image": "https://kamalnaim.vercel.app/assets/images/og-preview.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "MA",
+          "addressLocality": "Morocco"
+        },
+        "sameAs": [
+          "https://github.com/NK01Dev",
+          "https://www.linkedin.com/in/kamal-naim-014989310/",
+          "https://x.com/NK01Dev"
+        ],
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Ecole Nationale des Sciences Appliquées (ENSA)",
+            "description": "Master Degree in Software Engineering and Information Systems Management (ILMSI)"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Faculté des Sciences de Kenitra",
+            "description": "Bachelor Degree in Information Systems and Software for Enterprise Systems"
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "DevOps Development Program — Talent 4 Startups",
+            "credentialCategory": "Professional Certification",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Simplon / Digital Africa"
+            },
+            "description": "Appliquer les méthodes et outils de développement d'application dans une organisation DevOps"
+          }
+        ],
+        "knowsAbout": [
+          "Flutter", "Dart", "Angular", "TypeScript", "Node.js", "Express",
+          "Docker", "CI/CD", "Linux", "Drift SQLite", "Isar Database",
+          "MongoDB", "Networking & IT Infrastructure", "Cross-Platform Engineering"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://kamalnaim.vercel.app/#website",
+        "url": "https://kamalnaim.vercel.app/",
+        "name": "Kamal Naim Portfolio",
+        "description": "Official engineering portfolio, technical case studies, and resume of Kamal Naim.",
+        "publisher": {
+          "@id": "https://kamalnaim.vercel.app/#person"
+        },
+        "inLanguage": ["en", "fr"]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://kamalnaim.vercel.app/#profilepage",
+        "url": "https://kamalnaim.vercel.app/",
+        "name": "Kamal Naim — Professional Portfolio",
+        "mainEntity": {
+          "@id": "https://kamalnaim.vercel.app/#person"
+        }
+      }
     ]
   }
   </script>
 </head>
+
 <body>
-  <app-root></app-root>
+  <!-- ── Semantic Prerender / Fallback Content for Non-JS Crawlers & LLM Scrapers ── -->
+  <app-root>
+    <div
+      style="max-width: 900px; margin: 0 auto; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #18181b; line-height: 1.6;">
+      <header>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 8px;">
+          Kamal Naim — Software Engineer &amp; Cross-Platform Developer
+        </h1>
+        <p style="font-size: 1.1rem; color: #4b5563; margin-top: 0;">
+          Based in Morocco · Available for local contracts &amp; worldwide remote roles.
+        </p>
+      </header>
+
+      <section style="margin-top: 32px;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+          Professional Summary
+        </h2>
+        <p>
+          Kamal Naim is a Software Engineer with 2+ years of experience across mobile, web, backend, and desktop
+          applications, coupled with hands-on expertise in IT infrastructure, networking, servers, and deployment.
+        </p>
+        <p>
+          <strong>Specialization &amp; Core Stack:</strong> Flutter, Dart, TypeScript, Angular, Node.js, Express,
+          Docker, Linux, SQLite, MongoDB, and Clean Architecture.
+        </p>
+      </section>
+
+      <section style="margin-top: 32px;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+          Verified Featured Projects
+        </h2>
+        <ul>
+          <li>
+            <strong><a href="/projects/wifi-manager">WiFi Manager</a>:</strong> Offline-first enterprise Windows desktop
+            application for network monitoring, device discovery, and cryptographic access control (AES-256-GCM, Argon2,
+            Flutter, Drift SQLite).
+          </li>
+          <li>
+            <strong><a href="/projects/quoteverse">QuoteVerse</a>:</strong> Multilingual, offline-first mobile
+            application engineered with Flutter, Riverpod, Isar database, and Supabase synchronization.
+          </li>
+          <li>
+            <strong><a href="/projects/blueprint">BluePrint Academy</a>:</strong> Containerized full-stack academic
+            platform with separated Angular frontend and Express REST API backend orchestrated via Docker Compose.
+          </li>
+          <li>
+            <strong><a href="/projects/hasbi">Hasbi</a>:</strong> Privacy-first personal finance and expense tracking
+            mobile application engineered with Flutter, Riverpod, and on-device encrypted persistence.
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-top: 32px;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+          Verified Credentials &amp; Education
+        </h2>
+        <ul>
+          <li><strong>DevOps Development Program:</strong> Simplon / Digital Africa — Talent 4 Startups (2025–2026).
+            Ref: 0147/2026.</li>
+          <li><strong>Master Degree (ILMSI):</strong> Software Engineering and Information Systems Management — Ecole
+            Nationale des Sciences Appliquées (ENSA, 2023–2025).</li>
+          <li><strong>Bachelor Degree:</strong> Information Systems and Software for Enterprise Systems — Faculté des
+            Sciences de Kenitra (2021–2022).</li>
+        </ul>
+      </section>
+
+      <section style="margin-top: 32px;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+          External Verified Profiles &amp; Contact
+        </h2>
+        <p>
+          GitHub: <a href="https://github.com/NK01Dev" rel="noopener noreferrer">github.com/NK01Dev</a><br>
+          LinkedIn: <a href="https://www.linkedin.com/in/kamal-naim-014989310/"
+            rel="noopener noreferrer">linkedin.com/in/kamal-naim-014989310</a><br>
+          Email: <a href="mailto:kamal.nk.naim@gmail.com">kamal.nk.naim@gmail.com</a>
+        </p>
+      </section>
+    </div>
+  </app-root>
 </body>
+
 </html>

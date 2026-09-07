@@ -8,6 +8,7 @@ import {
   OnInit,
   PLATFORM_ID,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
@@ -16,6 +17,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimationsService } from '../../../animations.service';
 import { DarkModeService } from '../../../dark-mode.service';
 import { SmoothScrollService } from '../../../services/smooth-scroll.service';
+import { SeoService } from '../../../services/seo.service';
+import { AnalyticsService } from '../../analytics/analytics.service';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +29,8 @@ import { SmoothScrollService } from '../../../services/smooth-scroll.service';
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('darkVideo') darkVideoRef?: ElementRef<HTMLVideoElement>;
   @ViewChild('lightVideo') lightVideoRef?: ElementRef<HTMLVideoElement>;
+
+  private readonly analytics = inject(AnalyticsService);
 
   shouldAutoplay = true;
 
@@ -47,18 +52,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     private animations: AnimationsService,
     private darkModeService: DarkModeService,
     private ngZone: NgZone,
-    private smoothScroll: SmoothScrollService
+    private smoothScroll: SmoothScrollService,
+    private seoService: SeoService
   ) {}
 
+  onSocialClick(platform: string): void {
+    this.analytics.trackSocialClick(platform);
+  }
+
   scrollToAbout(): void {
+    this.analytics.trackNavigationClick('about');
     this.smoothScroll.scrollTo('#about', { offset: -80 });
   }
 
   scrollToContact(): void {
+    this.analytics.trackNavigationClick('contact');
     this.smoothScroll.scrollTo('#contact', { offset: -80 });
   }
 
   ngOnInit(): void {
+    this.seoService.updateSeo({
+      title: 'Kamal Naim — Software Engineer & Cross-Platform Developer',
+      description:
+        'Official portfolio of Kamal Naim, Software Engineer specializing in Flutter, TypeScript, Angular, and Node.js. Building scalable applications, cloud pipelines, and robust infrastructure.',
+      canonicalUrl: 'https://kamalnaim.vercel.app/',
+      breadcrumbs: [{ name: 'Home', url: 'https://kamalnaim.vercel.app/' }],
+    });
+
     // Check user preference for reduced motion
     if (typeof window !== 'undefined' && window.matchMedia) {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

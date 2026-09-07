@@ -1,0 +1,292 @@
+<div *ngIf="project" class="min-h-screen bg-[#FAFAFA] dark:bg-[#09090B] text-[#18181B] dark:text-[#FAFAFA] pt-28 pb-20 px-4 sm:px-6 lg:px-12 transition-colors duration-300">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- ── Breadcrumbs ── -->
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs sm:text-sm font-mono text-[#71717A] dark:text-[#A1A1AA]">
+      <a routerLink="/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</a>
+      <span aria-hidden="true">/</span>
+      <a routerLink="/projects" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
+      <span aria-hidden="true">/</span>
+      <span class="text-[#18181B] dark:text-white font-semibold" aria-current="page">{{ project.title }}</span>
+    </nav>
+
+    <!-- ── Header & Category ── -->
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60">
+          {{ project.category }}
+        </span>
+        <span class="text-xs font-mono text-[#71717A] dark:text-[#A1A1AA]">
+          PROJECT #{{ project.number }}
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-6">
+        {{ project.title }}
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-normal max-w-3xl">
+        {{ project.caseStudy?.summary || project.description }}
+      </p>
+
+      <!-- Action buttons: Repository & Back -->
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a *ngIf="project.repositoryUrl"
+           [href]="project.repositoryUrl"
+           target="_blank"
+           rel="noopener noreferrer"
+           (click)="onGithubClick()"
+           class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          View Verified Repository
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+
+        <a routerLink="/projects"
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 font-semibold text-sm hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          All Projects
+        </a>
+      </div>
+    </header>
+
+    <!-- ── Hero Visual ── -->
+    <div class="mb-14 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl bg-zinc-900">
+      <img [src]="project.heroImage"
+           [alt]="project.imageAlt || project.title"
+           width="1920"
+           height="1080"
+           loading="eager"
+           fetchpriority="high"
+           decoding="async"
+           class="w-full h-auto object-cover max-h-[560px]" />
+    </div>
+
+    <!-- ── Case Study Content ── -->
+    <div class="space-y-12">
+
+      <!-- SECTION: The Problem & Context -->
+      <section *ngIf="project.caseStudy?.problem" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          The Problem & Context
+        </h2>
+        <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed text-base sm:text-lg space-y-4">
+          <p>{{ project.caseStudy?.context }}</p>
+          <div class="p-5 rounded-xl bg-red-50/70 dark:bg-red-950/20 border border-red-200/80 dark:border-red-900/40 text-red-950 dark:text-red-200 text-base">
+            <strong class="font-semibold block mb-1">Core Engineering Challenge:</strong>
+            {{ project.caseStudy?.problem }}
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Role & Responsibilities -->
+      <section *ngIf="project.caseStudy?.role" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Role & Engineering Responsibilities
+        </h2>
+        <p class="text-base sm:text-lg font-medium text-indigo-600 dark:text-indigo-400 mb-4">
+          {{ project.caseStudy?.role }}
+        </p>
+        <ul class="space-y-2.5">
+          <li *ngFor="let item of project.caseStudy?.responsibilities" class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+            <span class="text-indigo-500 dark:text-indigo-400 mt-1 shrink-0">▸</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- SECTION: System Architecture -->
+      <section *ngIf="project.caseStudy?.architecture" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          System Architecture
+        </h2>
+        <div class="p-6 rounded-2xl bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+            Pattern: {{ project.caseStudy?.architecture?.pattern }}
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            {{ project.caseStudy?.architecture?.description }}
+          </p>
+          <div class="space-y-2">
+            <div *ngFor="let highlight of project.caseStudy?.architecture?.highlights" class="flex items-start gap-2.5 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+              <span class="text-green-500 font-bold">✓</span>
+              <span>{{ highlight }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Technology Stack -->
+      <section class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Technology Stack
+        </h2>
+        <div class="flex flex-wrap gap-2.5">
+          <span *ngFor="let tech of project.technologies"
+                class="px-3.5 py-1.5 rounded-lg text-sm font-mono font-medium bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200 border border-zinc-200 dark:border-zinc-700 shadow-sm">
+            {{ tech }}
+          </span>
+        </div>
+      </section>
+
+      <!-- SECTION: Key Engineering Decisions -->
+      <section *ngIf="project.caseStudy?.keyEngineeringDecisions?.length" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Key Engineering Decisions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div *ngFor="let decision of project.caseStudy?.keyEngineeringDecisions"
+               class="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+            <div>
+              <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">
+                {{ decision.decision }}
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
+                <strong class="text-gray-700 dark:text-gray-300">Rationale:</strong> {{ decision.rationale }}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs font-mono text-indigo-600 dark:text-indigo-400">
+              Impact: {{ decision.impact }}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Technical Challenges & Solutions -->
+      <section *ngIf="project.caseStudy?.challengesAndSolutions?.length" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Technical Challenges & Solutions
+        </h2>
+        <div class="space-y-4">
+          <div *ngFor="let item of project.caseStudy?.challengesAndSolutions"
+               class="p-5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 space-y-2">
+            <div class="text-sm font-semibold text-red-600 dark:text-red-400">
+              Challenge: {{ item.challenge }}
+            </div>
+            <div class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong class="text-green-600 dark:text-green-400 font-semibold">Solution:</strong> {{ item.solution }}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Security & Performance Considerations -->
+      <section *ngIf="project.caseStudy?.securityAndPerformance" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Security & Performance Engineering
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <span class="text-amber-500">🛡️</span> Security Controls
+            </h3>
+            <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <li *ngFor="let s of project.caseStudy?.securityAndPerformance?.security" class="flex items-start gap-2">
+                <span class="text-indigo-500">•</span>
+                <span>{{ s }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <span class="text-emerald-500">⚡</span> Performance Benchmarks
+            </h3>
+            <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <li *ngFor="let p of project.caseStudy?.securityAndPerformance?.performance" class="flex items-start gap-2">
+                <span class="text-green-500">•</span>
+                <span>{{ p }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Measurable Results & Lessons Learned -->
+      <section *ngIf="project.caseStudy?.results?.length" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Results & Engineering Takeaways
+        </h2>
+        <div class="space-y-4">
+          <div class="p-5 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-900/40">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-2">Measurable Outcomes</h3>
+            <ul class="space-y-2">
+              <li *ngFor="let r of project.caseStudy?.results" class="text-sm sm:text-base text-gray-800 dark:text-gray-200 flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>{{ r }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div *ngIf="project.caseStudy?.lessonsLearned?.length" class="p-5 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Lessons Learned</h3>
+            <ul class="space-y-2">
+              <li *ngFor="let l of project.caseStudy?.lessonsLearned" class="text-sm sm:text-base text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                <span class="text-indigo-500 font-bold">💡</span>
+                <span>{{ l }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Screenshots Gallery (if available) -->
+      <section *ngIf="project.screenshots?.length" class="border-b border-zinc-200 dark:border-zinc-800 pb-10">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-2 h-6 bg-indigo-600 dark:bg-indigo-400 rounded-full inline-block" aria-hidden="true"></span>
+          Application Interface Screenshots
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div *ngFor="let screen of project.screenshots; let idx = index"
+               class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-900 shadow-sm">
+            <img [src]="screen"
+                 [alt]="project.title + ' mobile interface screen ' + (idx + 1)"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Explore Other Projects (Internal Linking Graph) -->
+      <section class="pt-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">
+          Explore Other Engineering Projects
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <a *ngFor="let other of otherProjects"
+             [routerLink]="'/projects/' + other.id"
+             class="group p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 dark:hover:border-indigo-500 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono text-[#71717A] dark:text-[#A1A1AA]">{{ other.category }}</span>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mt-1 mb-2">
+                {{ other.title }}
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+                {{ other.description }}
+              </p>
+            </div>
+            <span class="text-xs font-mono font-semibold text-indigo-600 dark:text-indigo-400 mt-4 flex items-center gap-1">
+              Read Case Study →
+            </span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+</div>
