@@ -193,4 +193,96 @@ export class AnimationsService {
 
     return triggers;
   }
+
+  /**
+   * Initialize staggered scroll-triggered reveal animations for all sections.
+   * Elements must be tagged with data-reveal="heading" or data-reveal="item".
+   * Headings animate first; items cascade with 80ms stagger.
+   * Respects prefers-reduced-motion.
+   */
+  initSectionReveals(): ScrollTrigger[] {
+    if (typeof window === 'undefined') return [];
+
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return [];
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const triggers: ScrollTrigger[] = [];
+
+    // Set initial hidden state for all reveal elements
+    const allReveal = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-reveal]')
+    );
+    gsap.set(allReveal, { opacity: 0, y: 28 });
+
+    // Group elements by their closest parent section/container
+    // so each group plays as a staggered batch
+    const containers = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-reveal-group]')
+    );
+
+    containers.forEach((container) => {
+      const headings = Array.from(
+        container.querySelectorAll<HTMLElement>('[data-reveal="heading"]')
+      );
+      const items = Array.from(
+        container.querySelectorAll<HTMLElement>('[data-reveal="item"]')
+      );
+
+      // Animate headings first
+      if (headings.length) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        tl.to(headings, {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'power3.out',
+          stagger: 0.08,
+        });
+
+        // Then stagger items after headings
+        if (items.length) {
+          tl.to(
+            items,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.55,
+              ease: 'power3.out',
+              stagger: 0.07,
+            },
+            '-=0.3' // slight overlap with headings
+          );
+        }
+
+        if (tl.scrollTrigger) triggers.push(tl.scrollTrigger);
+      } else if (items.length) {
+        // No heading, just items
+        const st = gsap.to(items, {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          ease: 'power3.out',
+          stagger: 0.07,
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 87%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        if (st.scrollTrigger) triggers.push(st.scrollTrigger);
+      }
+    });
+
+    return triggers;
+  }
 }

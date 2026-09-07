@@ -1,8 +1,8 @@
 <section id="contact-section" class="px-4 py-16 md:py-24 w-full max-w-7xl mx-auto space-y-6">
 
-<div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 bg-transparent items-center">
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 bg-transparent items-center" data-reveal-group>
   <!-- Lottie Animation -->
-  <div class="flex items-center justify-center">
+  <div data-reveal="item" class="flex items-center justify-center">
     <ng-lottie
       [options]="lottieOptions"
       (animationCreated)="onAnimationCreated($event)"
@@ -11,14 +11,14 @@
   </div>
 
   <!-- Contact Form -->
-  <div [formGroup]="form" class="flex items-center justify-center">
+  <div [formGroup]="form" data-reveal="item" class="flex items-center justify-center">
     <div class="w-full max-w-2xl bg-white/90 dark:bg-[#1a1c2e]/90 backdrop-blur-xl rounded-3xl shadow-xl dark:shadow-2xl p-6 sm:p-8 border border-gray-200/80 dark:border-white/10">
       <!-- Heading -->
       <div class="text-center">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+        <h2 data-reveal="heading" class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
           {{ 'CONTACT.contactMe' | translate }}
         </h2>
-        <p class="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p data-reveal="item" class="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
           {{ 'CONTACT.workTogether' | translate }}
         </p>
       </div>

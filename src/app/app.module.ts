@@ -21,6 +21,7 @@ import player from 'lottie-web';
 import { DarkModeToggleComponent } from './core/components/dark-mode-toggle/dark-mode-toggle.component';
 import { WorkComponent } from './core/pages/work/work.component';
 import { ProjectCardComponent } from './core/components/project-card/project-card.component';
+import { ScrollProgressBarComponent } from './core/components/scroll-progress-bar/scroll-progress-bar.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -46,6 +47,7 @@ export function playerFactory() {
     DarkModeToggleComponent,
     WorkComponent,
     ProjectCardComponent,
+    ScrollProgressBarComponent,
   ],
   imports: [
     BrowserModule,
