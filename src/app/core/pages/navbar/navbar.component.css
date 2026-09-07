@@ -45,6 +45,24 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
+/* On mobile, keep scrolled navbar full-width (no side insets) */
+@media (max-width: 767px) {
+  .navbar--scrolled {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  :host-context(.dark) .navbar--scrolled {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
 :host-context(.dark) .navbar--scrolled {
   background: rgba(24, 24, 27, 0.90);
   border-color: rgba(255, 255, 255, 0.08);
@@ -337,6 +355,17 @@
 
 @media (min-width: 768px) {
   .hamburger-btn {
+    display: none !important;
+  }
+}
+
+/* Ensure desktop-only elements are hidden on mobile */
+@media (max-width: 767px) {
+  .lets-talk-btn:not(.lets-talk-btn--mobile) {
+    display: none !important;
+  }
+
+  .nav-divider {
     display: none !important;
   }
 }
@@ -776,6 +805,22 @@
   .nav-inner--scrolled {
     padding: 0 16px;
     height: 64px;
+    gap: 8px;
+  }
+
+  /* Prevent right-side controls from overflowing */
+  .nav-inner--hero > div:last-child,
+  .nav-inner--scrolled > div:last-child {
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  /* Keep the hamburger button from being too large */
+  .hamburger-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
   }
 }
 
