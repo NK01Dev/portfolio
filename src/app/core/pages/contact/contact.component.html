@@ -12,13 +12,13 @@
 
   <!-- Contact Form -->
   <div [formGroup]="form" data-reveal="item" class="flex items-center justify-center">
-    <div class="w-full max-w-2xl bg-white/90 dark:bg-[#1a1c2e]/90 backdrop-blur-xl rounded-3xl shadow-xl dark:shadow-2xl p-6 sm:p-8 border border-gray-200/80 dark:border-white/10">
+    <div class="w-full max-w-2xl bg-white dark:bg-[#18181B] rounded-2xl shadow-sm p-6 sm:p-8 border border-[#E4E4E7] dark:border-[#27272A] transition-colors duration-300">
       <!-- Heading -->
       <div class="text-center">
-        <h2 data-reveal="heading" class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+        <h2 data-reveal="heading" class="text-2xl sm:text-3xl font-extrabold text-[#18181B] dark:text-[#FAFAFA] tracking-tight">
           {{ 'CONTACT.contactMe' | translate }}
         </h2>
-        <p data-reveal="item" class="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p data-reveal="item" class="mt-2 text-sm sm:text-base text-[#71717A] dark:text-[#A1A1AA] leading-relaxed">
           {{ 'CONTACT.workTogether' | translate }}
         </p>
       </div>
@@ -27,7 +27,7 @@
       <form [formGroup]="form" (submit)="send()" class="mt-6 space-y-4">
         <!-- Full Name -->
         <div>
-          <label for="fullname" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label for="fullname" class="block text-sm font-medium text-[#18181B] dark:text-[#FAFAFA]">
             {{ 'CONTACT.fullName' | translate }}
           </label>
           <input
@@ -36,16 +36,16 @@
             id="fullname"
             placeholder="{{ 'CONTACT.placeholderFullName' | translate }}"
             autocomplete="name"
-            class="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700"
+            class="mt-1 block w-full px-4 py-2.5 border border-[#E4E4E7] dark:border-[#27272A] rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-[#7C3AED] dark:focus:ring-[#A78BFA] text-[#18181B] dark:text-[#FAFAFA] bg-[#F4F4F5] dark:bg-[#1F1F23] transition-colors placeholder:text-[#A1A1AA] dark:placeholder:text-[#71717A]"
           />
-          <div *ngIf="form.get('from_name')?.invalid && form.get('from_name')?.touched" class="text-sm text-red-600 mt-1">
+          <div *ngIf="form.get('from_name')?.invalid && form.get('from_name')?.touched" class="text-sm text-red-500 mt-1">
             {{ 'CONTACT.validationFullName' | translate }}
           </div>
         </div>
 
         <!-- Email -->
         <div>
-          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label for="email" class="block text-sm font-medium text-[#18181B] dark:text-[#FAFAFA]">
             {{ 'CONTACT.email' | translate }}
           </label>
           <input
@@ -54,16 +54,16 @@
             id="email"
             placeholder="{{ 'CONTACT.placeholderEmail' | translate }}"
             autocomplete="email"
-            class="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700"
+            class="mt-1 block w-full px-4 py-2.5 border border-[#E4E4E7] dark:border-[#27272A] rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-[#7C3AED] dark:focus:ring-[#A78BFA] text-[#18181B] dark:text-[#FAFAFA] bg-[#F4F4F5] dark:bg-[#1F1F23] transition-colors placeholder:text-[#A1A1AA] dark:placeholder:text-[#71717A]"
           />
-          <div *ngIf="form.get('from_email')?.invalid && form.get('from_email')?.touched" class="text-sm text-red-600 mt-1">
+          <div *ngIf="form.get('from_email')?.invalid && form.get('from_email')?.touched" class="text-sm text-red-500 mt-1">
             {{ 'CONTACT.validationEmail' | translate }}
           </div>
         </div>
 
         <!-- Subject -->
         <div>
-          <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label for="subject" class="block text-sm font-medium text-[#18181B] dark:text-[#FAFAFA]">
             {{ 'CONTACT.subject' | translate }}
           </label>
           <input
@@ -72,16 +72,16 @@
             id="subject"
             placeholder="{{ 'CONTACT.placeholderSubject' | translate }}"
             autocomplete="off"
-            class="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700"
+            class="mt-1 block w-full px-4 py-2.5 border border-[#E4E4E7] dark:border-[#27272A] rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-[#7C3AED] dark:focus:ring-[#A78BFA] text-[#18181B] dark:text-[#FAFAFA] bg-[#F4F4F5] dark:bg-[#1F1F23] transition-colors placeholder:text-[#A1A1AA] dark:placeholder:text-[#71717A]"
           />
-          <div *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched" class="text-sm text-red-600 mt-1">
+          <div *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched" class="text-sm text-red-500 mt-1">
             {{ 'CONTACT.validationSubject' | translate }}
           </div>
         </div>
 
         <!-- Message -->
         <div>
-          <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label for="message" class="block text-sm font-medium text-[#18181B] dark:text-[#FAFAFA]">
             {{ 'CONTACT.message' | translate }}
           </label>
           <textarea
@@ -89,9 +89,9 @@
             id="message"
             placeholder="{{ 'CONTACT.placeholderMessage' | translate }}"
             rows="4"
-            class="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700"
+            class="mt-1 block w-full px-4 py-2.5 border border-[#E4E4E7] dark:border-[#27272A] rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-[#7C3AED] dark:focus:ring-[#A78BFA] text-[#18181B] dark:text-[#FAFAFA] bg-[#F4F4F5] dark:bg-[#1F1F23] transition-colors placeholder:text-[#A1A1AA] dark:placeholder:text-[#71717A]"
           ></textarea>
-          <div *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="text-sm text-red-600 mt-1">
+          <div *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="text-sm text-red-500 mt-1">
             {{ 'CONTACT.validationMessage' | translate }}
           </div>
         </div>
@@ -101,10 +101,10 @@
           <button
             type="submit"
             [disabled]="loading"
-            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            class="w-full min-h-[44px] flex justify-center items-center py-2.5 px-4 border border-transparent rounded-xl shadow-md shadow-[#7C3AED]/20 text-sm font-semibold text-white bg-[#7C3AED] hover:bg-[#6D28D9] dark:bg-[#7C3AED] dark:hover:bg-[#8B5CF6] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span *ngIf="!loading">{{ 'CONTACT.sendMessage' | translate }}</span>
-            <span *ngIf="loading" class="flex items-center">
+            <span *ngIf="loading" class="flex items-center gap-2">
               <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -115,8 +115,8 @@
 
         <!-- Success/Error Messages -->
         <div *ngIf="submitted" class="mt-4 text-center">
-          <p *ngIf="success" class="text-green-600">{{ 'CONTACT.messageSentSuccess' | translate }}</p>
-          <p *ngIf="error" class="text-red-600">{{ 'CONTACT.messageSentError' | translate }}</p>
+          <p *ngIf="success" class="text-green-500 font-medium">{{ 'CONTACT.messageSentSuccess' | translate }}</p>
+          <p *ngIf="error" class="text-red-500 font-medium">{{ 'CONTACT.messageSentError' | translate }}</p>
         </div>
       </form>
     </div>
