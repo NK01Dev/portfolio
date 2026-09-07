@@ -141,87 +141,188 @@
   "RESUME": {
     "TITLE": "Resume",
     "NAME": "Kamal Naim",
-    "DESCRIPTION": "Software Developer with 2+ years of experience in Flutter, Dart, TypeScript, Node.js, Angular, and MongoDB, specializing in scalable cross-platform applications.",
+    "DESCRIPTION": "Software Engineer with a background spanning IT infrastructure, information systems, web and mobile development, and DevOps-oriented engineering practices.",
     "EMAIL": "Email",
     "PHONE": "Phone",
     "DOWNLOAD_BUTTON": "Download Resume",
     "EDUCATION_TITLE": "Education & Certifications",
-    "EXPERIENCE_TITLE": "Experience",
+    "EXPERIENCE_TITLE": "Professional Experience",
+    "TIMELINE_SUBTITLE_EDU": "Academic milestones and professional credential progression",
+    "TIMELINE_SUBTITLE_EXP": "Practical engineering journey and infrastructure foundations",
+    "CREDENTIAL_BADGE": "Professional Credential",
+    "OFFICIAL_REF": "Ref",
+    "PERIOD_LABEL": "Period",
+    "ISSUED_LABEL": "Issued",
+    "ORGANIZATION_LABEL": "Organization",
+    "PARTNERS_LABEL": "Partners",
     "EDUCATION_CERTIFICATIONS": [
       {
-        "YEAR": "2023-2025",
-        "TITLE": "Master's Degree - Ecole Nationale des Sciences Appliquées",
-        "DESCRIPTION": "Software Engineering and Information Systems Management (ILMSI)."
+        "YEAR": "2025–2026",
+        "TITLE": "DevOps Development Program — Simplon / Digital Africa",
+        "SUBTITLE": "Talent 4 Startups · Maghreb Coding School",
+        "TRAINING_TITLE": "Appliquer les méthodes et outils de développement d'application dans une organisation DevOps",
+        "ORGANIZATION": "Maghreb Coding School",
+        "PARTNERS": "Simplon / Digital Africa",
+        "PERIOD": "27/10/2025 – 27/02/2026",
+        "ISSUED": "06/04/2026",
+        "REFERENCE": "0147/2026",
+        "DESCRIPTION": "Intensive professional training program covering DevOps culture, CI/CD automation, containerization, infrastructure as code, cloud environments, and collaborative workflows in Agile organizations.",
+        "IS_CREDENTIAL": true
       },
       {
-        "YEAR": "2021-2022",
-        "TITLE": "Bachelor's Degree - La Faculté des Sciences de Kenitra",
-        "DESCRIPTION": "Information Systems and Software for Enterprise Systems."
+        "YEAR": "2023–2025",
+        "TITLE": "Master's Degree — Ecole Nationale des Sciences Appliquées",
+        "SUBTITLE": "ENSA",
+        "DESCRIPTION": "Software Engineering and Information Systems Management (ILMSI). Advanced software design, distributed architectures, enterprise systems, and engineering management.",
+        "IS_CREDENTIAL": false
       },
       {
-        "YEAR": "2016-2018",
-        "TITLE": "Specialized Technician - ISTA Jbel Lakhdar Marrakech",
-        "DESCRIPTION": "Systems and Computer Networks."
+        "YEAR": "2021–2022",
+        "TITLE": "Bachelor's Degree — La Faculté des Sciences de Kenitra",
+        "SUBTITLE": "FS Kenitra",
+        "DESCRIPTION": "Information Systems and Software for Enterprise Systems. Software engineering fundamentals, database management, web systems, and object-oriented modeling.",
+        "IS_CREDENTIAL": false
       },
       {
-        "YEAR": "2015-2016",
-        "TITLE": "Baccalaureate - Lycée Wafiq Marrakech",
-        "DESCRIPTION": "Physical Sciences and Chemistry."
+        "YEAR": "2016–2018",
+        "TITLE": "Specialized Technician — ISTA Jbel Lakhdar Marrakech",
+        "SUBTITLE": "OFPPT",
+        "DESCRIPTION": "Systems and Computer Networks. System administration, network protocols, hardware infrastructure, routing, switching, and virtualization.",
+        "IS_CREDENTIAL": false
+      },
+      {
+        "YEAR": "2015–2016",
+        "TITLE": "Baccalaureate — Lycée Wafiq Marrakech",
+        "SUBTITLE": "High School",
+        "DESCRIPTION": "Physical Sciences and Chemistry. Scientific methodology, mathematics, and problem-solving foundation.",
+        "IS_CREDENTIAL": false
       }
     ],
     "EXPERIENCE": [
       {
-        "YEAR": "2022-Present",
-        "TITLE": "Freelance Web & Mobile Developer",
-        "DESCRIPTION": "Specialized in Flutter, Express, Angular, and Android, developing modern and custom applications with optimized interfaces. Successfully delivered cross-platform products for local and international clients."
+        "YEAR": "2022–Present",
+        "ROLE": "Freelance Web & Mobile Developer",
+        "COMPANY": "Independent Engineering",
+        "DESCRIPTION": "Specialized in Flutter, Angular, Express, and Android application development. Successfully delivering modern, custom applications with optimized interfaces, clean architecture, and robust cross-platform experiences for local and international clients.",
+        "TAGS": ["Flutter", "Angular", "Express", "TypeScript", "Android"]
       },
       {
         "YEAR": "2018",
-        "TITLE": "IT Technician — Hotel Fairmont Royal Palm",
-        "DESCRIPTION": "In the IT department, ensured maintenance of IT systems, networks, and coordinated the installation of IT services (VOIP, IP cameras)."
+        "ROLE": "IT Technician",
+        "COMPANY": "Hotel Fairmont Royal Palm",
+        "DESCRIPTION": "In the IT department, maintained IT systems and network infrastructure, and coordinated the installation and support of IT services (VOIP, IP cameras). Provided hands-on systems and networking foundation supporting my current software and infrastructure profile.",
+        "TAGS": ["IT Infrastructure", "Networking", "VOIP", "IP Cameras", "System Maintenance"]
       }
     ],
-    "TECHNICAL_SKILLS": "SKILLS",
-    "SKILLS": [
+    "TECHNICAL_SKILLS_TITLE": "Technical Skills & Architecture",
+    "SKILLS_INTRO": "Engineering capabilities and architecture patterns demonstrated through production and open-source projects.",
+    "PROJECT_EVIDENCE_LABEL": "Demonstrated in",
+    "SKILL_CATEGORIES": [
       {
-        "NAME": "Technical Skills",
-        "TITLE": "Backend Technologies",
-        "DESCRIPTION": "Experience with Node.js, Express, NestJS, and MongoDB for building scalable server-side solutions and REST APIs."
+        "ID": "frontend",
+        "CATEGORY": "Frontend Development",
+        "DESCRIPTION": "Component-based, responsive, and user-oriented web applications built with modern frameworks and strict typing.",
+        "TECHNOLOGIES": ["Angular", "React", "TypeScript", "Tailwind CSS", "HTML5 / CSS3"],
+        "PROJECTS": [
+          { "NAME": "BluePrint Academy", "ID": "blueprint", "URL": "https://github.com/NK01Dev/blue_print_academy" },
+          { "NAME": "Portfolio", "ID": "home", "URL": "https://github.com/NK01Dev/portfolio" }
+        ]
       },
       {
-        "NAME": "Technical Skills",
-        "TITLE": "Mobile Development",
-        "DESCRIPTION": "Specialized in Flutter development with strong focus on clean architecture principles and efficient state management using Riverpod."
+        "ID": "backend",
+        "CATEGORY": "Backend Development",
+        "DESCRIPTION": "Building structured server-side applications, modular services, and secure REST APIs with DTO validation, authentication, and clear boundaries.",
+        "TECHNOLOGIES": ["Node.js", "Express", "NestJS", "REST APIs", "TypeScript", "DTOs & Validation"],
+        "PROJECTS": [
+          { "NAME": "BluePrint Academy", "ID": "blueprint", "URL": "https://github.com/NK01Dev/blue_print_academy" },
+          { "NAME": "Transcription AI Project", "URL": "https://github.com/NK01Dev" },
+          { "NAME": "LinguistAI", "URL": "https://github.com/NK01Dev" }
+        ]
       },
       {
-        "NAME": "Technical Skills",
-        "TITLE": "Frontend Development",
-        "DESCRIPTION": "Proficient in Angular and React with TypeScript, creating responsive and user-centric web applications with Tailwind CSS."
+        "ID": "mobile",
+        "CATEGORY": "Mobile Development",
+        "DESCRIPTION": "Cross-platform mobile applications engineered with scalable state management, offline-first reliability, and maintainable architecture.",
+        "TECHNOLOGIES": ["Flutter", "Dart", "Android / Java", "Riverpod", "Clean Architecture", "MVVM"],
+        "PROJECTS": [
+          { "NAME": "WiFi Manager", "ID": "wifi-manager", "URL": "https://github.com/NK01Dev/flutter_wifi_manager" },
+          { "NAME": "Hasbi", "ID": "hasbi", "URL": "https://github.com/NK01Dev/hasbi" },
+          { "NAME": "QuoteVerse", "ID": "quoteverse", "URL": "https://github.com/NK01Dev/quote_verse" },
+          { "NAME": "Flutter Enterprise Starter Kit", "URL": "https://github.com/NK01Dev" }
+        ]
       },
       {
-        "NAME": "Technical Skills",
-        "TITLE": "Programming Languages",
-        "DESCRIPTION": "Strong foundation in Dart, TypeScript, JavaScript, and Java, with expertise in writing clean, maintainable code."
+        "ID": "architecture",
+        "CATEGORY": "Software Architecture",
+        "DESCRIPTION": "Practical architectural principles applied to ensure long-term maintainability, separation of concerns, and robust testability.",
+        "TECHNOLOGIES": ["Clean Architecture", "MVVM", "Repository Pattern", "Separation of Concerns", "Modular Design", "DTO-based API Design"],
+        "PROJECTS": [
+          { "NAME": "WiFi Manager", "ID": "wifi-manager", "URL": "https://github.com/NK01Dev/flutter_wifi_manager" },
+          { "NAME": "App Clean Architecture", "URL": "https://github.com/NK01Dev" },
+          { "NAME": "Hasbi", "ID": "hasbi", "URL": "https://github.com/NK01Dev/hasbi" }
+        ]
       },
       {
-        "NAME": "Technical Skills",
-        "TITLE": "UI/UX Design (Figma)",
-        "DESCRIPTION": "Proficient in using Figma for designing intuitive, modern, and responsive user interfaces. Skilled in creating wireframes, prototypes, and high-fidelity designs that enhance user experiences."
+        "ID": "databases",
+        "CATEGORY": "Databases & Storage",
+        "DESCRIPTION": "Data persistence across relational systems, document stores, local offline-first engines, and object storage.",
+        "TECHNOLOGIES": ["MongoDB", "PostgreSQL", "Prisma", "Mongoose", "Isar", "Hive", "MinIO / S3"],
+        "PROJECTS": [
+          { "NAME": "BluePrint Academy", "ID": "blueprint", "URL": "https://github.com/NK01Dev/blue_print_academy" },
+          { "NAME": "QuoteVerse", "ID": "quoteverse", "URL": "https://github.com/NK01Dev/quote_verse" },
+          { "NAME": "WiFi Manager", "ID": "wifi-manager", "URL": "https://github.com/NK01Dev/flutter_wifi_manager" }
+        ]
       },
       {
-        "NAME": "Technical Skills",
-        "TITLE": "Responsive Web Design",
-        "DESCRIPTION": "Skilled in creating responsive layouts using CSS Grid, Flexbox, Tailwind CSS, and media queries. Ensures websites adapt seamlessly to various screen sizes and devices."
+        "ID": "devops",
+        "CATEGORY": "DevOps & Cloud",
+        "DESCRIPTION": "Containerization, automated CI/CD pipelines, cloud infrastructure provisioning, and container orchestration backed by hands-on projects and the Talent 4 Startups DevOps program.",
+        "TECHNOLOGIES": ["Docker", "Docker Compose", "Git", "GitHub Actions", "CI/CD", "Terraform", "AWS", "Kubernetes / EKS", "Amazon ECR", "IAM", "CloudWatch"],
+        "PROJECTS": [
+          { "NAME": "BluePrint Academy", "ID": "blueprint", "URL": "https://github.com/NK01Dev/blue_print_academy" }
+        ]
       },
       {
-        "NAME": "Soft Skills",
-        "TITLE": "Attention to Detail",
-        "DESCRIPTION": "Meticulous attention to detail in code quality, user interface design, and testing to ensure error-free and user-friendly applications."
+        "ID": "tools",
+        "CATEGORY": "Development Tools & Workflow",
+        "DESCRIPTION": "Disciplined engineering tooling ensuring code quality, reproducible environments, and structured version control.",
+        "TECHNOLOGIES": ["Git", "GitHub", "REST APIs", "API Testing (Postman)", "Docker", "CI/CD", "Environment Config", "Technical Documentation"],
+        "PROJECTS": [
+          { "NAME": "NK01Dev GitHub", "URL": "https://github.com/NK01Dev" }
+        ]
       },
       {
-        "NAME": "Soft Skills",
-        "TITLE": "Time Management",
-        "DESCRIPTION": "Structured project planning, task decomposition, and agile delivery. Proven ability to meet milestones while maintaining strict code quality and clean architecture."
+        "ID": "uiux",
+        "CATEGORY": "UI/UX & Responsive Design",
+        "DESCRIPTION": "Designing intuitive interfaces from wireframes to pixel-perfect, responsive layouts adhering to modern design tokens.",
+        "TECHNOLOGIES": ["Figma", "Wireframing & Prototyping", "Responsive Layouts", "CSS Grid & Flexbox", "Tailwind CSS"],
+        "PROJECTS": [
+          { "NAME": "QuoteVerse", "ID": "quoteverse", "URL": "https://github.com/NK01Dev/quote_verse" },
+          { "NAME": "WiFi Manager", "ID": "wifi-manager", "URL": "https://github.com/NK01Dev/flutter_wifi_manager" }
+        ]
+      },
+      {
+        "ID": "languages",
+        "CATEGORY": "Programming Languages",
+        "DESCRIPTION": "Solid language foundations with strong typing and clean code practices across frontend, backend, and mobile development.",
+        "TECHNOLOGIES": ["TypeScript (Primary)", "Dart (Primary)", "JavaScript", "Java"],
+        "PROJECTS": [
+          { "NAME": "NK01Dev GitHub", "URL": "https://github.com/NK01Dev" }
+        ]
+      }
+    ],
+    "SOFT_SKILLS_TITLE": "Engineering Discipline & Soft Skills",
+    "SOFT_SKILLS_SUBTITLE": "Core professional attributes focused on quality, rigor, and dependable delivery",
+    "SOFT_SKILLS": [
+      {
+        "NAME": "Attention to Detail",
+        "ROLE": "Technical Precision & Maintainability",
+        "DESCRIPTION": "Rigorous focus on clean architecture, consistent UI design systems, code formatting, comprehensive validation, and testing to produce dependable, defect-free applications."
+      },
+      {
+        "NAME": "Time Management",
+        "ROLE": "Planning & Agile Execution",
+        "DESCRIPTION": "Structured project decomposition, realistic milestone scheduling, and disciplined task prioritization ensuring on-time delivery across autonomous and collaborative projects."
       }
     ]
   },
