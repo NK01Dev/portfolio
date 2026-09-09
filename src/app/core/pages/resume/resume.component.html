@@ -33,7 +33,17 @@
 
       <!-- Quick Contact Pills -->
       <div data-reveal="item" class="flex flex-wrap items-center gap-3">
-
+        <button
+          type="button"
+          (click)="downloadResume()"
+          aria-label="Download CV as PDF"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border border-[#E4E4E7] dark:border-[#27272A] bg-violet-50 dark:bg-violet-950/40 text-[#7C3AED] dark:text-[#A78BFA] hover:bg-[#7C3AED] hover:text-white dark:hover:bg-[#7C3AED] dark:hover:text-white transition-all shadow-sm cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Download CV</span>
+        </button>
         <a [href]="'mailto:' + email" (click)="onEmailClick()"
           class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:border-violet-400/70 dark:hover:border-violet-500/60 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-all shadow-sm">
           <svg class="w-4 h-4 text-[#7C3AED] dark:text-[#A78BFA]" fill="none" viewBox="0 0 24 24" stroke="currentColor"
