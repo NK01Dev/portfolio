@@ -235,8 +235,8 @@ export class AnimationsService {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: container,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
+            start: 'top 90%',
+            once: true,
           },
         });
 
@@ -246,6 +246,7 @@ export class AnimationsService {
           duration: 0.65,
           ease: 'power3.out',
           stagger: 0.08,
+          clearProps: 'opacity,transform',
         });
 
         // Then stagger items after headings
@@ -258,6 +259,7 @@ export class AnimationsService {
               duration: 0.55,
               ease: 'power3.out',
               stagger: 0.07,
+              clearProps: 'opacity,transform',
             },
             '-=0.3' // slight overlap with headings
           );
@@ -272,16 +274,19 @@ export class AnimationsService {
           duration: 0.55,
           ease: 'power3.out',
           stagger: 0.07,
+          clearProps: 'opacity,transform',
           scrollTrigger: {
             trigger: container,
-            start: 'top 87%',
-            toggleActions: 'play none none reverse',
+            start: 'top 90%',
+            once: true,
           },
         });
 
         if (st.scrollTrigger) triggers.push(st.scrollTrigger);
       }
     });
+
+    ScrollTrigger.refresh();
 
     return triggers;
   }
