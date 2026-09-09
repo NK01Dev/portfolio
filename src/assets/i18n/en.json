@@ -327,22 +327,18 @@
     ]
   },
   "CONTACT": {
-    "contactMe": "Contact Me",
-    "workTogether": "Let's work together! Reach out and I'll get back to you soon.",
-    "fullName": "Full Name",
-    "email": "Email",
-    "subject": "Subject",
-    "message": "Message",
-    "sendMessage": "Send Message",
-    "messageSentSuccess": "Message sent successfully!",
-    "messageSentError": "Oops! Something went wrong. Please try again.",
-    "validationFullName": "Please enter your full name.",
-    "validationEmail": "Please enter a valid email address.",
-    "validationSubject": "Please enter a subject.",
-    "validationMessage": "Please enter a message.",
-    "placeholderFullName": "John Doe",
-    "placeholderEmail": "johndoe@example.com",
-    "placeholderSubject": "Let's work together!",
-    "placeholderMessage": "Hi, I'd like to discuss a project..."
+    "EYEBROW": "07 / CONTACT",
+    "HEADING_LINE_1": "Let's build something",
+    "HEADING_LINE_2": "that works beyond the prototype.",
+    "STATUS": "AVAILABLE FOR OPPORTUNITIES",
+    "DESCRIPTION": "Open to software engineering opportunities, technical projects and meaningful collaboration.",
+    "CTA": "LET'S TALK",
+    "SECTION_TITLE": "CONTACT",
+    "EMAIL_LABEL": "EMAIL",
+    "COPY_EMAIL": "COPY EMAIL",
+    "EMAIL_COPIED": "COPIED!",
+    "LINKEDIN_LABEL": "LINKEDIN",
+    "GITHUB_LABEL": "GITHUB",
+    "PHONE_LABEL": "PHONE"
   }
 }

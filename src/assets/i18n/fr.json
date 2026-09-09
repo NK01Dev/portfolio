@@ -327,22 +327,18 @@
     ]
   },
   "CONTACT": {
-    "contactMe": "Contactez-moi",
-    "workTogether": "Travaillons ensemble ! Contactez-moi et je vous répondrai bientôt.",
-    "fullName": "Nom complet",
-    "email": "E-mail",
-    "subject": "Sujet",
-    "message": "Message",
-    "sendMessage": "Envoyer le message",
-    "messageSentSuccess": "Message envoyé avec succès !",
-    "messageSentError": "Oups ! Quelque chose s'est mal passé. Veuillez réessayer.",
-    "validationFullName": "Veuillez entrer votre nom complet.",
-    "validationEmail": "Veuillez entrer une adresse e-mail valide.",
-    "validationSubject": "Veuillez entrer un sujet.",
-    "validationMessage": "Veuillez entrer un message.",
-    "placeholderFullName": "Jean Dupont",
-    "placeholderEmail": "jeandupont@exemple.com",
-    "placeholderSubject": "Travaillons ensemble !",
-    "placeholderMessage": "Bonjour, je souhaite discuter d'un projet..."
+    "EYEBROW": "07 / CONTACT",
+    "HEADING_LINE_1": "Construisons quelque chose",
+    "HEADING_LINE_2": "qui fonctionne au-delà du prototype.",
+    "STATUS": "DISPONIBLE POUR COLLABORATIONS",
+    "DESCRIPTION": "Ouvert aux opportunités en ingénierie logicielle, aux projets techniques et aux collaborations d'impact.",
+    "CTA": "DISCUTONS ENSEMBLE",
+    "SECTION_TITLE": "CONTACT",
+    "EMAIL_LABEL": "E-MAIL",
+    "COPY_EMAIL": "COPIER L'E-MAIL",
+    "EMAIL_COPIED": "COPIÉ !",
+    "LINKEDIN_LABEL": "LINKEDIN",
+    "GITHUB_LABEL": "GITHUB",
+    "PHONE_LABEL": "TÉLÉPHONE"
   }
 }

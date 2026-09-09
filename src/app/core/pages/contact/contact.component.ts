@@ -1,8 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import emailjs from '@emailjs/browser';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, NgZone, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SeoService } from '../../../services/seo.service';
 import { AnalyticsService } from '../../analytics/analytics.service';
 
@@ -12,43 +11,28 @@ import { AnalyticsService } from '../../analytics/analytics.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
-  lottieOptions: AnimationOptions = {
-    path: '/assets/animation/email.json', // Correct path
-    loop: true, // Whether the animation should loop
-    autoplay: true, // Whether the animation should start automatically
-  };
-  // Optional: Handle the animationCreated event
-  onAnimationCreated(animationItem: AnimationItem): void {
-    console.log('Animation created:', animationItem);
-  }
-  form: FormGroup; // Declare the form without initializing it here.
-  submitted = false;
-  success = false;
-  error = false;
-  loading = false;
+export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
+  readonly email = 'kamal.nk.naim@gmail.com';
+  readonly linkedinUrl = 'https://www.linkedin.com/in/kamal-naim-014989310/';
+  readonly githubUrl = 'https://github.com/NK01Dev';
+  readonly phone = '+212 670 572 967';
+  readonly phoneUrl = 'tel:+212670572967';
 
+  copied = false;
+  private copyTimeout: ReturnType<typeof setTimeout> | null = null;
+  private gsapContext: gsap.Context | null = null;
+
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly ngZone = inject(NgZone);
+  private readonly el = inject(ElementRef);
+  private readonly seoService = inject(SeoService);
   private readonly analytics = inject(AnalyticsService);
-
-  constructor(
-    private fb: FormBuilder,
-    private seoService: SeoService
-  ) {
-    // Initialize the form in the constructor where fb is available.
-    this.form = this.fb.group({
-      from_name: ['', Validators.required],
-      to_name: 'Admin',
-      from_email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', Validators.required]
-    });
-  }
 
   ngOnInit(): void {
     this.seoService.updateSeo({
-      title: 'Contact Kamal Naim — Software Engineer & Cross-Platform Developer',
+      title: 'Contact Kamal Naim — Software Engineer',
       description:
-        'Get in touch with Kamal Naim for software engineering roles, cross-platform app development (Flutter), full-stack projects, and technical consulting.',
+        'Get in touch with Kamal Naim for software engineering opportunities, technical architecture, full-stack systems, and engineering collaboration.',
       canonicalUrl: 'https://kamalnaim.vercel.app/contact',
       breadcrumbs: [
         { name: 'Home', url: 'https://kamalnaim.vercel.app/' },
@@ -57,39 +41,101 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  title = 'test2';
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  async send() {
-    this.submitted = true;
-    this.loading = true;
-    this.success = false;
-    this.error = false;
-  // Log form validity and values
-  console.log('Form Valid:', this.form.valid);
-  console.log('Form Values:', this.form.value);
-  if (!this.form.valid) {
-    this.loading = false;
-    return;
+    this.initGsapAnimations();
   }
-    try {
-      emailjs.init('3XL79KQqYdiSyjR09');
-      const response =  await emailjs.send("service_cayep4l", "template_ior6s98", {
-        from_name: this.form.value.from_name,
-        to_name: this.form.value.to_name,
-        from_email: this.form.value.from_email,
-        subject: this.form.value.subject,
-        message: this.form.value.message,
-      });
-      console.log('EmailJS Response:', response);
 
-      this.success = true;
-      this.analytics.trackContactSubmit();
-      this.form.reset();
-    } catch (err) {
-      console.error('FAILED...', err);
-      this.error = true;
-    } finally {
-      this.loading = false;
+  ngOnDestroy(): void {
+    if (this.copyTimeout) {
+      clearTimeout(this.copyTimeout);
+      this.copyTimeout = null;
     }
-  } 
+
+    if (this.gsapContext) {
+      this.gsapContext.revert();
+      this.gsapContext = null;
+    }
+  }
+
+  private initGsapAnimations(): void {
+    this.ngZone.runOutsideAngular(() => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const root = this.el.nativeElement;
+
+      this.gsapContext = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.querySelector('#contact-section'),
+            start: 'top 82%',
+            once: true,
+          },
+        });
+
+        // Specific GSAP sequence matching design specification
+        tl.fromTo(
+          root.querySelector('.contact-eyebrow'),
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', clearProps: 'transform' }
+        )
+          .fromTo(
+            root.querySelector('.contact-heading'),
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out', clearProps: 'transform' },
+            '-=0.45'
+          )
+          .fromTo(
+            root.querySelector('.contact-description'),
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', clearProps: 'transform' },
+            '-=0.45'
+          )
+          .fromTo(
+            root.querySelector('.contact-cta'),
+            { opacity: 0, y: 12 },
+            { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out', clearProps: 'transform' },
+            '-=0.4'
+          )
+          .fromTo(
+            root.querySelectorAll('.contact-link-item'),
+            { opacity: 0, x: 12 },
+            { opacity: 1, x: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out', clearProps: 'transform' },
+            '-=0.45'
+          );
+      }, root);
+    });
+  }
+
+  copyEmail(): void {
+    if (isPlatformBrowser(this.platformId) && navigator.clipboard) {
+      navigator.clipboard.writeText(this.email).then(() => {
+        this.copied = true;
+        this.analytics.trackEmailClick();
+
+        if (this.copyTimeout) {
+          clearTimeout(this.copyTimeout);
+        }
+
+        this.copyTimeout = setTimeout(() => {
+          this.copied = false;
+        }, 2200);
+      }).catch(() => {
+        // Fallback if clipboard API is restricted
+        this.copied = true;
+        setTimeout(() => {
+          this.copied = false;
+        }, 2200);
+      });
+    }
+  }
+
+  onEmailClick(): void {
+    this.analytics.trackEmailClick();
+  }
+
+  onSocialClick(platform: string): void {
+    this.analytics.trackSocialClick(platform);
+  }
 }
