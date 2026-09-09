@@ -55,7 +55,7 @@ export class ResumeComponent implements OnInit {
     this.analytics.trackResumeDownload();
     const resume = document.getElementById('resume-section');
     if (resume) {
-      html2canvas(resume, { scale: 2 }).then((canvas) => {
+      html2canvas(resume, { scale: 2 }).then((canvas: HTMLCanvasElement) => {
         const imgData = canvas.toDataURL('image/png', 1.0);
         const pdf = new jsPDF({
           orientation: 'portrait',
